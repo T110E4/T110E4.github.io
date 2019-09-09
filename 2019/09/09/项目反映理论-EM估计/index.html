@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程 IRT模型：常见的IRT模型包括2PL模型和3PL模型，其中2PL模型表达式如下：$$p_{i, j}\left(\">
+<meta name="description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程">
 <meta name="keywords" content="知识追踪">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目反映理论 EM估计">
 <meta property="og:url" content="http://yoursite.com/2019/09/09/项目反映理论-EM估计/index.html">
 <meta property="og:site_name" content="Wangui Tong&#39;s Blog">
-<meta property="og:description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程 IRT模型：常见的IRT模型包括2PL模型和3PL模型，其中2PL模型表达式如下：$$p_{i, j}\left(\">
+<meta property="og:description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-09T07:36:15.941Z">
+<meta property="og:updated_time" content="2019-09-09T07:39:48.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目反映理论 EM估计">
-<meta name="twitter:description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程 IRT模型：常见的IRT模型包括2PL模型和3PL模型，其中2PL模型表达式如下：$$p_{i, j}\left(\">
+<meta name="twitter:description" content="IRT（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。 IRT的基本假设：1.单维性，即能力是单维度的。2.局部独立性， 即项目间局部独立。3.项目反应函数假设，即被试者对项目对反应符合项目反应方程">
 
 
 
@@ -346,6 +346,7 @@
       
         <p><a href="https://en.wikipedia.org/wiki/Item_response_theory" target="_blank" rel="noopener">IRT</a>（项目反应理论）广泛应应用于心理测量学，相比CTT（传统测量理论）的主要优势在于不依赖于样本，能够为被试者提供具有一致性的测量结果。</p>
 <h2 id="IRT的基本假设："><a href="#IRT的基本假设：" class="headerlink" title="IRT的基本假设："></a>IRT的基本假设：</h2><p>1.单维性，即能力是单维度的。<br>2.局部独立性， 即项目间局部独立。<br>3.项目反应函数假设，即被试者对项目对反应符合项目反应方程</p>
+<a id="more"></a>
 <h2 id="IRT模型："><a href="#IRT模型：" class="headerlink" title="IRT模型："></a>IRT模型：</h2><p>常见的IRT模型包括2PL模型和3PL模型，其中2PL模型表达式如下：<br>$$<br>p_{i, j}\left(\theta_{i}\right)=\frac{1}{1+\exp \left[-D a j\left(\theta_{i}-b_{j}\right)\right]}<br>$$<br>其中$\theta _ {i}$    表示被试者的能力，$a_ {j}$是项目的区分度，$b _ {j}$是项目的难度，D=1.7。</p>
 <h2 id="参数估计："><a href="#参数估计：" class="headerlink" title="参数估计："></a>参数估计：</h2><p>对于IRT参数估计有多种方法，如对于项目参数的估计有：边际极大似然估计（MMLE），极大边际后验法（MMAP），EM，MCMC等方法，对于能力参数的估计有极大似然（MLE），贝叶斯众数法（MAP），贝叶斯后验期望估计法（EAP）等。本文重点介绍对项目参数的EM估计。</p>
 <h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><ul>
@@ -353,7 +354,7 @@
 <li>被观测数据$\mathbf{Y}$是$N*J$维的，$N$表示有$N$个被试者，$J$表示有$J$个题目,$\mathbf{Y}=\left(\mathbf{y}<em>{1},\mathbf {y}</em>{2},\dots,\mathbf{y}<em>{N}\right)$,$\mathbf{y}</em>{i}=\left(y_{i1},y_{i2},\ldots,y_{iJ}\right)$,其中$y_{ij}$表示第i个被试者回答第j道题目的答案；</li>
 </ol>
 </li>
-<li>2.不可观测变量为$\boldsymbol { \theta } = \left( \theta _ { 1 } , \theta _ { 2 } , \ldots , \theta _ { N } \right)$其中$\theta _ { i }$ 是第i个被试者的能力值，模型中假定$\theta _ { i }$只能取离散的值$q _ { k }$,$k = 1 ,\dots,k$,对应取$q _ { k }$的概率为πk,k=1,…,K $\pi _ { k } , (k = 1 , \ldots , Kπ)$<br>k,k=1,…,K，即θi \theta _ { i }θ<br>i<br>​<br>为多项式分布，其概率为：π=(π1,π2,…,πK) \boldsymbol {\pi} = \left( \pi _ { 1 } , \pi _ { 2 } , \dots , \pi _ { K } \right)π=(π<br>1<br>​<br>,π<br>2<br>​<br>,…,π<br>K<br>​<br>)；不可观测变量为θ=(θ1,θ2,…,θN) \boldsymbol { \theta } = \left( \theta _ { 1 } , \theta _ { 2 } , \ldots , \theta _ { N } \right)θ=(θ<br>1<br>​<br>,θ<br>2<br>​<br>,…,θ<br>N<br>​<br>) 其中θi \theta _ { i }θ<br>i是第i个被试者的能力值，模型中假定$\theta _ { i }$只能取离散的值$q _ { k } , k = 1 , \dots , K$ q<br>k<br>​<br>,k=1,…,K，对应取qk q _ { k }q<br>k<br>​<br>的概率为πk,k=1,…,K \pi _ { k } , k = 1 , \ldots , Kπ<br>k<br>​<br>,k=1,…,K，即θi \theta _ { i }θ<br>i<br>​<br>为多项式分布，其概率为：π=(π1,π2,…,πK) \boldsymbol {\pi} = \left( \pi _ { 1 } , \pi _ { 2 } , \dots , \pi _ { K } \right)π=(π<br>1<br>​<br>,π<br>2<br>​<br>,…,π<br>K<br>​<br>)；</li>
+<li>2.不可观测变量为$\boldsymbol { \theta } = \left( \theta _ { 1 } , \theta _ { 2 } , \ldots , \theta _ { N } \right)$其中$\theta _ { i }$ 是第i个被试者的能力值，模型中假定$\theta _ { i }$只能取离散的值$q _ { k }$,$k = 1 ,\dots,k$,对应取$q _ { k }$的概率为πk,k=1,…,K $\pi _ { k } , (k = 1 , \ldots , Kπ)$<br>待续。。。。</li>
 </ul>
 
       

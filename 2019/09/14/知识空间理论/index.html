@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="知识空间理论,">
 
 
 
@@ -81,17 +81,21 @@
 
 
 
-<meta name="description" content="曾梦想仗剑走天涯，后来工作忙没去！">
+<meta name="description" content="在R语言中有一些关于教育诊断的一些包,我试着进入R包的CRAN,进行关键词检索,找到我想要试玩的那些教育数据挖掘(或许叫教育诊断更为恰当),我搜索的关键词有Item Response Theory(项目反应理论), Knowledge Space(知识空间), education.首先,我要试玩的是kst(Knowledge Space Theory),kst的基本思想是一个学生对某领域知识的掌握">
+<meta name="keywords" content="知识空间理论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识空间理论">
+<meta property="og:title" content="知识空间理论-R">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/知识空间理论/index.html">
 <meta property="og:site_name" content="Wang Guitong&#39;s Blog">
-<meta property="og:description" content="曾梦想仗剑走天涯，后来工作忙没去！">
+<meta property="og:description" content="在R语言中有一些关于教育诊断的一些包,我试着进入R包的CRAN,进行关键词检索,找到我想要试玩的那些教育数据挖掘(或许叫教育诊断更为恰当),我搜索的关键词有Item Response Theory(项目反应理论), Knowledge Space(知识空间), education.首先,我要试玩的是kst(Knowledge Space Theory),kst的基本思想是一个学生对某领域知识的掌握">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-14T06:56:23.998Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g6z22dldzbj30gf0at0tl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g6z22mqqx7j30ja00w746.jpg">
+<meta property="og:updated_time" content="2019-09-15T13:47:36.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="知识空间理论">
-<meta name="twitter:description" content="曾梦想仗剑走天涯，后来工作忙没去！">
+<meta name="twitter:title" content="知识空间理论-R">
+<meta name="twitter:description" content="在R语言中有一些关于教育诊断的一些包,我试着进入R包的CRAN,进行关键词检索,找到我想要试玩的那些教育数据挖掘(或许叫教育诊断更为恰当),我搜索的关键词有Item Response Theory(项目反应理论), Knowledge Space(知识空间), education.首先,我要试玩的是kst(Knowledge Space Theory),kst的基本思想是一个学生对某领域知识的掌握">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g6z22dldzbj30gf0at0tl.jpg">
 
 
 
@@ -127,7 +131,7 @@
 
 
 
-  <title>知识空间理论 | Wang Guitong's Blog</title>
+  <title>知识空间理论-R | Wang Guitong's Blog</title>
   
 
 
@@ -271,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">知识空间理论</h1>
+          <h1 class="post-title" itemprop="name headline">知识空间理论-R</h1>
         
 
         <div class="post-meta">
@@ -293,6 +297,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教育数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">教育数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -321,7 +347,43 @@
       
 
       
-        
+        <p>在R语言中有一些关于教育诊断的一些包,我试着进入R包的CRAN,进行关键词检索,找到我想要试玩的那些教育数据挖掘(或许叫教育诊断更为恰当),我搜索的关键词有Item Response Theory(项目反应理论), Knowledge Space(知识空间), education.<br>首先,我要试玩的是kst(Knowledge Space Theory),kst的基本思想是一个学生对某领域知识的掌握程度可以通过该学生对问题的应答情况来体现，问题可以被学生答对打错。知识空间通俗意义上讲为构成某一领域知识的所有可能的知识状态的集合。<br>用途：自适应构造每个学生的学习路径，针对不同学生所缺乏的知识点来推荐相应的高速有效的学习路径。</p>
+<a id="more"></a>
+<p>要想了解学生的知识状态，首先我们要精心设计一系列能够具体测试相应知识点的问题，然后让学生参加测试，这样能够正确回答的问题就可以表征学生的知识状态。</p>
+<p>知识空间现已应用在数学、物理学、化学、医学等学科领域。如果想应用于计算机领域也未尝不可。</p>
+<p>但知识空间的构建，往往需要领域专家进行构建，但这往往太过费时，且精度不一。这也是知识空间不能广泛应用于实际的关键问题，如何摆脱专家进行构建知识点及其相互关联这是才要点。</p>
+<p>杨文正等人提出了让学生在学习的过程中自己构建知识点及其相互关联，相应的让专家也构建该领域的知识点及其关联，然后进行对比分析，但文章提到使用知识空间技术进行分析，却没有提供更多的使用知识空间进行分析的研究细节，只是简单的使用了知识空间的概念。</p>
+<p>对于知识空间理论来说，测试学生对某一领域知识的掌握程度可以转换为学生解答相应知识点构成问题的对与错的个数，而按章节组织的知识可以更加容易的构成知识空间领域的知识点，且知识间相互关系也更加容易被算法所获得。<br>首先，引入关键词：<br>知识结构：Knowledge structure<br>知识空间：Knowledge space<br>猜测关系：Surmise relation<br>蕴含关系：Entail relation</p>
+<h2 id="kst简介"><a href="#kst简介" class="headerlink" title="kst简介:"></a>kst简介:</h2><p>知识空间理论基于集合理论框架,提供了在特定知识领域里使用数学的形式来操作知识结构.kst包提供了基础的函数来产生/处理/操作知识结构和知识空间。知识空间了理论中最基础的假设是每个知识域（domain）可以由问题(problems)集合或者项目(items)集合进行表示.知识空间理论中假设给定的项目之间相互关系，即一个项目是另一个项目的前提条件。这种前提关系被定义为猜测关系（surmise relations），它在不同项目间建立了拟序关系（quasi-order）。这种猜测关系的优势在于减少了知识状态的数量，提供了更加可靠的知识状态。</p>
+<p>首先，打开终端，输入：R,<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g6z22dldzbj30gf0at0tl.jpg" alt="undefined"><br>输入：install.packages(“kst”),进行安装R包。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g6z22mqqx7j30ja00w746.jpg" alt="undefined"><br>加载kst包：library(kst)<br>1.知识结构（knowledge structure）<br>定义：知识结构被表示为（Q，K），其中Q是一个非空集合，K是Q形成的子集，它至少包含了Q和空集∅. 集合Q成为知识结构（Q，K）的域（domain），且∪K=Q.<br>通俗意义上讲，Q是由一系列的问题构成，称为知识结构的域（domain），K是由Q的子集组成的集合，其中的集合元素称为知识状态，且K至少包含了Q以及空集∅∅.<br>对于给定的知识结构( Q, K) , ≤是定义在Q上的关系: r≤q⟺Kr⊇Kqr≤q⟺Kr⊇Kq, 其中r,q∈Q,Kr,Kqr,q∈Q,Kr,Kq∈K表示包含问题r,q的知<br>识状态的集合。 当r,q之间满足上述关系时, 称r可以从q猜测出来。 在应用上可以理解为: 从问题r的解决猜测出学生也可以解决问题q, 或者说解决问题q是解决问题r的前提, 对应的关系≤称为猜测关系, 猜测关系的存在可以大大方便知识结构的建立过程, 我们也可以从猜测关系的存在可知并不是所有子集都能成为知识状态。<br>kstructure()函数是包kst中构建知识结构的函数。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&gt;kst &lt;- kstructure(set(set(<span class="string">"d"</span>),set(<span class="string">"a"</span>,<span class="string">"c"</span>),set(<span class="string">"e"</span>,<span class="string">"f"</span>)</span><br><span class="line">                  ,set(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>),set(<span class="string">"a"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>),set(<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>),set(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>)</span><br><span class="line">                      ,set(<span class="string">"a"</span>,<span class="string">"c"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>),set(<span class="string">"a"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>,<span class="string">"f"</span>)))</span><br><span class="line"> &gt; kst</span><br><span class="line">&#123;&#123;<span class="string">"d"</span>&#125;, &#123;<span class="string">"a"</span>, <span class="string">"c"</span>&#125;, &#123;<span class="string">"e"</span>, <span class="string">"f"</span>&#125;, &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>&#125;,</span><br><span class="line"> &#123;<span class="string">"a"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>&#125;, &#123;<span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>&#125;, &#123;<span class="string">"a"</span>, <span class="string">"b"</span>,</span><br><span class="line"> <span class="string">"c"</span>, <span class="string">"d"</span>&#125;, &#123;<span class="string">"a"</span>, <span class="string">"c"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>&#125;, &#123;<span class="string">"a"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>,</span><br><span class="line"> <span class="string">"e"</span>, <span class="string">"f"</span>&#125;&#125;  </span><br><span class="line">&gt; sets_options(<span class="string">"quote"</span>,<span class="literal">FALSE</span>)  <span class="comment">#去掉引号</span></span><br><span class="line">&gt; kst</span><br><span class="line">&#123;&#123;d&#125;, &#123;a, c&#125;, &#123;e, f&#125;, &#123;a, b, c&#125;, &#123;a, c, d&#125;, &#123;d,</span><br><span class="line"> e, f&#125;, &#123;a, b, c, d&#125;, &#123;a, c, e, f&#125;, &#123;a, c, d, e,</span><br><span class="line"> f&#125;&#125;                   </span><br><span class="line"><span class="comment">#输入在cmd框上输入kstructure，即可看其源码：</span></span><br><span class="line">&gt; kstructure</span><br><span class="line">dependencies：<span class="keyword">library</span>（sets），<span class="keyword">library</span>（relations）</span><br><span class="line"><span class="keyword">function</span> (x) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">#检查x</span></span><br><span class="line">    <span class="keyword">if</span> (!inherits(x, <span class="string">"relation"</span>) &amp; !inherits(x, <span class="string">"set"</span>)) &#123;</span><br><span class="line">        <span class="keyword">stop</span>(sprintf(<span class="string">"%s must be a relation or a set of subsets."</span>, </span><br><span class="line">            dQuote(<span class="string">"x"</span>)))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#将关系转换成集合</span></span><br><span class="line">    <span class="keyword">if</span> (inherits(x, <span class="string">"relation"</span>)) &#123;</span><br><span class="line">        relmat &lt;- relation_incidence(x)</span><br><span class="line">        mode(relmat) &lt;- <span class="string">"logical"</span></span><br><span class="line">        x &lt;- as.set(apply(relmat, <span class="number">2</span>, <span class="keyword">function</span>(z) as.set(names(which(z)))))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        x &lt;- as.set(lapply(lapply(x, as.character), as.set))</span><br><span class="line">    &#125;</span><br><span class="line">    names(x) &lt;- <span class="literal">NULL</span></span><br><span class="line">    class(x) &lt;- unique(c(<span class="string">"kstructure"</span>, class(x)))</span><br><span class="line">    x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装R包Rgraphviz：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span>(<span class="string">"http://bioconductor.org/biocLite.R"</span>)</span><br><span class="line">    biocLite(<span class="string">"Rgraphviz"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ALEKS-知识空间理论的应用"><a href="#ALEKS-知识空间理论的应用" class="headerlink" title="ALEKS-知识空间理论的应用"></a>ALEKS-知识空间理论的应用</h2><p>ALEKS是一个互联网上的指导和评估程序，现在包括了数学、化学等课程。<br>它和传统的数值计分不同的是， ALEKS使用知识空间的原理来制定了一个主题集合，这个集合的某些元素是学生回答对这道题目的关键因素。通过评估诊断，推荐哪些主题需要学生学习，并且允许学生选择可交互的学习模块来学习这些主题。<br>LEKS最大的特色在于使用人工智能（AI）来映射每个学生的知识状态细节。在每一刻，ALEKS都知道你是否掌握了相关主题，如果没有掌握，ALEKS会知道你在这时刻里准备学习这个主题。ALEKS使用这种方式来让学生更加有效的学习，它会连续为学生提供在当时时间点想学习的主题，这样做的目的是可以给学生带来更多学习上的自信和快乐。<br>ALEKS是基于网页在线学习和评估的系统，它使得美国数百万的学生受益。它来源于知识空间理论(“KST”),所有的内容都是聘请的专家设计的，他们都是在这个领域里有着多年的教育教学经验和研究经验。<br>ALEKS的主旨就是希望学生们主动学习、自主学习。<br>在ALEKS中的多数问题就是没有固定的答案的，学生们解决这种没有固定答案的问题避免了阅读或者观看其他人怎么解决这个问题，这样就可以使用不同的方法、技术手段来回答这种开放式的问题。<br>ALEKS有着复杂精密的答案处理系统，使得可以实时评估分析学生们的答案，以便可以快速的给学生们作出反馈<br>ALEKS在每次新的主题被学习后都会全面的更新学生们的知识状态，它会持续的收集和分析从学生测试和学习过程中得来大量的统计数据。</p>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
+<li>1.<a href="https://www.aleks.com/about_aleks/knowledge_space_theory" target="_blank" rel="noopener">knowledge space</a></li>
+<li><ol start="2">
+<li><a href="https://github.com/cran/kst" target="_blank" rel="noopener">kst源码</a></li>
+</ol>
+</li>
+<li>3.<a href="https://www.aleks.com/about_aleks/overview" target="_blank" rel="noopener">OVERVIEW OF ALEKS</a></li>
+<li>4.<a href="https://www.aleks.com/about_aleks/publications_kst" target="_blank" rel="noopener">Aleks相关出版物</a></li>
+<li><ol start="5">
+<li>杨文正, 邹霞. 运用知识空间理论分析概念图[J]. 中国电化教育, 2011(3):83-87. </li>
+</ol>
+</li>
+<li><ol start="6">
+<li>傅骞, 孙波. 知识空间理论与项目反应理论对比研究[J]. 中国电化教育, 2004(5):75-76. </li>
+</ol>
+</li>
+<li><ol start="7">
+<li>傅骞, 刘志波, 陈良柱. 基于扩展知识空间理论的新一代教育资源平台研究[J]. 电化教育研究, 2006(4):39<br>1Cosyn, E., &amp; Thiéry, N. (2000). A Practical Procedure to Build a Knowledge Structure. Journal of Mathematical Psychology, 44, 383-407.<br>Degreef, E., Doignon J.-P., Ducamp A., &amp; Falmagne J.-C. (1986). Languages for the assessment of knowledge. Journal of Mathematical Psychology, 30, 243-256.<br>Doignon, J.-P. &amp; Falmagne, J.-C. (1985). Spaces for the assessment of knowledge. International Journal of Man-Machine Studies, 23, 175-196.<br>Doignon, J.-P. &amp; Falmagne, J.-C. (1999). Knowledge Spaces. Springer-Verlag.<br>Dowling, C.E. (1993). Applying the basis of knowledge space for controlling the questioning of an expert. Journal of Mathematical Psychology, 37, 21-48.<br>Dowling, C.E. (1993). On the irredundant construction of knowledge spaces. Journal of Mathematical Psychology, 37, 49-62.<br>Falmagne, J.-C. (1989). A latent trait theory via stochastic learning theory for a knowledge space. Psychometrika, 54, 283-303.<br>Falmagne, J.-C. &amp; Doignon, J.-P. (1988). A class of stochastic procedures for the assessment of knowledge. British Journal of Mathematical and Statistical Psychology, 41, 1-23.<br>Falmagne, J.-C. &amp; Doignon, J.-P. (1988). A markovian procedure for assessing the state of a system. Journal of Mathematical Psychology, 32, 232-258.<br>Falmagne, J.-C. &amp; Doignon, J.-P. (2011). Learning Spaces. Springer-Verlag.<br>Falmagne, J.-C., Koppen, M., Villano, M., Doignon, J.-P. &amp; Johannesen, L. (1990). Introduction to knowledge spaces: How to build test and search them. Psychological Review, 97, 201-224.<br>Kambouri, M., Koppen, M., Villano, M. &amp; Falmagne, J.-C. (1991). Knowledge assessment: Tapping human expertise. Irvine Research Unit in Mathematical Behavioral Sciences. University of California.<br>Koppen, M. (1993). Extracting human expertise for constructing knowledge spaces: An algorithm. Journal of Mathematical Psychology, 37, 1-20.<br>Koppen, M. &amp; Doignon, J.-P. (1990). How to build a knowledge space by querying an expert. Journal of Mathematical Psychology, 34, 311-331.<br>Villano, M., Falmagne, J.-C., Johannesen, L. &amp; Doignon, J.-P. Stochastic procedures for assessing an individual’s state of knowledge. In: Proceedings of the int. conf. on computer assisted learning in post-secondary educ.</li>
+</ol>
+</li>
+</ul>
+
       
     </div>
     
@@ -329,20 +391,18 @@
     
 
     
-      <div>
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="T110E4 wechat" style="width: 200px; max-width: 100%;">
-    <div>欢迎您扫一扫上面的微信公众号，订阅我的微信公众号！</div>
-</div>
-
-      </div>
-    
 
     
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识空间理论/" rel="tag"># 知识空间理论</a>
+          
+        </div>
       
 
       
@@ -417,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -435,7 +504,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -446,7 +515,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -457,7 +526,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -515,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kst简介"><span class="nav-number">1.</span> <span class="nav-text">kst简介:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ALEKS-知识空间理论的应用"><span class="nav-number">2.</span> <span class="nav-text">ALEKS-知识空间理论的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料："><span class="nav-number">3.</span> <span class="nav-text">参考资料：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

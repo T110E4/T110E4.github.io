@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="自适应学习,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="自适应学习技术前面我曾提到，“我认为，自适应学习是在学习研究的范式下，一种以计算机技术为主导的学习环境和系统的横向探索，而且是一种意义重大的探索”。这种意义我这里不再讨论，之前站正面立场时也曾讨论过。我们这里，是通过跳出现有产品经验的方式下，来探讨自适应学习和自适应技术。更多的是来自学术界已经做过的探索。但作为与学习研究范式的连接，我们有必要简单提及一个问题，后面我不再详细讨论这个问题。那就是，持">
+<meta name="keywords" content="自适应学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自适应学习-技术篇">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/自适应学习-技术篇/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="自适应学习技术前面我曾提到，“我认为，自适应学习是在学习研究的范式下，一种以计算机技术为主导的学习环境和系统的横向探索，而且是一种意义重大的探索”。这种意义我这里不再讨论，之前站正面立场时也曾讨论过。我们这里，是通过跳出现有产品经验的方式下，来探讨自适应学习和自适应技术。更多的是来自学术界已经做过的探索。但作为与学习研究范式的连接，我们有必要简单提及一个问题，后面我不再详细讨论这个问题。那就是，持">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g70ivu0xdij30hs0g8aah.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g70ixe896xj30hs0deq3n.jpg">
+<meta property="og:updated_time" content="2019-09-16T04:56:48.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自适应学习-技术篇">
+<meta name="twitter:description" content="自适应学习技术前面我曾提到，“我认为，自适应学习是在学习研究的范式下，一种以计算机技术为主导的学习环境和系统的横向探索，而且是一种意义重大的探索”。这种意义我这里不再讨论，之前站正面立场时也曾讨论过。我们这里，是通过跳出现有产品经验的方式下，来探讨自适应学习和自适应技术。更多的是来自学术界已经做过的探索。但作为与学习研究范式的连接，我们有必要简单提及一个问题，后面我不再详细讨论这个问题。那就是，持">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g70ivu0xdij30hs0g8aah.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/15/自适应学习-技术篇/">
+
+
+
+
+
+  <title>自适应学习-技术篇 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/自适应学习-技术篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自适应学习-技术篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T21:26:34+08:00">
+                2019-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教育数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">教育数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="自适应学习技术"><a href="#自适应学习技术" class="headerlink" title="自适应学习技术"></a>自适应学习技术</h2><p>前面我曾提到，“我认为，自适应学习是在学习研究的范式下，一种以计算机技术为主导的学习环境和系统的横向探索，而且是一种意义重大的探索”。这种意义我这里不再讨论，之前站正面立场时也曾讨论过。我们这里，是通过跳出现有产品经验的方式下，来探讨自适应学习和自适应技术。更多的是来自学术界已经做过的探索。<br>但作为与学习研究范式的连接，我们有必要简单提及一个问题，后面我不再详细讨论这个问题。那就是，持有研究范式的不同，会怎样影响研究者研发自适应学习系统？这涉及到研究范式到教学设计，由教学设计到学习环境和系统搭建的翻译和影响。我觉得这是一个有意思的问题；前面很多自适应技术的文章，都会谈及知识图谱，但不会谈及人的情感变量和社会协作中的问题，我觉得一方面是为其产品背景和阶段所限定，另一方面也和研发团队一开始的范式切入口有关。</p>
+<a id="more"></a>
+<p>既然把自适应学习篇放到学习的研究范式之后，我期望所讨论的自适应技术思路，尽量不为某一种范式所限制。如我一开始所说，通过计算机技术来使得教和学具备自适应特点，这本身应该是一个横向研究领域，相对不同的学习研究范式而言。<br>从应用角度看自适应<br>自适应学习的四维图<br>自适应学习是一种基于计算机技术的系统研究，很自然它有一系列非常直观而且朴素的问题需要回答，根据Mieke Vandewaetere, Geraldine Clarebout对四维视图的界定，那就是：</p>
+<ul>
+<li><p>它在学习中改变的是什么？</p>
+</li>
+<li><p>在学习中因何而改变？</p>
+</li>
+<li><p>在何时发生这种改变？</p>
+</li>
+<li><p>怎样才能使得学习发生这种改变？</p>
+</li>
+</ul>
+<p>这四个问题，分别是自适应学习的四个维度，也是适应的——对象，来源，时间或情境，及方法。这是一种系统研究方法，很显然和学习研究范式中对于学习关键要素的回答是不同的。<br>具体而言，自适应学习的四维视图如下：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g70ivu0xdij30hs0g8aah.jpg" alt="undefined"><br>所以，在教和学的体系中，自适应学习的应用涉及如下四个方面：</p>
+<ul>
+<li><p>1.适应的对象（改变什么）：适应性教学可以调整的对象包括三个方面，关注点是系统中哪些内容可以调整。首先是改变内容或者题目，如可以通过区分任务或项目的难度水平改变内容。其次是改变学习内容的表征形式和路径选择，如隐藏或突出显示链接。再次是通过间接指导调整教学水平和可用的支持。</p>
+</li>
+<li><p>2.适应的来源（因何改变）：这个层面也可以关注三个方面，首先是学习参数，如学习者特征和学习结果，其次是学习者和系统的交互，如学习者对于模型可视化的反馈和调整交互，或者与系统的博弈行为，再次是教学的变量，如教学目标、反馈类型、脚手架等。</p>
+</li>
+<li><p>3.适应的时间（何时改变）：第三个维度就是适应性学习的时间或情境，适应性在什么时间或情境发生。这个包括静态的用户建模和动态的用户建模，双路径方法也是可以实现的，一般是一次测量学习者特征之后进行首次调整，随后基于学习者交互参数持续进行建模和调整。</p>
+</li>
+<li><p>4.适应的方法（如何改变）：最后一个维度区分了学习者控制的适应，以及系统控制的适应，或者两者组合的适应。系统控制的适应大家见到的比较多，而学习者控制的适应，强调学习者可以完全控制学习环境和内容。两种适应方法各有优劣，有人就提出共享控制适应，它首先选择一组合适的学习材料或任务，然后考虑学习者的特征以便适应，随后，学习者可以自由的选择材料或任务，两者兼之。</p>
+</li>
+</ul>
+<p>自适应学习的四维视图，非常直观、朴素但又非常准确的描述了自适应学习应用中涉及的核心问题，以及背后的复杂系统。一个教和学的过程的适应性，需要解决这些核心问题。</p>
+<p>但再进一步，主要是面向学习者的自适应，和主要是面向教育者的自适应，也是不同的，我们随后分别展开。</p>
+<h2 id="面向学习者的自适应学习系统"><a href="#面向学习者的自适应学习系统" class="headerlink" title="面向学习者的自适应学习系统"></a>面向学习者的自适应学习系统</h2><p>我们之前的系列文章——也就是我们市场上常见的自适应学习系统，都是主要面向学习者的。所以面向学习者的自适应学习系统我们更加熟悉。</p>
+<p>一个面向学习者的自适应学习系统，有四个基本的循环阶段，分别是获取（当学习者与环境交互时收集学习者数据）、分析（创建和维护一个与领域相关的学习者模型）、选择（根据学习者模型和系统目标来选择信息）和展示（根据选择过程的结果向学习者展示信息内容）。</p>
+<p>这四个方面又可以有很多路径的变种，代表了不同系统和自适应学习的能力，对用户的体验有非常大的不同。比如基本完整的系统是学习者获取、分析、选择、展示所有步骤走完，而一个修正的系统是增加一个核心环节，四个循环步骤中增加用户对于学习者模型的交互，因为增加了对学习者模型的交互，所以系统是更加多样化的，且有助于学习者的元认知的培养。另外一种修正方式是，略去选择环节，这就是学习者获取、分析和展示一个小循环，这是一个检测路径的系统。这是两种例子。</p>
+<h2 id="面向教育者的自适应教学系统"><a href="#面向教育者的自适应教学系统" class="headerlink" title="面向教育者的自适应教学系统"></a>面向教育者的自适应教学系统</h2><p>我之前系列文章中曾经提到过，但没有针对性讨论的是面向教育者的自适应教学系统。这样的系统在我所见的行业内状况来看是不多的（只有一个朋友他们曾经自我定位是做智能教师系统，是类似这个层面的事情），但学术界对适应性教学系统还是有研究的。</p>
+<p>我们先岔开一下，对于教育者而言，使用自适应教学系统可能会存在一些障碍，尤其是国内环境。自适应的教学系统对于每一个学生而言，必然是个性化的教学。但个性化教学对教学进度的控制、对课程管理等等，都是和现有教学体制冲突非常大的，而且，教师的能力模型也存在一定的问题。所以公立教育系统中，应该很难推广这种教育技术的产品。在培训市场中，我觉得一方面以线下见长的团队，其教育技术研发能力可能受限，另一方面，无论是SPOC还是双师，都是跟着培训市场的投入产出比来走的，而自适应教学系统——可能还很漫长。</p>
+<p>根据Jung Lee和Ok-ChoonPark的整理，开发和实施适应性教学有五种不同的方法。</p>
+<p>第一种方法是在宏观水平上改变教学，允许不同的教学目标、课程内容难度和传递系统等等。为替代学校中传统的固定步调的集体教学而开发的适应性教学大部分采用这种方法。</p>
+<p>第二种方法是根据学生的具体特征调整具体的教学过程和策略。这种方法要求确定与学生最相关的学生特征（或者能力倾向），并为具备此特征的学生选择最能促进其学习过程的教学策略。</p>
+<p>第三种适应方法是在微观水平上改进教学，在教学过程中动态诊断学生特定的学习需要，为不同需要的学生提供不同的教学。例如智能导师系统。</p>
+<p>第四种方法是适应性超媒体和web系统。因为其是基于web系统的，所以其资料库是开放的。</p>
+<p>第五种方法是基于特定教学法开发的可适应系统。应用这些系统中的教学方法包括建构主义、动机理论、社会学习理论和元认知等。 </p>
+<p>虽然有这五种常用方法，一方面可以根据具体场景来选择，另外也常常可以做一混合式系统，以面对现实的复杂性。而且，在具体学习的研究范式中，还有许多深入问题可以探索，如将认知负荷理论应用于自适应教学，就是一个探索方向。</p>
+<h2 id="自适应技术路线"><a href="#自适应技术路线" class="headerlink" title="自适应技术路线"></a>自适应技术路线</h2><p>我们接下来探讨具体的自适应的技术路线。先把之前的内容框架图重新展示一下：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g70ixe896xj30hs0deq3n.jpg" alt="undefined"><br>关于调整教学内容的基本原理</p>
+<p>因为自适应系统的一个关键，就是自动分析并干预（调整教学内容）的能力，所以我们先重点分析一下调整教学内容的基本原理。之前自适应学习的四维视图中曾提到适应的来源，这里大概可以认为，我们重点分析一下学习者和学习的参数。</p>
+<p>第一个重要的依据是学习者的初始知识、能力的差异。这种差异是真实的、常常很大，对后续环节的影响强而有力。但我们系统中的教育方法往往并不能很好的服务于多样化的学生人群。也有很多人认为初始知识是随后学习唯一重要的决定因素（学习的研究范式中曾提到，符号认知理论研究者）。</p>
+<p>第二个重要的依据是学习者的人口学和社会文化变量的差异。这种差异也是客观的，比如语言的丰富度和成熟度，家庭核心成员的社会背景与终身学习习惯，等等，且可能影响学习结果和最终成就。</p>
+<p>第三个重要的依据是学生的情感状态。学生的许多情感状态会深刻影响他的学习，如沮丧、厌倦，或者积极、信心等。有很多种非介入性的措施可以推断学习者的状态来改变教学环境以适应不同需求。 </p>
+<p>这三个重要依据，是我们调整教学内容的基本原理。</p>
+<p>基于知识和学习目标特征的自适应</p>
+<pre><code>早期的自适应技术，将注意力集中在诸如学习者的知识和学习目标特征上。包括国内我们的一些商用自适应学习系统，多数也是如此。我们之前系列文章的大量案例，都在探讨题目的知识点标注，知识图谱的建设，学生对知识点掌握程度的特征，等等，这些都是学术界比较早期的自适应技术研究特征。</code></pre><p>虽然发端比较早，但我觉得不见得就没有继续研究的价值——其实在符号认知理论范式的继续演进下，我觉得这里仍然是大有可为的。只不过我们之前讨论的比较多，我们这里从略。</p>
+<p>基于学习风格的自适应</p>
+<p>所谓学习风格，Honey和Mumford的通用定义是，学习风格是对能确定一个人偏爱的学习方式的那些态度和行为的描述。也就是说，学习风格是对学习者的态度和行为的描述，这些态度和行为可以确定他的偏爱的学习方式。另外一种可以参考的定义是，学习风格是学习者在一定的环境和条件下所表现出来的复杂行为，它们能够支持学习者快速有效的理解、加工、存储、回忆他们的学习内容。</p>
+<p>对学习风格的分类有很多种。包括Myers-Briggs风格量表、Kolb的学习风格模型、Honey-Mumford的学习风格模型和Felder-Silverman的学习风格模型等。我们以Honey-Mumford的学习风格模型为例，他们是在Kolb的基础上进一步发展出来的，学习风格包括行动主义者（热衷于新东西新体验，做中学是他们最好的方式）、理论主义者（擅长将观察结果整合到理论中，学习过程离不开概念、模型和事实的支持）、实用主义者（对学习内容在现实世界的应用感兴趣，会不断尝试各种应用进行观察），以及反思者（喜欢从不同角度观察和反思，并从中得到结论进行学习）。 </p>
+<p>基于学习风格的自适应学习系统，一般会根据几种不同的技术来调整学习内容和过程来适应学生的不同学习风格。最常用的包括：</p>
+<p>在一个课程中改变每一个片段中呈现的学习对象类型的顺序，</p>
+<p>隐藏那些不匹配学生学习风格的学习对象、学习对象的元件和学习对象的链接，</p>
+<p>对学习对象进行注解，以表明它们符合学生的学习风格的程度，进而推荐最合适的学习对象，等等。</p>
+<p>大部分自适应系统使用静态的和协作的学生建模方法，要求学习者填写问卷来确定他们的学习风格。但这些问卷是基于“学习者了解自己如何学习”这一假设的，且因为是基于自我报告的测量而不是能力测试，所以其效度有很大的问题。</p>
+<p>最近的发展，研究已经通过调查和发展自动化的途径来确定学习风格，在线学习平台的大量学习相关的行为数据都被收集和利用。模型是贝叶斯网，或者隐马尔可夫模型，或者其它机器学习分类算法，都是可用的选择。</p>
+<p>基于认知能力的自适应</p>
+<p>认知能力，也就是获取知识的心理过程，包括诸如意识、感知、推理和判断等方面。人类有很多典型的认知能力，对学习是至关重要的，这包括工作记忆能力、推理能力、信息加工速度、链接式学习能力以及元认知等。</p>
+<p>所谓工作记忆，就是允许我们在记忆中短暂的保持有限容量的信息。早些时候，工作记忆也指短时记忆。双重编码假设理论就是基于这样一个假设：工作记忆由两个相互独立的部分组成，一个与言语信息有关，另一个与非言语信息有关。根据这一假设，当两个通道都参与时，可以降低认知负荷，由此，学习者可以更好的学习。但事情的复杂性在于，有研究者发现，双重编码理论对知识表征的解释力是随着学习者的经验的增长而减少的。</p>
+<p>推理能力大家比较熟悉，包括归纳、演绎等。其中归纳推理越来越受重视，研究认为，归纳推理能力和情境中的概念建构有关。归纳能力越强，对学术知识的智力模式建构就越容易。Harverty等曾经说过，归纳推理能力是学业成就的最佳预测器。</p>
+<p>信息加工速度决定了学习者正确的获取信息的速度。自适应学习系统需要考虑学习者的信息加工速度，进而调整各种学习细节，包括细节信息的量，信息的传播途径和相互关联，以及是否提供要点等等。</p>
+<p>链接式学习能力能够将新旧知识联系起来。知识关联过程需要进行模式匹配，它可以发现已有的信息空间，分析新旧知识之间的关系，将新知识存入长时记忆。系统设计需要帮助学习者回忆已有信息，清晰的呈现概念之间的关系，促使学习者创建联想和理解。</p>
+<p>元认知是对于个体自己认知系统和功能的知觉和监控。元认知的重要性越来越凸显，尤其在问题解决任务中，元认知能力尤其重要。 </p>
+<p>基于认知能力的自适应技术涉及确认学习者的认知能力并使用这些信息为具有不同认知能力的学习者提供不同的支持。但目前这个领域的研究还处于比较早期的阶段，研究成果数量也并不多。</p>
+<p>基于情感状态的自适应</p>
+<p>可以影响学习过程的另一方面是一个人的情感状态。在学习过程中，情感状态通常被认为尤其相关，例如厌倦、困惑、沮丧，或信任、满意度和独立等。提供关于情感状态方面的自适应是一个新的研究领域，仅有少数的自适应学习系统开始探索解决这一类问题。</p>
+<p>我在上一家公司工作时，曾代表公司教育技术团队和北师大对接，联合申请了一个教育部的项目，这个项目主要包含两个方向的探索，一个是深化IRT模型做基于内容测评的自适应推荐，另一个是基于学生学习过程视频的情感状态识别，通过情感状态的识别来进行推荐——也是这个方向的一个尝试。随着可穿戴设备的兴起，系统可以采集大量的数据进行情感状态的识别，如体感坐姿数据，处于葛优瘫的学生其情感状态多数往消极的方向走，这也是一种例子。</p>
+<p>基于情境和环境的自适应</p>
+<p>Dey给出了情境的一般性定义，他将其描述为“任何可以用来描述实体情况的信息。实体可以是一个人、地点或被认为与用户和应用程序之间的互动有关的物体，包括用户和应用程序本身”。</p>
+<p>由于移动技术的最新发展，学习可以随时随地的发生。因此，学习者当前所处的情境，以及他的学习的周边环境特点，成为自适应技术考虑的另一个重要方面。通过将学习者的情境和环境信息整合到适应性过程，自适应技术开启了新的可能。</p>
+<p>这样的例子我们不需要多举，这样的情境是丰富的、异质的，环境千差万别，使用手机屏幕的碎片学习，和使用pad屏幕在有辅导下的学习，那是有极大不同的——自适应系统无法忽视这一移动时代的学习特征。 </p>
+<p>基于情境和环境的自适应学习，以及扩展到移动学习，被许多研究者认为是下一个教育技术研究的热点。</p>
+<p>混合式自适应</p>
+<p>上面我们提到了如此多的自适应技术的基本线条，所以学术界和工业界有着大量不同的自适应学习系统。但我们说，因为教育是一个复杂系统，所以，自适应学习技术还有一个线条，那就是混合式的自适应，把以上两种或若干种的自适应技术进行综合使用，设计出符合用户需求的混合式自适应系统。（这里可以对比互联网推荐引擎中的混合式模型。）</p>
+<h2 id="自适应技术的基础模块"><a href="#自适应技术的基础模块" class="headerlink" title="自适应技术的基础模块"></a>自适应技术的基础模块</h2><p>自适应技术，乃至教育技术，我认为有两个基础的技术模块，其一是媒体传播技术，包括传播相关的各种硬件、软件的技术，我们这里不再探讨。而另一个方向，就是以智能技术为代表，包括教育数据挖掘、学习者建模和人工智能等。学习者建模的内容我们上面提到了大量的方向，人工智能相关的知识库和语义网，以及机器学习和深度学习，我们开始就曾说因篇幅关系这次不再介绍。那么还有一个模块就是教育数据挖掘，值得加以讨论。</p>
+<p>教育数据挖掘</p>
+<p>虽然数据挖掘是一个有长期积累的计算机科学的学科，但教育数据挖掘，却是一个比较新的领域。根据Baker的定义，教育数据挖掘是“开发探索来自教育环境的独特数据类型的方法，用这些方法更好的理解学生和学习环境”。虽然早期研究来自数据挖掘和知识发现的传统，但是由于教育数据的具体特征不同，应用的方法也不同，如Baker提到，教育数据经常是嵌套的（学生隶属于班级，班级隶属于学校），即教育数据是多层次结构的一部分；而且我认为，对学习者和学习环境的理解涉及大量心理学、教育学和学习科学的范式与规律，这和传统数据挖掘应用领域是大大不同的。所以教育数据挖掘是一个很有挑战的新领域，也是自适应学习系统的基础模块之一。 </p>
+<p>教育数据挖掘的方法，基本上可以分为四组。</p>
+<p>第一组是预测，目标在于把相对独立的变量（预测变量）组合在一起，推测数据的单一方面（因变量或结果变量）。在解释对结果变量的预测时，预测方法可以关注哪些特点或变量更重要；也可以首先关注预测调节性或中介性的因素。Baker描述了三种预测方法：分类、回归分析和密度估计。</p>
+<p>第二组教育数据挖掘方法包含聚类方法。因此，它的目标是找到可以形成自然分组的数据点（比如，学习者、学习者特征、学校、学生行为等）。</p>
+<p>第三组教育数据挖掘方法包含关系挖掘方法，重点在于大量变量数据组中，发现变量关系及关系程度。这类挖掘的实施，可以通过关联规则挖掘，或者通过相关性挖掘，通过序列模式挖掘，也可以通过因果关系挖掘等不同模型来实现不同目的。</p>
+<p>第四组教育数据挖掘是模型发现法，先开发验证模型，再将其作为另一轮分析的输入，如预测挖掘。在教育数据挖掘中，模型发现法越来越流行。 </p>
+<p>也有人把文本挖掘方法增加为教育数据挖掘的第五组方法。如文档分类、教育内容的知识抽取、分析评估系统内部或开放平台上的讨论与交互文本等。我们商业系统中的题目的知识点抽取或分类，可以算作其中的一种应用。</p>
+<p>综上，这是通观学术界和工业界的进展，对自适应技术的一个总结。很自然的感受是，自适应技术的空间是巨大的，它从另外一个探索维度，打穿了教和学的方方面面，也是教育技术最为深刻的方向之一；虽然，它还处于比较早期的阶段。</p>
+<p>*本文转自微信公众号爱知行，由李子选编，原标题《谈谈学习与自适应学习技术（自适应学习技术</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自适应学习/" rel="tag"># 自适应学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/15/国外24个值得关注的自适应学习工具/" rel="next" title="国外24个值得关注的自适应学习工具">
+                <i class="fa fa-chevron-left"></i> 国外24个值得关注的自适应学习工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/16/一套自适应学习系统应该包括哪些环节？/" rel="prev" title="一套自适应学习系统应该包括哪些环节？">
+                一套自适应学习系统应该包括哪些环节？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自适应学习技术"><span class="nav-number">1.</span> <span class="nav-text">自适应学习技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向学习者的自适应学习系统"><span class="nav-number">2.</span> <span class="nav-text">面向学习者的自适应学习系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向教育者的自适应教学系统"><span class="nav-number">3.</span> <span class="nav-text">面向教育者的自适应教学系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自适应技术路线"><span class="nav-number">4.</span> <span class="nav-text">自适应技术路线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自适应技术的基础模块"><span class="nav-number">5.</span> <span class="nav-text">自适应技术的基础模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

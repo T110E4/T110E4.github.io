@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法工程师,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Github传送门：https://github.com/lcylmhlcy/Awesome-algorithm-interview">
+<meta name="keywords" content="算法工程师">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法工程师常见问题及相关资料">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/算法工程师常见问题及相关资料/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="Github传送门：https://github.com/lcylmhlcy/Awesome-algorithm-interview">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-09T01:34:59.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法工程师常见问题及相关资料">
+<meta name="twitter:description" content="Github传送门：https://github.com/lcylmhlcy/Awesome-algorithm-interview">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/09/算法工程师常见问题及相关资料/">
+
+
+
+
+
+  <title>算法工程师常见问题及相关资料 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/算法工程师常见问题及相关资料/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法工程师常见问题及相关资料</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T09:28:33+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Github传送门：<br><a href="https://github.com/lcylmhlcy/Awesome-algorithm-interview" target="_blank" rel="noopener">https://github.com/lcylmhlcy/Awesome-algorithm-interview</a></p>
+<a id="more"></a>
+<p>算法工程师</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>算法/深度学习/NLP面试笔记 Github<br><a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese" target="_blank" rel="noopener">https://github.com/imhuay/Algorithm_Interview_Notes-Chinese</a><br>算法工程师面试 Github<br><a href="https://github.com/PPshrimpGo/AIinterview" target="_blank" rel="noopener">https://github.com/PPshrimpGo/AIinterview</a><br>2019届秋招面经集合 Github<br><a href="https://github.com/zslomo/2019-Autumn-recruitment-experience" target="_blank" rel="noopener">https://github.com/zslomo/2019-Autumn-recruitment-experience</a><br>技术面试必备基础知识 Github<br><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">https://github.com/CyC2018/CS-Notes</a><br>AI算法岗求职攻略 Github (amusi)<br><a href="https://github.com/amusi/AI-Job-Notes" target="_blank" rel="noopener">https://github.com/amusi/AI-Job-Notes</a><br>阿里、腾讯、百度、华为、京东、搜狗和滴滴最新面试题汇集 Github<br><a href="https://github.com/xiaole0310/interview-" target="_blank" rel="noopener">https://github.com/xiaole0310/interview-</a><br>（面试算法练级攻略）-（LeetCode题解）-（剑指offer题解）」Github<br><a href="https://github.com/guokaide/algorithm" target="_blank" rel="noopener">https://github.com/guokaide/algorithm</a><br>MVision-awesome Github<br><a href="https://github.com/Ewenwan/MVision" target="_blank" rel="noopener">https://github.com/Ewenwan/MVision</a><br>2020年的算法实习岗位信息表，部分包括内推码，和常见深度学习算法岗面试题及答案，暑期计算机视觉实习面经和总结 Github<br><a href="https://github.com/HarleysZhang/2019_algorithm_intern_information" target="_blank" rel="noopener">https://github.com/HarleysZhang/2019_algorithm_intern_information</a><br>Daily Interview Github<br><a href="https://github.com/datawhalechina/Daily-interview" target="_blank" rel="noopener">https://github.com/datawhalechina/Daily-interview</a><br>2019年最新总结，阿里，腾讯，百度，美团，头条等技术面试题目，以及答案，专家出题人分析汇总 Github<br><a href="https://github.com/0voice/interview_internal_reference" target="_blank" rel="noopener">https://github.com/0voice/interview_internal_reference</a></p>
+<h2 id="牛客网"><a href="#牛客网" class="headerlink" title="牛客网"></a>牛客网</h2><p>旷视19届春招-算法研究员-凉经 nowcoder<br><a href="https://www.nowcoder.com/discuss/167336" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/167336</a><br>腾讯算法实习面试总结 nowcoder<br><a href="https://www.nowcoder.com/discuss/163996" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/163996</a><br>春招详细算法面经(旷视/海康/联影等8家公司Offer) nowcoder<br><a href="https://www.nowcoder.com/discuss/163388" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/163388</a><br>普通的算法/机器学习面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/61907" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/61907</a><br>20届-视觉算法-暑期实习 nowcoder<br><a href="https://www.nowcoder.com/discuss/173292" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/173292</a><br>字节跳动实习算法岗面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/174565" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/174565</a><br>阿里腾讯虎牙机器学习算法面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/175759" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/175759</a><br>字节跳动图形图像算法实习面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/178153" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/178153</a><br>拼多多算法实习生面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/177911" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/177911</a><br>算法岗面经传送门 nowcoder<br><a href="https://www.nowcoder.com/discuss/180976" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/180976</a><br>面经（腾讯AI Lab，阿里达摩院，华为等公司大集合） nowcoder<br><a href="https://www.nowcoder.com/discuss/180087" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/180087</a><br>cv岗面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/159266" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/159266</a><br>小菜鸡的算法实习面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/181770" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/181770</a><br>机器学习/算法校招面试考点汇总 nowcoder<br><a href="https://www.nowcoder.com/discuss/165930" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/165930</a><br>计算机视觉暑期实习面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/186000" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/186000</a><br>算法岗面经（阿里云,1,2,3，交叉，hr面） nowcoder<br><a href="https://www.nowcoder.com/discuss/172079" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/172079</a><br>春招实习面经（cv算法岗） nowcoder<br><a href="https://www.nowcoder.com/discuss/183555" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/183555</a><br>双非本硕算法陪跑面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/186247" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/186247</a><br>2018春招科大讯飞，华为，神策数据，今日头条面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/75136?type=2&amp;order=3&amp;pos=254&amp;page=1" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75136?type=2&amp;order=3&amp;pos=254&amp;page=1</a><br>2020届渣硕春招实习总结-算法岗（计算机视觉） nowcoder<br><a href="https://www.nowcoder.com/discuss/186113" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/186113</a><br>爱奇艺深度学习算法实习生面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/185614" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/185614</a><br>阿里，旷视，亚马逊，谷歌面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/172693" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/172693</a><br>算法菜鸟的春招之路 nowcoder<br><a href="https://www.nowcoder.com/discuss/188295" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/188295</a><br>机器学习算法面经（腾讯阿里网易） nowcoder<br><a href="https://www.nowcoder.com/discuss/75166?type=2&amp;order=3&amp;pos=250&amp;page=1" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75166?type=2&amp;order=3&amp;pos=250&amp;page=1</a><br>实习算法岗血泪面经，商汤，旷世，阿里，字节跳动 nowcoder<br><a href="https://www.nowcoder.com/discuss/192689?type=2" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/192689?type=2</a><br>机器学习/数据挖掘岗2019秋招总结 nowcoder<br><a href="https://www.nowcoder.com/discuss/138721" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/138721</a><br>算法面经（阿里、腾讯、美团等） nowcoder<br><a href="https://www.nowcoder.com/discuss/77924?type=2&amp;order=3&amp;pos=195&amp;page=1" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/77924?type=2&amp;order=3&amp;pos=195&amp;page=1</a><br>春招秋招算法机器学习岗面经（阿里、腾讯、美团、携程） nowcoder<br><a href="https://www.nowcoder.com/discuss/106725" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/106725</a><br>春招（附面经） nowcoder<br><a href="https://www.nowcoder.com/discuss/79729" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/79729</a><br>计算机视觉算法岗面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/128148" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/128148</a><br>机器学习算法面经—2018秋招 nowcoder<br><a href="https://www.nowcoder.com/discuss/32008" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/32008</a><br>阿里&amp;腾讯春招算法面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/198290?type=2&amp;order=3&amp;pos=7&amp;page=1" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/198290?type=2&amp;order=3&amp;pos=7&amp;page=1</a><br>阿里暑期实习六面面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/180007" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/180007</a><br>计算机视觉算法岗面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/128148" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/128148</a><br>阿里 达摩院 cv 算法 面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/216797" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/216797</a><br>算法工程师面经 寒拼蘑腾作网网3 附答案 nowcoder<br><a href="https://www.nowcoder.com/discuss/231656" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/231656</a><br>搜狗算法面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/231973" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/231973</a><br>商汤20校招CV算法研究员面经(三面+HR面) nowcoder<br><a href="https://www.nowcoder.com/discuss/209857" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/209857</a><br>作业帮/寒武纪/商汤/科大讯飞面经 nowcoder<br><a href="https://www.nowcoder.com/discuss/218906" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/218906</a><br>面经 | 腾讯/百度/字节跳动/拼多多/华为/美团/寒武纪/虎牙等 nowcoder<br><a href="https://www.nowcoder.com/discuss/241988" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/241988</a><br>算法秋招上岸了，大家加油，我先撤了（附所有面经） nowcoder<br><a href="https://www.nowcoder.com/discuss/244979" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/244979</a></p>
+<h2 id="知乎"><a href="#知乎" class="headerlink" title="知乎"></a>知乎</h2><p>算法工程师必须要知道的面试技能雷达图 zhihu<br><a href="https://zhuanlan.zhihu.com/p/54089811" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54089811</a><br>做计算机视觉的你，如何拿到大厂的Offer的？可否分享下？zhihu<br><a href="https://www.zhihu.com/question/272045026/answer/366665187" target="_blank" rel="noopener">https://www.zhihu.com/question/272045026/answer/366665187</a><br>字节跳动计算机视觉算法实习生视频面试 zhihu<br><a href="https://zhuanlan.zhihu.com/p/59270912" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59270912</a><br>2019秋招算法面经 zhihu<br><a href="https://zhuanlan.zhihu.com/p/42936891" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42936891</a><br>CVTE视觉计算岗实习面经 zhihu<br><a href="https://zhuanlan.zhihu.com/p/59223324" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59223324</a><br>互联网公司最常见的面试算法题有哪些？zhihu<br><a href="https://www.zhihu.com/question/24964987/answer/586425979" target="_blank" rel="noopener">https://www.zhihu.com/question/24964987/answer/586425979</a><br>计算机视觉（cv）方向今年招聘情况怎么样?是否已经人才过剩? zhihu<br><a href="https://www.zhihu.com/question/293700785" target="_blank" rel="noopener">https://www.zhihu.com/question/293700785</a></p>
+<h2 id="个人博客"><a href="#个人博客" class="headerlink" title="个人博客"></a>个人博客</h2><p>AI算法工程师手册 Blog<br><a href="http://www.huaxiaozhuan.com/" target="_blank" rel="noopener">http://www.huaxiaozhuan.com/</a><br>小米面试总结 Blog<br><a href="https://wx.qnmlgb.tech/articles/5c55c999ce56ab804b1526cd/" target="_blank" rel="noopener">https://wx.qnmlgb.tech/articles/5c55c999ce56ab804b1526cd/</a><br>百度/商汤AI面试 CSDN<br><a href="https://blog.csdn.net/emma1222/article/details/86551435" target="_blank" rel="noopener">https://blog.csdn.net/emma1222/article/details/86551435</a><br>算法校招经验总结(百度,阿里巴巴,腾讯,今日头条) CSDN<br><a href="https://blog.csdn.net/ML_SDD/article/details/84986528" target="_blank" rel="noopener">https://blog.csdn.net/ML_SDD/article/details/84986528</a><br>CV计算机论文速览 CSDN<br><a href="https://me.csdn.net/u014636245" target="_blank" rel="noopener">https://me.csdn.net/u014636245</a></p>
+<h2 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h2><p>阿里巴巴计算机视觉算法实习生视频面试 website<br><a href="https://bit.ly/2n6xJNw" target="_blank" rel="noopener">https://bit.ly/2n6xJNw</a><br>面试经验AI算法工程师(面试官角度) website<br><a href="https://bit.ly/2nLRaLX" target="_blank" rel="noopener">https://bit.ly/2nLRaLX</a><br>从零基础到BAT算法岗SP——秋招准备攻略 website<br><a href="https://bit.ly/2luBZpw" target="_blank" rel="noopener">https://bit.ly/2luBZpw</a><br>蚂蚁金服/旷视/虹软/腾讯优图暑期实习offer面经 website<br><a href="https://bit.ly/2nGEeXy" target="_blank" rel="noopener">https://bit.ly/2nGEeXy</a><br>我在美团的这两年（附校招笔试/面试/面经分享） website<br><a href="https://bit.ly/2lyxQ3Y" target="_blank" rel="noopener">https://bit.ly/2lyxQ3Y</a><br>1000 面试题，BAT 机器学习面试刷题宝典！website<br><a href="https://bit.ly/2nKXnHZ" target="_blank" rel="noopener">https://bit.ly/2nKXnHZ</a><br>如何拿到自己满意的offer？website<br><a href="https://bit.ly/2nGFnOQ" target="_blank" rel="noopener">https://bit.ly/2nGFnOQ</a><br>机器学习与深度学习常见面试题（上） website<br><a href="https://bit.ly/2nDAG8q" target="_blank" rel="noopener">https://bit.ly/2nDAG8q</a><br>机器学习与深度学习常见面试题（下） website<br><a href="https://bit.ly/2mfFLU5" target="_blank" rel="noopener">https://bit.ly/2mfFLU5</a><br>完备的 AI 学习路线，最详细的资源整理！website<br><a href="https://bit.ly/2nE3m15" target="_blank" rel="noopener">https://bit.ly/2nE3m15</a><br>蚂蚁金服面经（已拿 Offer） website<br><a href="https://bit.ly/2m4Fzaq" target="_blank" rel="noopener">https://bit.ly/2m4Fzaq</a><br>30家企业海投，10余家offer，我的漫漫秋招之旅 website<br><a href="https://bit.ly/2lyjwsb" target="_blank" rel="noopener">https://bit.ly/2lyjwsb</a><br>BAT 三连挂是什么体验？硕士小姐姐讲述心酸血泪史！website<br><a href="https://bit.ly/2nJmWcl" target="_blank" rel="noopener">https://bit.ly/2nJmWcl</a><br>数据科学&amp;机器学习基础面试题 website<br><a href="https://bit.ly/2lBuRYH" target="_blank" rel="noopener">https://bit.ly/2lBuRYH</a><br>计算机视觉、算法岗实习面经（阿里/格灵深瞳/南京地平线机器人） website<br><a href="https://bit.ly/2nMscvZ" target="_blank" rel="noopener">https://bit.ly/2nMscvZ</a><br>面经 | 挂两次腾讯面试的春招教训 website<br><a href="https://bit.ly/2n6MzDG" target="_blank" rel="noopener">https://bit.ly/2n6MzDG</a><br>Face++公司 - 两轮技术面试面经 website<br><a href="https://bit.ly/2mdCHb9" target="_blank" rel="noopener">https://bit.ly/2mdCHb9</a><br>秋招面经 | 旷视科技算法岗秋招面试经验分享 website<br><a href="https://bit.ly/2lCy8qE" target="_blank" rel="noopener">https://bit.ly/2lCy8qE</a><br>面经+经验分享|2019秋招算法岗复盘 website<br><a href="https://bit.ly/2mfZi6P" target="_blank" rel="noopener">https://bit.ly/2mfZi6P</a><br>专科生阿里大数据一面面经(已过) website<br><a href="https://bit.ly/2lDzbqm" target="_blank" rel="noopener">https://bit.ly/2lDzbqm</a><br>2019秋招算法岗复盘 website<br><a href="https://bit.ly/2nGprMt" target="_blank" rel="noopener">https://bit.ly/2nGprMt</a><br>我面试了10家算法公司，这是我能记住的所有问题 website<br><a href="https://bit.ly/2lyC2AJ" target="_blank" rel="noopener">https://bit.ly/2lyC2AJ</a><br>计算机视觉算法工程师（旷视、商汤、智云、海康）面试总结 website<br><a href="https://bit.ly/2nbjZAW" target="_blank" rel="noopener">https://bit.ly/2nbjZAW</a><br>秋招面经 | 滴滴20校招CV算法岗面试经验分享(三面） website<br><a href="https://bit.ly/2ncyt3u" target="_blank" rel="noopener">https://bit.ly/2ncyt3u</a><br>八家国企大数据面经(干货，详细答案) website<br><a href="https://bit.ly/2ndSxT9" target="_blank" rel="noopener">https://bit.ly/2ndSxT9</a></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>廖雪峰AI面试资料 BaiduYun ps:uzj9<br><a href="https://pan.baidu.com/s/10NL2yJxsBFjq8PP-wdBfuw" target="_blank" rel="noopener">https://pan.baidu.com/s/10NL2yJxsBFjq8PP-wdBfuw</a><br>ps:uzj9<br>Solutions to Introduction to Algorithms Github<br><a href="https://github.com/gzc/CLRS" target="_blank" rel="noopener">https://github.com/gzc/CLRS</a><br>CV 领域论文常见单词 zhihu<br><a href="https://zhuanlan.zhihu.com/p/60049093" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60049093</a><br>CV领域Paper论文常见单词 zhihu<br><a href="https://zhuanlan.zhihu.com/p/58860096" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/58860096</a><br>Everything you need to know to get the job Github<br><a href="https://github.com/kdn251/interviews" target="_blank" rel="noopener">https://github.com/kdn251/interviews</a><br>Everything you need to prepare for your technical interview Github<br><a href="https://github.com/andreis/interview" target="_blank" rel="noopener">https://github.com/andreis/interview</a><br>Materials to help you rock your next coding interview Github<br><a href="https://github.com/yangshun/tech-interview-handbook" target="_blank" rel="noopener">https://github.com/yangshun/tech-interview-handbook</a></p>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p> 面试问题<br>机器学习面试算法梳理 Blog<br><a href="https://www.cnblogs.com/tornadomeet/p/3395593.html" target="_blank" rel="noopener">https://www.cnblogs.com/tornadomeet/p/3395593.html</a><br>面试官如何判断面试者的机器学习水平 zhihu<br><a href="https://www.zhihu.com/question/62482926" target="_blank" rel="noopener">https://www.zhihu.com/question/62482926</a><br>machine-learning-interview-questions Github<br><a href="https://github.com/Sroy20/machine-learning-interview-questions" target="_blank" rel="noopener">https://github.com/Sroy20/machine-learning-interview-questions</a><br>机器学习与深度学习面试问题总结 Blog<br><a href="https://bit.ly/2mgUSfY" target="_blank" rel="noopener">https://bit.ly/2mgUSfY</a><br>机器学习面试复习资源 Github<br><a href="https://github.com/wangyuGithub01/Machine_Learning_Resources" target="_blank" rel="noopener">https://github.com/wangyuGithub01/Machine_Learning_Resources</a></p>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p>Your new Mentor for Data Science E-Learning Github<br><a href="https://github.com/clone95/Virgilio" target="_blank" rel="noopener">https://github.com/clone95/Virgilio</a><br>王斌老师翻译的&lt;机器学习实战&gt;书python代码实现 Github<br><a href="https://github.com/wzy6642/Machine-Learning-in-Action-Python3" target="_blank" rel="noopener">https://github.com/wzy6642/Machine-Learning-in-Action-Python3</a><br>PRML(python) Github<br><a href="https://github.com/ctgk/PRML" target="_blank" rel="noopener">https://github.com/ctgk/PRML</a><br>李航博士&lt;统计学习方法&gt;一书中所有算法python实现 Github<br><a href="https://github.com/WenDesi/lihang_book_algorithm" target="_blank" rel="noopener">https://github.com/WenDesi/lihang_book_algorithm</a><br>&lt;统计学习方法&gt;第二版的代码实现 Github<br><a href="https://github.com/fengdu78/lihang-code" target="_blank" rel="noopener">https://github.com/fengdu78/lihang-code</a><br>&lt;机器学习&gt;(西瓜书)公式推导解析 Github<br><a href="https://github.com/datawhalechina/pumpkin-book" target="_blank" rel="noopener">https://github.com/datawhalechina/pumpkin-book</a><br>&lt;数据科学实战&gt;书代码 Github<br><a href="https://github.com/oreillymedia/doing_data_science" target="_blank" rel="noopener">https://github.com/oreillymedia/doing_data_science</a><br>机器学习实战(Python3) Github<br><a href="https://github.com/Jack-Cherish/Machine-Learning" target="_blank" rel="noopener">https://github.com/Jack-Cherish/Machine-Learning</a><br>吴恩达讲授的机器学习 Coursera 163<br><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning</a><br>Solutions to Introduction to Algorithms Third Edition Github<br><a href="https://github.com/walkccc/CLRS" target="_blank" rel="noopener">https://github.com/walkccc/CLRS</a><br>Data-Science–Cheat-Sheet Github<br><a href="https://github.com/abhat222/Data-Science--Cheat-Sheet" target="_blank" rel="noopener">https://github.com/abhat222/Data-Science--Cheat-Sheet</a><br>Data Science Crash Course Github<br><a href="https://maria-antoniak.github.io/2018/11/19/data-science-crash-course.html" target="_blank" rel="noopener">https://maria-antoniak.github.io/2018/11/19/data-science-crash-course.html</a><br>List of Data Science Cheatsheets to rule the world Github<br><a href="https://github.com/FavioVazquez/ds-cheatsheets" target="_blank" rel="noopener">https://github.com/FavioVazquez/ds-cheatsheets</a><br>Your new Mentor for Data Science E-Learning. Github<br><a href="https://github.com/virgili0/Virgilio" target="_blank" rel="noopener">https://github.com/virgili0/Virgilio</a><br>Python3 入门机器学习 Github<br><a href="https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms" target="_blank" rel="noopener">https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms</a><br>DrWhy is the collection of tools for Explainable AI (XAI) Github<br><a href="https://github.com/ModelOriented/DrWhy" target="_blank" rel="noopener">https://github.com/ModelOriented/DrWhy</a><br>Fit interpretable models. Explain blackbox machine learning. Github<br><a href="https://github.com/jwasham/coding-interview-university" target="_blank" rel="noopener">https://github.com/jwasham/coding-interview-university</a><br>李宏毅《机器学习》笔记 Github<br><a href="https://github.com/datawhalechina/leeml-notes" target="_blank" rel="noopener">https://github.com/datawhalechina/leeml-notes</a><br>机器学习(Machine Learning) 深度学习(Deep Learning) NLP面试中常考到的知识点和代码实现 Github<br><a href="https://github.com/NLP-LOVE/ML-NLP" target="_blank" rel="noopener">https://github.com/NLP-LOVE/ML-NLP</a></p>
+<h2 id="代码实战"><a href="#代码实战" class="headerlink" title="代码实战"></a>代码实战</h2><p>机器学习算法python实现 Github<br><a href="https://github.com/lawlite19/MachineLearning_Python" target="_blank" rel="noopener">https://github.com/lawlite19/MachineLearning_Python</a><br>100-Days-Of-ML-Code中文版 Github<br><a href="https://github.com/MLEveryday/100-Days-Of-ML-Code" target="_blank" rel="noopener">https://github.com/MLEveryday/100-Days-Of-ML-Code</a><br>Homemade Machine Learning Github<br><a href="https://github.com/trekhleb/homemade-machine-learning" target="_blank" rel="noopener">https://github.com/trekhleb/homemade-machine-learning</a><br>Python codes for common Machine Learning Algorithms Github<br><a href="https://github.com/susanli2016/Machine-Learning-with-Python" target="_blank" rel="noopener">https://github.com/susanli2016/Machine-Learning-with-Python</a><br>Machine-Learning-Study-Path-March-2019 Github<br><a href="https://github.com/clone95/Machine-Learning-Study-Path-March-2019" target="_blank" rel="noopener">https://github.com/clone95/Machine-Learning-Study-Path-March-2019</a><br>The best resources in Machine Learning &amp; AI Github Website<br><a href="https://github.com/RemoteML/bestofml" target="_blank" rel="noopener">https://github.com/RemoteML/bestofml</a><br><a href="https://bestofml.com/" target="_blank" rel="noopener">https://bestofml.com/</a><br>AiLearning- ML、深度学习 Github<br><a href="https://github.com/apachecn/AiLearning" target="_blank" rel="noopener">https://github.com/apachecn/AiLearning</a><br>A Machine Learning Course with Python Github<br><a href="https://github.com/machinelearningmindset/machine-learning-course" target="_blank" rel="noopener">https://github.com/machinelearningmindset/machine-learning-course</a><br>Machine learning, in numpy Github<br><a href="https://github.com/ddbourgin/numpy-ml" target="_blank" rel="noopener">https://github.com/ddbourgin/numpy-ml</a><br>A complete computer science study plan to become a software engineer. Github<br><a href="https://github.com/ddbourgin/numpy-ml" target="_blank" rel="noopener">https://github.com/ddbourgin/numpy-ml</a></p>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p>面试<br>深度学习面试问题 Github<br><a href="https://github.com/elviswf/DeepLearningBookQA_cn" target="_blank" rel="noopener">https://github.com/elviswf/DeepLearningBookQA_cn</a><br>2020年的算法实习岗位信息表，部分包括内推码，和常见深度学习算法岗面试题及答案 Github<br><a href="https://github.com/HarleysZhang/2019_algorithm_intern_information" target="_blank" rel="noopener">https://github.com/HarleysZhang/2019_algorithm_intern_information</a><br>Deep Learning Interview 深度学习面试题目汇总 Github<br><a href="https://github.com/ShanghaiTechAIClub/DLInterview" target="_blank" rel="noopener">https://github.com/ShanghaiTechAIClub/DLInterview</a><br>深度学习面试要点总结(面试题) zhihu<br><a href="https://zhuanlan.zhihu.com/p/62935978" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62935978</a><br>自己整理的一点和深度学习相关的面试考点<br><a href="https://zhuanlan.zhihu.com/p/48374690" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/48374690</a></p>
+<h2 id="资料-1"><a href="#资料-1" class="headerlink" title="资料"></a>资料</h2><p>深度神经网络实战技巧 Blog<br><a href="https://bit.ly/2nJvQXj" target="_blank" rel="noopener">https://bit.ly/2nJvQXj</a><br>深度学习从入门到进阶的12个经典问题及解答 Blog<br><a href="https://bit.ly/2lBD0ML" target="_blank" rel="noopener">https://bit.ly/2lBD0ML</a><br>计算机视觉知识点总结 zhihu<br><a href="https://zhuanlan.zhihu.com/p/58776542" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/58776542</a><br>图解人工智能 Github<br><a href="https://okai.brown.edu/zh/index.html" target="_blank" rel="noopener">https://okai.brown.edu/zh/index.html</a><br>awesome-deep-learning Github<br><a href="https://github.com/ChristosChristofidis/awesome-deep-learning" target="_blank" rel="noopener">https://github.com/ChristosChristofidis/awesome-deep-learning</a><br>深度学习500问 Github<br><a href="https://github.com/scutan90/DeepLearning-500-questions" target="_blank" rel="noopener">https://github.com/scutan90/DeepLearning-500-questions</a><br>复旦大学邱锡鹏教授发布&lt;神经网络与深度学习&gt;<br>Github书<br><a href="https://github.com/nndl/nndl.github.io" target="_blank" rel="noopener">https://github.com/nndl/nndl.github.io</a><br>Github示例代码<br><a href="https://github.com/nndl/nndl-codes" target="_blank" rel="noopener">https://github.com/nndl/nndl-codes</a><br>Github课程练习<br><a href="https://github.com/nndl/exercise" target="_blank" rel="noopener">https://github.com/nndl/exercise</a><br>伯克利课程 &lt;动手学深度学习&gt;<br>Github <a href="https://github.com/d2l-ai/d2l-zh" target="_blank" rel="noopener">https://github.com/d2l-ai/d2l-zh</a><br>课程主页 <a href="http://courses.d2l.ai/berkeley-stat-157/" target="_blank" rel="noopener">http://courses.d2l.ai/berkeley-stat-157/</a><br>bilibili <a href="https://space.bilibili.com/209599371/channel/detail?cid=23541" target="_blank" rel="noopener">https://space.bilibili.com/209599371/channel/detail?cid=23541</a><br>课件和习题 <a href="https://github.com/d2l-ai/berkeley-stat-157" target="_blank" rel="noopener">https://github.com/d2l-ai/berkeley-stat-157</a><br>英文版 <a href="http://d2l.ai/" target="_blank" rel="noopener">http://d2l.ai/</a><br>中文版 <a href="http://zh.d2l.ai/" target="_blank" rel="noopener">http://zh.d2l.ai/</a><br>PyTorch 版 <a href="https://github.com/dsgiitr/d2l-pytorch" target="_blank" rel="noopener">https://github.com/dsgiitr/d2l-pytorch</a><br>&lt;深度学习理论与实战：提高篇&gt; Github<br><a href="http://fancyerii.github.io/2019/03/14/dl-book/" target="_blank" rel="noopener">http://fancyerii.github.io/2019/03/14/dl-book/</a><br>Awesome_Computer_Vision Github<br><a href="https://github.com/ahong007007/Awesome_Computer_Vision" target="_blank" rel="noopener">https://github.com/ahong007007/Awesome_Computer_Vision</a><br>Deep-Learning-Papers-Reading-Roadmap Github<br><a href="https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap" target="_blank" rel="noopener">https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap</a><br>神经网络讲解视频<br>YouTube <a href="https://youtu.be/aircAruvnKk?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank" rel="noopener">https://youtu.be/aircAruvnKk?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi</a><br>bilibili  <a href="http://space.bilibili.com/88461692/#/" target="_blank" rel="noopener">http://space.bilibili.com/88461692/#/</a><br>神经网络和深度学习的在线书籍<br>website <a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">http://neuralnetworksanddeeplearning.com/</a><br>chinese <a href="https://tigerneil.gitbooks.io/neural-networks-and-deep-learning-zh/content/" target="_blank" rel="noopener">https://tigerneil.gitbooks.io/neural-networks-and-deep-learning-zh/content/</a><br>花书 Deep Learning 中文版 Github<br><a href="https://github.com/exacity/deeplearningbook-chinese" target="_blank" rel="noopener">https://github.com/exacity/deeplearningbook-chinese</a><br>Open AI Blog website<br><a href="https://blog.openai.com/" target="_blank" rel="noopener">https://blog.openai.com/</a><br>Distill Blog website<br><a href="https://distill.pub/" target="_blank" rel="noopener">https://distill.pub/</a><br>BAIR 博客 website<br><a href="http://bair.berkeley.edu/blog/" target="_blank" rel="noopener">http://bair.berkeley.edu/blog/</a><br>DeepMind 博客 website<br><a href="https://deepmind.com/blog/?category=research" target="_blank" rel="noopener">https://deepmind.com/blog/?category=research</a><br>Andrej Karpathy的博客 website<br><a href="http://karpathy.github.io/" target="_blank" rel="noopener">http://karpathy.github.io/</a><br>Christopher Olah的博客 website<br><a href="http://colah.github.io/" target="_blank" rel="noopener">http://colah.github.io/</a><br>WildML Blog website<br><a href="http://www.wildml.com/" target="_blank" rel="noopener">http://www.wildml.com/</a><br>Ruder的博客 website<br><a href="http://ruder.io/" target="_blank" rel="noopener">http://ruder.io/</a><br>FAIR博客 website<br><a href="https://research.fb.com/blog/" target="_blank" rel="noopener">https://research.fb.com/blog/</a><br>inFERENCe Blog website<br><a href="http://www.inference.vc/" target="_blank" rel="noopener">http://www.inference.vc/</a><br>Andrew Trask的博客 website<br><a href="http://iamtrask.github.io/" target="_blank" rel="noopener">http://iamtrask.github.io/</a><br>Graduate Descent Blog website<br><a href="http://timvieira.github.io/blog/" target="_blank" rel="noopener">http://timvieira.github.io/blog/</a><br>Adit Deshpande的博客 website<br><a href="https://adeshpande3.github.io/" target="_blank" rel="noopener">https://adeshpande3.github.io/</a><br>ML/DL学习笔记（基础+论文） Github<br><a href="https://github.com/lartpang/Machine-Deep-Learning" target="_blank" rel="noopener">https://github.com/lartpang/Machine-Deep-Learning</a><br>深度神经网络中的一些模型 进行统一的图示 Github<br><a href="https://github.com/weslynn/AlphaTree-graphic-deep-neural-network" target="_blank" rel="noopener">https://github.com/weslynn/AlphaTree-graphic-deep-neural-network</a><br>five-days deep learning<br>website <a href="https://mlelarge.github.io/dataflowr-web/cea_edf_inria.html" target="_blank" rel="noopener">https://mlelarge.github.io/dataflowr-web/cea_edf_inria.html</a><br>Github <a href="https://github.com/mlelarge/dataflowr" target="_blank" rel="noopener">https://github.com/mlelarge/dataflowr</a><br>Learn_Computer_Vision Github<br><a href="https://github.com/llSourcell/Learn_Computer_Vision" target="_blank" rel="noopener">https://github.com/llSourcell/Learn_Computer_Vision</a><br>Explaining the Math of how neural networks learn Github<br><a href="https://github.com/omar-florez/scratch_mlp" target="_blank" rel="noopener">https://github.com/omar-florez/scratch_mlp</a><br>(微软) AI-神经网络基本原理简明教程 Github<br><a href="https://github.com/microsoft/ai-edu/tree/master/" target="_blank" rel="noopener">https://github.com/microsoft/ai-edu/tree/master/</a><br>深度学习手册 BaiduYun pw:dy6h<br><a href="https://pan.baidu.com/s/1ew3aVZizVkPVKUFx2AtDjw" target="_blank" rel="noopener">https://pan.baidu.com/s/1ew3aVZizVkPVKUFx2AtDjw</a><br>pw:dy6h<br>An educational resource to help anyone learn deep reinforcement learning Github<br><a href="https://github.com/openai/spinningup" target="_blank" rel="noopener">https://github.com/openai/spinningup</a><br>Technical Notes On Using Data Science &amp; Artificial Intelligence website<br><a href="https://chrisalbon.com/" target="_blank" rel="noopener">https://chrisalbon.com/</a></p>
+<h2 id="代码实战Pytorch"><a href="#代码实战Pytorch" class="headerlink" title="代码实战Pytorch"></a>代码实战Pytorch</h2><p>pytorch<br>Github <a href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener">https://github.com/pytorch/pytorch</a><br>Website <a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a><br>Offical pytorch examples Github<br><a href="https://github.com/pytorch/examples" target="_blank" rel="noopener">https://github.com/pytorch/examples</a><br>Offical pytorch tutorials Github<br><a href="https://github.com/pytorch/tutorials" target="_blank" rel="noopener">https://github.com/pytorch/tutorials</a><br>stanford-cs-230-deep-learning Github<br><a href="https://github.com/afshinea/stanford-cs-230-deep-learning" target="_blank" rel="noopener">https://github.com/afshinea/stanford-cs-230-deep-learning</a><br>practicalAI Github<br><a href="https://github.com/GokuMohandas/practicalAI" target="_blank" rel="noopener">https://github.com/GokuMohandas/practicalAI</a><br>PyTorch中文手册 Github<br><a href="https://github.com/zergtant/pytorch-handbook" target="_blank" rel="noopener">https://github.com/zergtant/pytorch-handbook</a><br>&lt;深度学习框架PyTorch：入门与实践&gt;的对应代码 Github<br><a href="https://github.com/chenyuntc/pytorch-book" target="_blank" rel="noopener">https://github.com/chenyuntc/pytorch-book</a><br>code-of-learn-deep-learning-with-pytorch Github<br><a href="https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch" target="_blank" rel="noopener">https://github.com/L1aoXingyu/code-of-learn-deep-learning-with-pytorch</a><br>Awesome-pytorch-list Github<br><a href="https://github.com/bharathgs/Awesome-pytorch-list" target="_blank" rel="noopener">https://github.com/bharathgs/Awesome-pytorch-list</a><br>&lt;Pytorch模型训练实用教程&gt;中配套代码 Github<br><a href="https://github.com/tensor-yu/PyTorch_Tutorial" target="_blank" rel="noopener">https://github.com/tensor-yu/PyTorch_Tutorial</a><br>An unofficial styleguide and best practices summary for PyTorch Github<br><a href="https://github.com/IgorSusmelj/pytorch-styleguide" target="_blank" rel="noopener">https://github.com/IgorSusmelj/pytorch-styleguide</a><br>fast.ai Computational Linear Algebra course Github<br><a href="https://github.com/fastai/numerical-linear-algebra" target="_blank" rel="noopener">https://github.com/fastai/numerical-linear-algebra</a><br>Awesome-PyTorch-Chinese Github<br><a href="https://github.com/INTERMT/Awesome-PyTorch-Chinese" target="_blank" rel="noopener">https://github.com/INTERMT/Awesome-PyTorch-Chinese</a><br>Build-an-AI-Startup-with-PyTorch Github<br><a href="https://github.com/llSourcell/Build-an-AI-Startup-with-PyTorch" target="_blank" rel="noopener">https://github.com/llSourcell/Build-an-AI-Startup-with-PyTorch</a></p>
+<h2 id="代码实战TensorFlow"><a href="#代码实战TensorFlow" class="headerlink" title="代码实战TensorFlow"></a>代码实战TensorFlow</h2><p>TensorFlow-From-Zero-To-One Github<br><a href="https://github.com/amusi/TensorFlow-From-Zero-To-One" target="_blank" rel="noopener">https://github.com/amusi/TensorFlow-From-Zero-To-One</a><br>tensorflow2中文教程 Github<br><a href="https://github.com/czy36mengfei/tensorflow2_tutorials_chinese" target="_blank" rel="noopener">https://github.com/czy36mengfei/tensorflow2_tutorials_chinese</a><br>Tensorflow2教程 Github<br><a href="https://zhuanlan.zhihu.com/c_1091021863043624960" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/c_1091021863043624960</a><br>Machine Learning and Deep Learning in Python using Scikit-Learn, Keras and TensorFlow 2 Github<br><a href="https://github.com/ageron/handson-ml2" target="_blank" rel="noopener">https://github.com/ageron/handson-ml2</a><br>TensorFlow 中文资源全集 Gitee<br><a href="https://gitee.com/fendouai/Awesome-TensorFlow-Chinese" target="_blank" rel="noopener">https://gitee.com/fendouai/Awesome-TensorFlow-Chinese</a><br>Notebooks for my “Deep Learning with TensorFlow 2 and Keras” course Github<br><a href="https://github.com/ageron/tf2_course" target="_blank" rel="noopener">https://github.com/ageron/tf2_course</a></p>
+<h2 id="网课"><a href="#网课" class="headerlink" title="网课"></a>网课</h2><p>斯坦福CS231n李飞飞计算机视觉 网易云课堂<br><a href="https://study.163.com/course/courseMain.htm?courseId=1003223001" target="_blank" rel="noopener">https://study.163.com/course/courseMain.htm?courseId=1003223001</a><br>统计机器学习 网易云课堂<br><a href="https://study.163.com/course/courseMain.htm?courseId=1692004" target="_blank" rel="noopener">https://study.163.com/course/courseMain.htm?courseId=1692004</a><br>机器学习导论 网易云课堂<br><a href="https://study.163.com/course/courseMain.htm?courseId=1694003" target="_blank" rel="noopener">https://study.163.com/course/courseMain.htm?courseId=1694003</a><br>吴恩达 深度学习工程师 网易云课堂<br><a href="https://mooc.study.163.com/smartSpec/detail/1001319001.htm" target="_blank" rel="noopener">https://mooc.study.163.com/smartSpec/detail/1001319001.htm</a><br>计算机视觉基础入门课程（从算法到实战应用） AI研习社<br><a href="http://www.mooc.ai/course/353" target="_blank" rel="noopener">http://www.mooc.ai/course/353</a><br>卡耐基梅隆大学 2018 秋季《深度学习导论》 AI研习社<br><a href="http://www.mooc.ai/course/562" target="_blank" rel="noopener">http://www.mooc.ai/course/562</a><br>CS224n 斯坦福深度自然语言处理课 AI研习社<br><a href="http://www.mooc.ai/course/494" target="_blank" rel="noopener">http://www.mooc.ai/course/494</a><br>2018 MIT 6.S094 麻省理工深度学习和自动驾驶课程 AI研习社<br><a href="http://www.mooc.ai/course/483" target="_blank" rel="noopener">http://www.mooc.ai/course/483</a><br>Deep Learning: Advanced Computer Vision udemy<br><a href="https://www.udemy.com/advanced-computer-vision/" target="_blank" rel="noopener">https://www.udemy.com/advanced-computer-vision/</a><br>Computer Vision Certification by State University of New York coursera<br><a href="https://www.coursera.org/specializations/computervision" target="_blank" rel="noopener">https://www.coursera.org/specializations/computervision</a><br>Convolutional Neural Networks coursera<br><a href="https://www.coursera.org/learn/convolutional-neural-networks" target="_blank" rel="noopener">https://www.coursera.org/learn/convolutional-neural-networks</a><br>Deep Learning and Computer Vision A-Z: OpenCV, SSD &amp; GANs udemy<br><a href="https://www.udemy.com/course/computer-vision-a-z/" target="_blank" rel="noopener">https://www.udemy.com/course/computer-vision-a-z/</a><br>吴恩达的深度学习专项系列课程(Deep Learning Specialization)<br>Coursera <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="noopener">https://www.coursera.org/specializations/deep-learning</a><br>163 <a href="https://mooc.study.163.com/smartSpec/detail/1001319001.htm/" target="_blank" rel="noopener">https://mooc.study.163.com/smartSpec/detail/1001319001.htm/</a><br>CS231n<br><a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">http://cs231n.stanford.edu/</a><br>CS224n<br><a href="http://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224n/</a><br>斯坦福公开课程：概率和统计’Probability and Statistics’ website<br><a href="https://online.stanford.edu/courses/gse-yprobstat-probability-and-statistics" target="_blank" rel="noopener">https://online.stanford.edu/courses/gse-yprobstat-probability-and-statistics</a><br>MIT公开课线性代数’Linear Algebra’ website<br><a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener">https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a><br>Fastai推出的2019年面向程序员的深度学习实战课程’Practical Deep Learning for Coders, v3’ website website<br><a href="https://course.fast.ai/" target="_blank" rel="noopener">https://course.fast.ai/</a><br><a href="https://www.bilibili.com/video/av41718196/" target="_blank" rel="noopener">https://www.bilibili.com/video/av41718196/</a><br>斯坦福机器学习课程’Machine Learning(Coursera)’ coursera<br><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">https://www.coursera.org/learn/machine-learning</a><br>斯坦福概率图模型专项课程’Probabilistic Graphical Models Specialization(Coursera)’ coursera<br><a href="https://www.coursera.org/specializations/probabilistic-graphical-models" target="_blank" rel="noopener">https://www.coursera.org/specializations/probabilistic-graphical-models</a><br>DeepMind强化学习导论课程’Introduction to Reinforcement Learning’<br>bilibili  <a href="https://www.bilibili.com/video/av24060851/" target="_blank" rel="noopener">https://www.bilibili.com/video/av24060851/</a><br>youtube <a href="https://www.youtube.com/playlist?list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ</a><br>全栈深度学习训练营(课程视频)：为熟悉深度学习基础知识的开发人员提供的实践指导课程’Full Stack Deep Learning Bootcamp’<br>Github  <a href="https://github.com/full-stack-deep-learning/fsdl-text-recognizer-project" target="_blank" rel="noopener">https://github.com/full-stack-deep-learning/fsdl-text-recognizer-project</a><br>bilibili  <a href="https://www.bilibili.com/video/av49643298" target="_blank" rel="noopener">https://www.bilibili.com/video/av49643298</a><br>website  <a href="https://fullstackdeeplearning.com/march2019" target="_blank" rel="noopener">https://fullstackdeeplearning.com/march2019</a><br>跟顶级Kagglers学习如何赢取数据科学竞赛’How to Win a Data Science Competition: Learn from Top Kagglers (Coursera)’ coursera<br><a href="https://www.coursera.org/learn/competitive-data-science" target="_blank" rel="noopener">https://www.coursera.org/learn/competitive-data-science</a><br>CS188伯克利&lt;人工智能导论&gt;课程’BerkeleyX: CS188.1x Artificial Intelligence’<br>bilibili <a href="https://www.bilibili.com/video/av39489278/" target="_blank" rel="noopener">https://www.bilibili.com/video/av39489278/</a><br>website <a href="https://inst.eecs.berkeley.edu/~cs188/fa18/" target="_blank" rel="noopener">https://inst.eecs.berkeley.edu/~cs188/fa18/</a><br>Fast.ai发布的课程：从零开始学深度学习’Deep Learning from the Foundations’ website<br><a href="https://www.fast.ai/2019/06/28/course-p2v3/" target="_blank" rel="noopener">https://www.fast.ai/2019/06/28/course-p2v3/</a><br>CS230斯坦福深度学习课程(2018 年秋)’CS230: Deep Learning | Autumn 2018’<br>bilibili <a href="https://www.bilibili.com/video/av47055599/" target="_blank" rel="noopener">https://www.bilibili.com/video/av47055599/</a><br>youtube <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb</a><br>deeplearning.ai上线的TensorFlow实践课程’TensorFlow in Practice’ website<br><a href="https://www.deeplearning.ai/tensorflow-in-practice/" target="_blank" rel="noopener">https://www.deeplearning.ai/tensorflow-in-practice/</a><br>MIT的Python机器学习课程’Machine Learning with Python-From Linear Models to Deep Learning’ website<br><a href="https://www.edx.org/course/machine-learning-with-python-from-linear-models-to-deep-learning" target="_blank" rel="noopener">https://www.edx.org/course/machine-learning-with-python-from-linear-models-to-deep-learning</a><br>斯坦福CS224U自然语言理解课程’CS224U：Natural Language Understanding’ website<br><a href="http://web.stanford.edu/class/cs224u/index.html" target="_blank" rel="noopener">http://web.stanford.edu/class/cs224u/index.html</a><br>陈蕴侬应用深度学习’107 Spring - Applied Deep Learning, Taiwan University’<br>bilibili <a href="https://www.bilibili.com/video/av46656764/" target="_blank" rel="noopener">https://www.bilibili.com/video/av46656764/</a><br>website <a href="https://www.csie.ntu.edu.tw/~miulab/s107-adl/" target="_blank" rel="noopener">https://www.csie.ntu.edu.tw/~miulab/s107-adl/</a><br>台大林轩田老师&lt;机器学习基石&gt;课程 bilibili<br><a href="https://www.bilibili.com/video/av12463015/" target="_blank" rel="noopener">https://www.bilibili.com/video/av12463015/</a><br>台大林轩田老师课程&lt;机器学习技法&gt;课程 bilibili<br><a href="https://www.bilibili.com/video/av12469267/" target="_blank" rel="noopener">https://www.bilibili.com/video/av12469267/</a><br>NTU大学李宏毅最新机器学习课程(2019) website<br><a href="http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html" target="_blank" rel="noopener">http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML19.html</a></p>
+<h2 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h2><p>C/C++面试基础知识总结 Github<br><a href="https://github.com/huihut/interview" target="_blank" rel="noopener">https://github.com/huihut/interview</a><br>常见C++笔试面试题整理 zhihu<br><a href="https://zhuanlan.zhihu.com/p/69999591" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/69999591</a><br>C/C++问题总结 Github<br><a href="https://github.com/linw7/Skill-Tree/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80C++.md" target="_blank" rel="noopener">https://github.com/linw7/Skill-Tree/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80C++.md</a><br>Leetcode 题解代码仓(C++) Github<br><a href="https://github.com/liuyubobobo/Play-Leetcode" target="_blank" rel="noopener">https://github.com/liuyubobobo/Play-Leetcode</a><br>LeetCode, HackRank, 剑指offer, classic algorithm implementation (C++) Github<br><a href="https://github.com/knightsj/awesome-algorithm-question-solution" target="_blank" rel="noopener">https://github.com/knightsj/awesome-algorithm-question-solution</a><br>Data Structure and Algorithm notes数据结构与算法/leetcode/lintcode题解 Github<br><a href="https://github.com/billryan/algorithm-exercise" target="_blank" rel="noopener">https://github.com/billryan/algorithm-exercise</a><br>learnOpencv Github<br><a href="https://github.com/spmallick/learnopencv" target="_blank" rel="noopener">https://github.com/spmallick/learnopencv</a><br>Solutions to Introduction to Algorithms Third Edition<br>Github <a href="https://github.com/walkccc/CLRS/" target="_blank" rel="noopener">https://github.com/walkccc/CLRS/</a><br>Blog <a href="https://walkccc.github.io/CLRS/" target="_blank" rel="noopener">https://walkccc.github.io/CLRS/</a><br>LeetCode动画 Github<br><a href="https://github.com/MisterBooo/LeetCodeAnimation" target="_blank" rel="noopener">https://github.com/MisterBooo/LeetCodeAnimation</a><br>leetcode题解，记录自己的leetcode解题之路 Github<br><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a><br>剑指offer第二版 BaiduYun<br><a href="https://pan.baidu.com/s/1wU-8q3Mqvr3x6Et8t77Chg" target="_blank" rel="noopener">https://pan.baidu.com/s/1wU-8q3Mqvr3x6Et8t77Chg</a><br>&lt;算法导论&gt;的C++实现代码 Github<br><a href="https://github.com/huaxz1986/cplusplus-_Implementation_Of_Introduction_to_Algorithms" target="_blank" rel="noopener">https://github.com/huaxz1986/cplusplus-_Implementation_Of_Introduction_to_Algorithms</a><br>数据结构和算法必知必会的50个代码实现 Github<br><a href="https://github.com/wangzheng0822/algo" target="_blank" rel="noopener">https://github.com/wangzheng0822/algo</a><br>Play Leetcode with different Programming language Github<br><a href="https://github.com/luliyucoordinate/Leetcode" target="_blank" rel="noopener">https://github.com/luliyucoordinate/Leetcode</a><br>leetcode Github<br><a href="https://github.com/azl397985856/leetcode" target="_blank" rel="noopener">https://github.com/azl397985856/leetcode</a><br>algorithm-visualizer Github<br><a href="https://github.com/algorithm-visualizer/algorithm-visualizer" target="_blank" rel="noopener">https://github.com/algorithm-visualizer/algorithm-visualizer</a><br>基于OpenCV4.0 C++/Python SDK的案例代码演示程序与效果图像 Github<br><a href="https://github.com/gloomyfish1998/opencv_tutorial" target="_blank" rel="noopener">https://github.com/gloomyfish1998/opencv_tutorial</a><br>LeetCode solutions in C++ 11 and Python3 Github<br><a href="https://github.com/pezy/LeetCode" target="_blank" rel="noopener">https://github.com/pezy/LeetCode</a></p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>关于Python的面试题1 Github<br><a href="https://github.com/taizilongxu/interview_python" target="_blank" rel="noopener">https://github.com/taizilongxu/interview_python</a><br>关于Python的面试题2 Github<br><a href="https://github.com/kenwoodjw/python_interview_question" target="_blank" rel="noopener">https://github.com/kenwoodjw/python_interview_question</a><br>LeetCode, HackRank, 剑指offer, classic algorithm implementation (Python) Github<br><a href="https://github.com/apachecn/awesome-algorithm" target="_blank" rel="noopener">https://github.com/apachecn/awesome-algorithm</a><br>剑指offer（python版）/ 算法图解 / python基础 / 数据结构 Github<br><a href="https://github.com/weixianglin/oh-my-python" target="_blank" rel="noopener">https://github.com/weixianglin/oh-my-python</a><br>算法面试题python Github<br><a href="https://github.com/leeguandong/Interview-code-practice-python" target="_blank" rel="noopener">https://github.com/leeguandong/Interview-code-practice-python</a><br>All Algorithms implemented in Python Github<br><a href="https://github.com/TheAlgorithms/Python" target="_blank" rel="noopener">https://github.com/TheAlgorithms/Python</a><br>Improve your Python by fixing errors Github<br><a href="https://github.com/qxf2/wtfiswronghere" target="_blank" rel="noopener">https://github.com/qxf2/wtfiswronghere</a><br>wtfpython的中文翻译 Github<br><a href="https://github.com/leisurelicht/wtfpython-cn" target="_blank" rel="noopener">https://github.com/leisurelicht/wtfpython-cn</a><br>python中文库-python人工智能大数据自动化接口测试开发。书籍下载及python库汇总 Github<br><a href="https://github.com/china-testing/python-api-tesing" target="_blank" rel="noopener">https://github.com/china-testing/python-api-tesing</a><br>Python面试都在这里了【315+道题】 Blog<br><a href="https://github.com/ethan-funny/explore-python" target="_blank" rel="noopener">https://github.com/ethan-funny/explore-python</a><br>The Beauty of Python Programming Github<br><a href="https://github.com/jackfrued/Python-100-Days" target="_blank" rel="noopener">https://github.com/jackfrued/Python-100-Days</a><br>Python - 100天从新手到大师 Github<br><a href="https://github.com/jackfrued/Python-100-Days" target="_blank" rel="noopener">https://github.com/jackfrued/Python-100-Days</a><br>在 Windows 上使用 Python 进行开发 Blog<br><a href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener">https://github.com/vinta/awesome-python</a><br>A curated list of awesome Python frameworks, libraries, software and resources Github<br><a href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener">https://github.com/vinta/awesome-python</a></p>
+<h2 id="竞赛-比赛"><a href="#竞赛-比赛" class="headerlink" title="竞赛/比赛"></a>竞赛/比赛</h2><p>kaggle数据科学竞赛<br><a href="https://tianchi.aliyun.com/competition/gameList/activeList" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/gameList/activeList</a><br>阿里云天池比赛<br><a href="https://challenger.ai/?lan=zh" target="_blank" rel="noopener">https://challenger.ai/?lan=zh</a><br>AI Challenger<br><a href="https://challenger.ai/?lan=zh" target="_blank" rel="noopener">https://challenger.ai/?lan=zh</a><br>和鲸HeyWhale/科赛AI竞赛平台<br><a href="https://www.kesci.com/home/competition" target="_blank" rel="noopener">https://www.kesci.com/home/competition</a><br>FlyAI竞赛平台<br><a href="https://aistudio.baidu.com/aistudio/#/competition" target="_blank" rel="noopener">https://aistudio.baidu.com/aistudio/#/competition</a><br>BaiduAI竞赛<br><a href="http://www.dcjingsai.com/static_page/cmpList.html" target="_blank" rel="noopener">http://www.dcjingsai.com/static_page/cmpList.html</a><br>DC竞赛<br><a href="http://www.dcjingsai.com/static_page/cmpList.html" target="_blank" rel="noopener">http://www.dcjingsai.com/static_page/cmpList.html</a><br>DataFountain竞赛<br><a href="https://signate.jp/competitions" target="_blank" rel="noopener">https://signate.jp/competitions</a><br>日本SIGNATE竞赛<br><a href="https://signate.jp/competitions" target="_blank" rel="noopener">https://signate.jp/competitions</a><br>Awesome-AI-competitions<br><a href="https://github.com/HuangCongQing/AI_competitions" target="_blank" rel="noopener">https://github.com/HuangCongQing/AI_competitions</a><br>Driven Data<br><a href="https://www.drivendata.org/competitions/" target="_blank" rel="noopener">https://www.drivendata.org/competitions/</a><br>CrowdANALYTIX<br><a href="https://www.innocentive.com/our-solvers/" target="_blank" rel="noopener">https://www.innocentive.com/our-solvers/</a><br>InnoCentive<br><a href="https://www.innocentive.com/our-solvers/" target="_blank" rel="noopener">https://www.innocentive.com/our-solvers/</a><br>TunedIT Challenges<br><a href="https://competitions.codalab.org/" target="_blank" rel="noopener">https://competitions.codalab.org/</a><br>CodaLab<br><a href="https://datahack.analyticsvidhya.com/?utm_source=main-logo" target="_blank" rel="noopener">https://datahack.analyticsvidhya.com/?utm_source=main-logo</a><br>Analytics Vidhya<br><a href="https://www.crowdai.org/challenges" target="_blank" rel="noopener">https://www.crowdai.org/challenges</a><br>crowdAI<br><a href="https://www.datasciencechallenge.org/" target="_blank" rel="noopener">https://www.datasciencechallenge.org/</a><br>Data Science Challenges<br><a href="https://www.datasciencechallenge.org/" target="_blank" rel="noopener">https://www.datasciencechallenge.org/</a><br>简历模板<br>Awesome Resume for Chinese Github<br><a href="https://github.com/amusi/AI-Job-Resume" target="_blank" rel="noopener">https://github.com/amusi/AI-Job-Resume</a><br>AI算法岗简历模板 Github<br><a href="https://github.com/amusi/AI-Job-Resume" target="_blank" rel="noopener">https://github.com/amusi/AI-Job-Resume</a><br>个人简历模板 Github<br><a href="https://github.com/ikym/resume" target="_blank" rel="noopener">https://github.com/ikym/resume</a></p>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>博士生在没有导师指导的情况下，该如何自己选题发 CVPR zhihu<br><a href="https://www.zhihu.com/question/64566768" target="_blank" rel="noopener">https://www.zhihu.com/question/64566768</a><br>专为程序员编写的英语学习指南 Github<br><a href="https://github.com/yujiangshui/A-Programmers-Guide-to-English" target="_blank" rel="noopener">https://github.com/yujiangshui/A-Programmers-Guide-to-English</a><br>awesome-interview-questions Github<br><a href="https://github.com/MaximAbramchuck/awesome-interview-questions" target="_blank" rel="noopener">https://github.com/MaximAbramchuck/awesome-interview-questions</a><br>Startups about artificial intelligence. (DM, ML, NLP, CV…) Github<br><a href="https://github.com/majikarp/awesome-programming-books#id-section2" target="_blank" rel="noopener">https://github.com/majikarp/awesome-programming-books#id-section2</a><br>Awesome Programming Books Github<br><a href="https://github.com/1c7/crash-course-computer-science-chinese" target="_blank" rel="noopener">https://github.com/1c7/crash-course-computer-science-chinese</a><br>计算机速成课(全40集) Github<br><a href="https://github.com/1c7/crash-course-computer-science-chinese" target="_blank" rel="noopener">https://github.com/1c7/crash-course-computer-science-chinese</a><br>清华大学计算机系课程攻略 Github<br><a href="https://github.com/PKUanonym/REKCARC-TSC-UHT" target="_blank" rel="noopener">https://github.com/PKUanonym/REKCARC-TSC-UHT</a><br>北京大学课程资料整理 Github<br><a href="https://github.com/USTC-Resource/USTC-Course" target="_blank" rel="noopener">https://github.com/USTC-Resource/USTC-Course</a><br>中国科学技术大学课程资源 Github<br><a href="https://github.com/USTC-Resource/USTC-Course" target="_blank" rel="noopener">https://github.com/USTC-Resource/USTC-Course</a><br>上海交通大学课程资料分享 Github<br><a href="https://github.com/QSCTech/zju-icicles" target="_blank" rel="noopener">https://github.com/QSCTech/zju-icicles</a><br>浙江大学课程攻略共享计划 Github<br><a href="https://github.com/24OI/OI-wiki" target="_blank" rel="noopener">https://github.com/24OI/OI-wiki</a><br>编程竞赛 OI Wiki Github<br><a href="https://github.com/jwasham/coding-interview-university" target="_blank" rel="noopener">https://github.com/jwasham/coding-interview-university</a><br>A complete computer science study plan to become a software engineer. Github<br><a href="https://github.com/dipakkr/A-to-Z-Resources-for-Students" target="_blank" rel="noopener">https://github.com/dipakkr/A-to-Z-Resources-for-Students</a><br>Curated list of resources for college students Github<br><a href="https://github.com/dipakkr/A-to-Z-Resources-for-Students" target="_blank" rel="noopener">https://github.com/dipakkr/A-to-Z-Resources-for-Students</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法工程师/" rel="tag"># 算法工程师</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/09/系统化的知识图谱学习路径/" rel="next" title="系统化的知识图谱学习路径">
+                <i class="fa fa-chevron-left"></i> 系统化的知识图谱学习路径
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/11/认知“内容、结构”与思维模型层次、多巴胺与前额叶/" rel="prev" title="认知“内容、结构”与思维模型层次、多巴胺与前额叶">
+                认知“内容、结构”与思维模型层次、多巴胺与前额叶 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">1.</span> <span class="nav-text">Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#牛客网"><span class="nav-number">2.</span> <span class="nav-text">牛客网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知乎"><span class="nav-number">3.</span> <span class="nav-text">知乎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人博客"><span class="nav-number">4.</span> <span class="nav-text">个人博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信公众号"><span class="nav-number">5.</span> <span class="nav-text">微信公众号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-number">7.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">8.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实战"><span class="nav-number">9.</span> <span class="nav-text">代码实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习"><span class="nav-number">10.</span> <span class="nav-text">深度学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料-1"><span class="nav-number">11.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实战Pytorch"><span class="nav-number">12.</span> <span class="nav-text">代码实战Pytorch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实战TensorFlow"><span class="nav-number">13.</span> <span class="nav-text">代码实战TensorFlow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网课"><span class="nav-number">14.</span> <span class="nav-text">网课</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C"><span class="nav-number">15.</span> <span class="nav-text">C/C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">16.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#竞赛-比赛"><span class="nav-number">17.</span> <span class="nav-text">竞赛/比赛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他-1"><span class="nav-number">18.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

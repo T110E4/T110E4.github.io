@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="[ 导读 ]大多数情况下，数据分析的过程必须包括数据探索的过程。数据探索可以有两个层面的理解：  一是仅利用一些工具，对数据的特征进行查看； 二是根据数据特征，感知数据价值，以决定是否需要对别的字段进行探索，或者决定如何加工这些字段以发挥数据分析的价值。字段的选取既需要技术手段的支撑，也需要数据分析者的经验和对解决问题的深入理解。">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析常用的18个概念">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/数据分析常用的18个概念/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="[ 导读 ]大多数情况下，数据分析的过程必须包括数据探索的过程。数据探索可以有两个层面的理解：  一是仅利用一些工具，对数据的特征进行查看； 二是根据数据特征，感知数据价值，以决定是否需要对别的字段进行探索，或者决定如何加工这些字段以发挥数据分析的价值。字段的选取既需要技术手段的支撑，也需要数据分析者的经验和对解决问题的深入理解。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rn8393jpj30hm0bqt9s.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnb9iffcj30sx04i3ye.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnbv8ol7j30e50ctdfp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnch7gwuj30jk059t8k.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rncxyikyj30e30aijrn.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rndoaexpj30u00jbdg4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rneir0qej30u008fwez.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rngspnd7j30u007smxg.jpg">
+<meta property="og:updated_time" content="2019-10-09T00:56:12.767Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析常用的18个概念">
+<meta name="twitter:description" content="[ 导读 ]大多数情况下，数据分析的过程必须包括数据探索的过程。数据探索可以有两个层面的理解：  一是仅利用一些工具，对数据的特征进行查看； 二是根据数据特征，感知数据价值，以决定是否需要对别的字段进行探索，或者决定如何加工这些字段以发挥数据分析的价值。字段的选取既需要技术手段的支撑，也需要数据分析者的经验和对解决问题的深入理解。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rn8393jpj30hm0bqt9s.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/数据分析常用的18个概念/">
+
+
+
+
+
+  <title>数据分析常用的18个概念 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/数据分析常用的18个概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据分析常用的18个概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T08:24:39+08:00">
+                2019-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[ 导读 ]大多数情况下，数据分析的过程必须包括数据探索的过程。数据探索可以有两个层面的理解：</p>
+<ul>
+<li>一是仅利用一些工具，对数据的特征进行查看；</li>
+<li>二是根据数据特征，感知数据价值，以决定是否需要对别的字段进行探索，或者决定如何加工这些字段以发挥数据分析的价值。字段的选取既需要技术手段的支撑，也需要数据分析者的经验和对解决问题的深入理解。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rn8393jpj30hm0bqt9s.jpg" alt="undefined"><a id="more"></a>
+<h2 id="01-数值类型"><a href="#01-数值类型" class="headerlink" title="01 数值类型"></a>01 数值类型</h2>在进行数据分析时，往往需要明确每个字段的数据类型。数据类型代表了数据的业务含义，分为3个类型：</li>
+</ul>
+<ol>
+<li>区间型数据（Interval）<br>数值型数据的取值都是数值类型，其大小代表了对象的状态。比如，年收入的取值，其大小代表了其收入状态。</li>
+<li>分类型数据（Categorical）<br>分类型数据的每一个取值都代表了一个类别，如性别，两个取值代表了两个群体。</li>
+<li>序数型数据（Ordinal）<br>和分类型数据非常相似，每个取值代表了不同的类别。但是，序数型的数据还有另外一层含义就是每个取值是有大小之分的。比如，如果将年收入划分为3个档次：高、中、低，则不同的取值既有类别之分，也有大小之分。<br>如果不了解字段的实际业务含义，数据分析人员可能会出现数据类型判断失误。比如字段的取值为“1”“2”“3”等，并不意味着是一个数值类型，它的业务含义还可以是一个分类型的字段，“1”“2”“3”分别代表了一个类别，其大小没有任何含义。所以，充分了解字段的含义是很重要的。<br>很多的数据分析工具会根据数据中的字段的实际取值，做出类型的自动判断：如字符型的数据，一般都认定为分类型数据；如某个字段的所有取值只有“1”“2”“3”，则判断其为分类型变量，然后经过用户的再次判断，其很可能是序数型变量。<br>不同的数据类型，在算法进行模型训练时，处理和对待的方式是不同的。区间型数据是直接进行计算的；分类型数据是先将其转换为稀疏矩阵：每一个类别是一个新的字段，然后根据其取值“1”“0”进行计算。<br>在很多场景下，人们习惯将分类型数据和序数型数据统称为分类型数据，即数据类型可以是两个：数值型数据（区间型数据）和分类型数据（分类型数据和序数型数据）。<h2 id="02-连续型数据的探索"><a href="#02-连续型数据的探索" class="headerlink" title="02 连续型数据的探索"></a>02 连续型数据的探索</h2></li>
+<li>缺失值<br>取值为空的值即为缺失值。缺失值比例是确定该字段是否可用的重要指标。一般情况下，如果缺失率超过50%，则该字段就完全不可用。<br>在很多情况下，我们需要区别对待null和0的关系。Null为缺失值，0是有效值。这个区别很重要，要小心区别对待。例如，某客户在银行内的某账户余额为null，意味着该客户可能没有该账户。但是如果将null改为0，则是说用户有该账户，且账户余额为零。</li>
+<li>均值（Mean）<br>顾名思义，均值即平均值。其大小反映了整体的水平。一个数学平均成绩是95分的班级，肯定比平均成绩是80分的班级的数学能力要好。</li>
+<li>最大值和最小值<br>最大值和最小值即每个数据集中的最大数和最小数。</li>
+<li>方差<br>方差反映各个取值距平均值的离散程度。虽然有时两组数据的平均值大小可能是相同的，但是各个观察量的离散程度却很少能相同。方差取值越大，说明离散程度越大。比如，平均成绩是80分的班级，其方差很小，说明这个班级的数学能力比较平均：没有多少过高的成绩，也没有多少过低的成绩。</li>
+<li>标准差<br>标准差是方差的开方，其含义与方差类似。</li>
+<li>中位数（Median）<br>中位数是将排序后的数据集分为两个数据集，这两个数据集分别是取值高的数据集和取值低的数据集。比如，数据集{3,4,5,7,8}的中位数是5，在5之下和5之上分别是取值低和取值高的数据集。数据集{2,4,5,7}的中位数应当是(4 + 5)/2=4.5。</li>
+<li>众数（Mode）<br>众数是数据集中出现频率最高的数据。众数最常用的场景是分类型数据的统计，但是其也反映了数值型数据的“明显集中趋势点的数值”。<br>均值、中位数、众数的计算方式各有不同，假设有一组数据：<br>1,2,2,3,4,7,9<br>均值：(1 + 2 + 2 + 3 + 4 + 7 + 9)/7=4<br>中位数：3<br>众数：2</li>
+<li>四分位数（Quartile）<br>四分位数，即用三个序号将已经排序过的数据等分为四份，如表2-2所示。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnb9iffcj30sx04i3ye.jpg" alt="undefined"><br>表2-2 四分位的例子<br>第二四分位数（Q2）的取值和中位数的取值是相同的。</li>
+<li>四分位距（Interquartile Range，IQR）<br>四分位距通过第三四分位数和第一四分位数的差值来计算，即IQR=Q3-Q1。针对上表，其IQR=61-34=27。<br>四分位距是进行离群值判别的一个重要统计指标。一般情况下，极端值都在Q1-1.5×IQR之下，或者Q3 + 1.5×IQR之上。著名的箱形图就是借助四分位数和四分位距的概念来画的，如图2-1所示。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnbv8ol7j30e50ctdfp.jpg" alt="undefined"><br>图2-1 箱形图及IQR<br>箱形图中的上下两条横线，有可能是离群值分界点（Q3 + 1.5×IQR或Q1-1.5×IQR），也有可能是最大值或最小值。这完全取决于最大值和最小值是否在分界点之内。</li>
+<li>偏斜度（Skewness）<br>偏斜度是关于表现数据分布的对称性的指标。如果其值是0，则代表一个对称性的分布；若其值是正值，代表分布的峰值偏左；若其值是负值，代表分布的峰值偏右。在图2-2中给出了偏斜度的示例。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rnch7gwuj30jk059t8k.jpg" alt="undefined"><br>图2-2 Skewness的含义<br>Skewness的绝对值（不论是正值还是负值）如果大于1是个很明显的信号，你的数据分布有明显的不对称性。很多数据分析的算法都是基于数据的分布是类似于正态分布的钟型分布，并且数据都是在均值的周围分布。如果Skewness的绝对值过大，则是另一个信号：你要小心地使用那些算法！<br>不同的偏斜度下，均值、中位数、众数的取值是有很大不同的：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rncxyikyj30e30aijrn.jpg" alt="undefined"><br>图2-3 众数、均值及中位数在不同分布下的比较<br>由图2-3可见，在数据取值范围相同的情况下，中位数是相同的。但是均值和众数却有很大的不同。所以，除了偏斜度指标可以直接反映分布特征外，还可以通过中位数和均值的差异来判断分布的偏斜情况。</li>
+</ol>
+<ul>
+<li>中位数＜均值：偏左分布</li>
+<li>中位数、均值相差无几：对称分布</li>
+<li>中位数＞均值：偏右分布</li>
+</ul>
+<ol start="14">
+<li>峰态（Kurtosis）<br>标准正态分布的峰态的值是3，但是在很多数据分析工具中对峰态值减去3，使得：0代表是正态分布；正值代表数据分布有个尖尖的峰值，高于正态分布的峰值；负值代表数据有个平缓的峰值，且低于正态分布的峰值。<br>峰态指标的主要作用是体现数值分布的尾巴厚度，尖峰对应着厚尾，即Kurtosis大于0时，意味着有一个厚尾巴。尖峰厚尾也就是说，在峰值附近取值较集中，但在非峰值附近取值较分散。图2-4所示为一个峰态的例子。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rndoaexpj30u00jbdg4.jpg" alt="undefined"><br>在连续型数据的探索中，需要重点关注的指标首先是缺失率，然后是均值、中位数等指标，这些指标能帮助数据分析者对数据的特征有很好的了解。偏斜度是另外一个非常重要的指标，但其绝对值接近1或大于1时，必须对其进行log转换才能使用，否则该指标的价值将大打折扣。<br>Python Pandas中DataFrame的describe方法默认只统计连续性字段的最大值、最小值、均值、标准差、四分位数，如果想获取其他的特征值，需要调用相应的函数来获得。下面是一段示例代码，其运行结果通过表2-4来展示。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List_of_series = [bank.var().rename(<span class="string">'方差'</span>),</span><br><span class="line">                  bank.median().rename(<span class="string">'中位数'</span>),</span><br><span class="line">                  bank.skew().rename(<span class="string">'偏斜度'</span>),</span><br><span class="line">                  bank.kurt().rename(<span class="string">'峰态'</span>)]</span><br><span class="line">df = pd.DataFrame(list_of_series)</span><br><span class="line">mode = bank.mode(numeric_only＝<span class="literal">True</span>).rename(&#123;<span class="number">0</span>: <span class="string">'众数'</span>&#125;)</span><br><span class="line">pd.concat([df, mode])</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rneir0qej30u008fwez.jpg" alt="undefined"><br>▲表2-4 连续型变量数据探索示例代码的运行结果<br>分类型数据的探索主要是从分类的分布等方面进行考察。常见的统计指标有以下几个：</p>
+<ol start="15">
+<li>缺失值<br>缺失值永远是需要关心的指标，不论是连续型数据，还是分类型数据。过多的缺失值，会使得指标失去意义。</li>
+<li>类别个数<br>依据分类型数据中类别的个数，可以对指标是否可用有一个大致的判断。例如，从业务角度来看，某指标应当有6个类别，但实际样本中只出现了5个类别，则需要重新考虑样本的质量。再如，某个分类型变量只有一个类别时，对数据分析是完全不可用的。</li>
+<li>类别中个体数量<br>在大多数情况下，如果某些类别中个体数量太少，如只有1%的比例，可以认为该类别是个离群值。关于分类型变量离群值的研究比较多，但是如果脱离业务来谈分类型变量的离群值，是不妥当的。<br>不平衡数据就是一个典型的与业务有关的例子。比如，从业务角度来看，购买黄金的客户只占银行全量客户的很小的一个部分，如果采取简单随机抽样的方式，“是否购买”列的值将只有极少的“是”的取值。<br>但是，不能将“是”直接判断为离群值，反而“是”有极其重要的业务含义。所以，数据分析者需要灵活地认识和对待类别中个体数量的问题。</li>
+<li>众数<br>和连续型数据的含义一样，众数是数据集中出现频率最高的数据。比如，针对某个分类型取值A、B、C、D中C的出现次数最多，则C就是众数。<br>以下是一段分类型变量数据探索示例代码，其运行结果通过表2-5来展示。<br>bank.describe(include=[np.object])<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g7rngspnd7j30u007smxg.jpg" alt="undefined"><br>表2-5 分类型变量数据探索示例代码的运行结果<br>应用Python Pandas的相关函数能够非常容易得到分类型变量的探索结果，表2-5所示就是数据探索示例代码的运行结果。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/16/深度强化学习在教育数据挖掘领域的应用/" rel="next" title="深度强化学习在教育数据挖掘领域的应用">
+                <i class="fa fa-chevron-left"></i> 深度强化学习在教育数据挖掘领域的应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/07/芬兰教育成功的七个关键/" rel="prev" title="芬兰教育成功的七个关键">
+                芬兰教育成功的七个关键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-数值类型"><span class="nav-number">1.</span> <span class="nav-text">01 数值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-连续型数据的探索"><span class="nav-number">2.</span> <span class="nav-text">02 连续型数据的探索</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

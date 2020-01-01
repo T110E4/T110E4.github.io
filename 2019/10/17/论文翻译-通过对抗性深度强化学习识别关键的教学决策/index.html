@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习资源推荐,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="原文：Identifying Critical Pedagogical Decisions through Adversarial Deep Reinforcement Learning">
+<meta name="keywords" content="学习资源推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文翻译-通过对抗性深度强化学习识别关键的教学决策">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/论文翻译-通过对抗性深度强化学习识别关键的教学决策/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="原文：Identifying Critical Pedagogical Decisions through Adversarial Deep Reinforcement Learning">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-17T06:03:21.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文翻译-通过对抗性深度强化学习识别关键的教学决策">
+<meta name="twitter:description" content="原文：Identifying Critical Pedagogical Decisions through Adversarial Deep Reinforcement Learning">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/论文翻译-通过对抗性深度强化学习识别关键的教学决策/">
+
+
+
+
+
+  <title>论文翻译-通过对抗性深度强化学习识别关键的教学决策 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/论文翻译-通过对抗性深度强化学习识别关键的教学决策/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文翻译-通过对抗性深度强化学习识别关键的教学决策</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T08:35:07+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">论文翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文：Identifying Critical Pedagogical Decisions through Adversarial Deep Reinforcement Learning</p>
+<a id="more"></a>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&emsp;&emsp;对于许多形式的电子学习环境，系统的行为可以看作是一个顺序决策过程，其中，在每个离散步骤中，如果有多个可用步骤，系统负责决定下一个系统动作。这些系统决策中的每一个都会影响用户的成功操作和性能，其中某些决策比其他决策更为重要。因此，这就提出了一个开放的问题：我们如何才能确定与学生从较长的决策轨迹中学习相关的关键系统交互决策？在这项工作中，我们提出并评估了关键强化学习（Critical-RL），这是一种基于对抗性深度强化学习（ADRL）的框架，用于识别关键决策并诱发紧凑而有效的政策。具体而言，它基于深度Q网络（DQN）引入了一对具有相反目标的对抗策略：一个是改善学生的学习，另一个是阻碍；通过比较两种对抗策略并使用其相应的Q值差异来确定关键决策;最后，通过对关键决策采取最佳行动，而对其他决策则采取随机但合理的决策，来引发关键政策。我们针对随机但合理的（随机）政策评估了关键政策的有效性。虽然两种情况之间没有发现显着差异，但这可能是因为样本量较小。令我们惊讶的是，我们发现学生通常会经历所谓的关键阶段：一系列连续的关键决策，并且动作相同。根据他们经历的关键阶段的数量将学生进一步分为高与低。我们的结果表明，虽然两个低组之间没有发现显着差异，但高关键组的学习明显多于高随机组。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>&emsp;&emsp;智能导师系统（ITS）是一种高度互动的电子学习环境，它通过向个别学生提供情境反馈和逐步支持来促进学习[4，14]。 这些循序渐进的行为可以看作是顺序决策过程，其中系统在每个步骤中从一组选项中选择一个动作（例如，给出提示，显示示例）。 在补习期间，系统会做出一系列决定以提供适应性指令，其中一些决定可能比其他决定更重要和更具影响力。 这就提出了一个主要的开放性问题：我们如何确定与学生学习相关的关键系统交互决策，尤其是在较长的决策过程中？ 例如，在我们的ITS中，导师在培训过程中会做出400多个顺序决策。<br>&emsp;&emsp;强化学习（RL）为数据驱动的决策应用程序提供了最有前途的方法之一，并且RL算法旨在诱导有效的策略，这些策略确定代理在任何给定情况下采取的最佳措施，从而最大化一些预定义的累积奖励。许多研究人员已经研究了现有RL算法的应用，以提高ITS的有效性[2，13，12，3]。但是，分析，解释和解释由RL引起的政策的工作相对较少。传统的假设驱动的因果方法提供了清晰的概念和因果关系的见解，可以评估和解释，而RL诱导的政策通常庞大，笨拙且难以理解。在这项工作中，我们建议通过利用域的结构和通过利用国家特征之间的条件独立关系来引入政策的结构来诱导突出关键或关键决策的紧凑型RL政策。<br>我们提出了Critical-RL，这是一种基于对抗性深度强化学习（ADRL）的框架，目的是引入制定关键决策的紧凑型政策。 通过推断关键的决定，我们可以确定哪些辅导员动作对于辅导过程有效是最基本的必要，这对系统研究具有重大意义。 此外，关键关系的推断是科学的中心任务之一，并且是许多学科中最具挑战性的主题之一，尤其是在受控实验相对昂贵或什至不可能的领域。 在这项工作中，我们提出了一个通用框架，该框架在ITS环境中完全集成了自动批判推理和标准强化学习。 我们希望我们的框架可以扩展到其他类似领域来完成相关的关键任务。<br>&emsp;&emsp;先前的工作已经应用了多种RL方法来引入教学策略，以提高ITS的有效性[1、6、15、10]。例如，贝克等。 [1]在模拟学生身上应用了时差学习以诱导策略，这将最大限度地减少学生在任务上的时间。结果表明，与非政策组相比，政策组的确确实花费了更少的时间。沉等。 [13]应用MDP引入了旨在提高学生学习成绩的教学政策。结果表明，对于某些学习者而言，诱导策略比随机基线策略明显更有效。 Mandel等。 [6]应用了基于POMDP的方法来引发旨在提高学生学习成果的教学策略。然后将RL诱导的策略与专家策略和随机基准策略进行比较。结果表明，RL诱导的政策明显优于其他两项。Wang等[15]在模拟学生身上应用了多种深度RL方法，以引入教学策略，从而提高教育游戏中学生的正常学习水平。仿真结果表明，深度RL策略比基于线性模型的RL策略更有效<br>&emsp;&emsp;总而言之，先前的研究表明，与基线政策相比，RL诱导政策可以改善学生的学习/行为。 但是，先前的工作主要集中于从预先收集的数据或模拟的学生中得出有效的策略，但是投入了相对较少的精力来确定使它们有效的确切部分。<br>2.2深度强化学习（DRL）<br>&emsp;&emsp;深度学习的最新进展使RL可以在复杂的交互式环境中工作，而这在以前通常是不切实际的。 最近的研究表明，RL可以为各种任务（例如游戏[8，9]，机器人控制[5，19]，推荐生成[17，16]和ITS控制[15，10]）引入有效的策略。 但是，所有最先进的RL算法都致力于诱导有效的策略。 他们都没有考虑对RL诱导政策的关键决策进行解释，解释和识别。<br>利用Q值差异<br>&emsp;&emsp;一些先前的工作已经利用动作之间的Q值差异来简化决策过程/问题。例如，Mitchell等人。 [7]依靠Q值差来选择RL的特征。他们提出了一种基于Q值差异的策略评估指标，然后用于指导RL的特征选择。周等。 [18]依靠Q值差来减少政策空间。更具体地说，他们将加权决策树与后修剪结合使用，从全套3706条规则中提取出一组紧凑的529条规则。在提取过程中，每个规则都由两个替代操作之间的Q值差加权，从而增加了更重要决策的执行可能性。结果表明，完整的RL策略和紧凑的DT策略相比随机策略更有效，并且完整的RL策略和紧凑的DT策略之间没有显着差异。总而言之，先前的研究已经使用Q值差异来衡量行动的重要性结果表明，这是一种有效的措施。但是，先前的工作使用Q值差来减小特征空间或策略空间，但是我们使用它来减小决策空间<br>3。方法<br>3.1对抗强化学习<br>&emsp;&emsp;​对抗强化学习（ARL）是一类RL，可以诱导一对针对相反目标的策略。在我们的应用中，原始策略是使用原始奖励来诱导的，而反向策略是使用反向奖励来诱导的，这是原始策略的负值。奖励。我们希望这两项政策具有相反的目标，一个旨在帮助学生学习，而另一个则阻碍他们学习。<br>3.2深度Q网络（DQN）<br>&emsp;&emsp;深度Q网络（DQN）是一种RL算法，使用深度神经网络来近似Q值函数。神经网络将状态表示为输入，将其表示为数值向量，并输出所有可能动作的Q值估计值。在训练期间，神经网络将按照下面所示的Bellman方程递归更新，直到收敛为止。Qi+ 1（s; a）= Es0〜“ [r +γmaxa0Qi（s0; a0）js; a]（1）其中γ为a贴现因子“”是环境，而qi是第i次迭代时的作用值函数。 DQN是一种无模型的方法，它专注于从与环境的交互中估计作用值函数，而无需构建环境模型。此外，这是一种非政策方法，它是基于由DQN生成的历史数据来引入新政策的替代行为政策。<br>3.3识别关键决策<br>&emsp;&emsp;一旦制定了对抗策略，就可以根据以下两个规则来确定关键决策：1）给定状态，两个策略做出相反的决策； 2）决策对于两个策略都是重要的。对于给定状态，首先测试一个规则。如果两个策略做出相同的决定，那不是关键。否则，将对ruletwo进行测试。为了衡量决策对每个策略的重要性，我们计算了两个替代操作之间的绝对Q值差：ΔQ∗（s）= jQ ∗（s; a1）-Q ∗（s; a2）j。如果此差异大于阈值，则该决定对于相应的策略而言很重要。在本文中，我们将阈值设置为训练数据集中所有决策的中值Q值差。<br>3.4关键政策归纳<br>&emsp;&emsp;在补习中，我们的ITS以相同的顺序为学生提供相同的12个问题。其中，第一和第八个问题被固定为解决问题的方法，要求学生解决所有步骤。对于其余的10个问题，策略决定是从学生那里引发下一步，还是直接向学生展示如何解决下一步。因此，我们提出了10对对抗策略，每个策略都有一个问题。每对对抗策略都包含两个策略：原始策略和反向策略。原始策略是使用原始奖励来诱导的，而反向策略是使用反向奖励来诱导的。除了奖励之外，数据的所有其他部分都是相同的，例如状态表示和过渡样本。为了找到最佳策略，针对每个问题，我们实现了两种不同类型的神经网络：递归神经网络（RNN）和长短路（Long Short）术语记忆（LSTM），以诱导对抗性策略。然后使用每决策重要性抽样（PDIS）[11]评估策略，并选择更好的策略。一旦制定了对抗性政策，就可以根据第3.3节中提到的两个规则来确定一个决定是否是关键的，或者是在补习过程中不是关键。最后，关键的政策是部分执行的，如果决定是关键的，则将执行。否则，将随机做出决定。更具体地，对于给定的状态，查询对抗策略以确定该决定是否关键。如果是这样，将按照原始政策做出决定；否则，将采取随机决策。</p>
+<h2 id="4-实验设置"><a href="#4-实验设置" class="headerlink" title="4 实验设置"></a>4 实验设置</h2><p>&emsp;&emsp;为了评估临界RL诱导的策略，我们进行了课堂研究，比较了临界策略和随机策略。这项研究的参与者是2018年秋季在北卡罗来纳州立大学计算机科学系攻读离散数学课程的本科学生。在这项研究中，所有学生都必须完成4个阶段：1）预培训，2）预测试，3）比利牛斯族导师培训以及4）后测试。比利牛斯山脉（Pyrenees tutoris）是一个基于网络的概率ITS，涵盖了10个主要的概率原理，例如补全理论贝叶斯规则。在实验过程中，两个条件下的所有学生都学习了相同的材料，在测试前接受了相同的问题，在相同的家庭教师中接受了培训，在测试后检验了相同的问题。唯一的不同是导师使用的政策。在本研究中，随机将120名学生分配给关键条件和随机条件。由于准备期末考试和学习时间长，有96名学生完成了研究。 3名在预测试中表现良好的学生被排除在我们随后的统计分析之外。最终的小组人数为：N = 50（严重）和N = 43（随机）。我们对学生的状况和他们的完成率之间的关系进行了卡方检验，发现两个条件之间没有显着差异：χ2（1）= 2:55，p = 0:11。<br>&emsp;&emsp;表1列出了Crucial和Random条件下测验分数，学习增益（LG）和总训练时间的平均值和标准差（SD）。对比比较分析显示，这三个条件在这三个条件下都没有显着差异。请注意，尽管学习条件上的临界条件优于随机条件（0.05 vs. 0.03），但这种差异并不显着（p = 0.50）。可能的原因之一是小组人数不足以表明其重要性。事后功效分析表明，需要1544名学生的总样本才能在小影响（d = .14）上以05检出显着性，而使用对比则具有80％的功效。表1：临界vs随机<br>测量临界随机P值<br>发布0.71（0.19）0.71（0.20）0:91<br>LG 0.05（0.18）0.03（0.14）0:50<br>时间121.6（37.7）116.3（30.47）0:46<br>&emsp;&emsp;由于关键策略是部分执行的，只有遵循最佳策略才能做出关键决策，因此我们对关键决策的数量与学生学习之间的关系进行了检查。通过分析学生系统的交互日志，我们发现关键决策总是成组出现，而每组连续的关键决策具有相同的动作，这与现有的学习理论是一致的，即学习过程是一个连续的过程。学生可以在几个步骤中保持相同的学习状态，但是这种连续的学习状态很难用当前的特征来表示。换句话说，在相同的学习状态下，代理将连续地对学生给予相同的动作，直到他进入下一个学习状态为止。因此，我们将关键阶段定义为根据关键策略执行相同动作的连续关键决策执行的周期。为了分析关键阶段的影响，我们将学生按关键阶段数量的中位数划分为高组和低组有经验的。对于随机条件，由于决策的执行部分与关键策略一致，因此我们忽略了实际决策，仅关注关键策略的决策。因此，根据关键阶段的数量和策略，我们分为四个组：高随机性（n = 20），低随机性（n = 23），高关键（n = 27），低关键（n = 23）。双向方差分析使用策略fCritical，Randomg和关键阶段fHigh，Lowg作为两个因素，并以学生的学习增益作为依存量，显示出显着的交互作用F（1; 89）= 7：163; p = 0：009。随后的对比分析显示，高关键组（M = 0：098; SD = 0：2）明显优于高随机组（M = -0：011; SD = 0:16）：t（89）= 2 ：360; p = 0:02。然而，低关键组（M = 0：001; SD = 0:13）和低随机组（M = 0：067; SD = 0:12）之间的差异并不显着：t（89）= 1 ：42; p = 0:16。就任务执行时间而言，对条件和临界相数进行双向ANOVA分析表明，对临界相数有主要影响：F（1; 89）= 5：579; p = 0：020，因为高组（M = 127：51; SD = 36:34）比低组（M = 110：56; SD = 30:51）花费更多的时间。结果表明，经历了关键阶段的学生更有可能将更多的时间花费在任务上。<br>&emsp;&emsp;在这项研究中，我们提出了Critical-RL，以识别ITS中的关键教学决策。基于ADRL框架，我们引入了关键策略，该策略可以对关键决策点提供最佳操作，但可以随机选择其他策略上的操作。我们在针对真实学生的课堂研究中，将关键策略与基线随机策略进行了经验比较。尽管这两个条件之间没有显着差异，但我们发现关键阶段的存在，即关键决策连续执行的顺序相同。然后我们根据学生经历的关键阶段的数量将他们分为高组和低组。结果显示，虽然两个低组对教学策略不敏感，但高关键组的表现明显好于高随机组。这表明对于某些学生来说，关键策略比随机策略有效得多。将来，我们计划分析关键和非关键阶段状态之间的差异。通过分析临界状态，我们希望使临界决策与现有的学习理论保持一致，并将我们的方法进一步推广到其他领域。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习资源推荐/" rel="tag"># 学习资源推荐</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/16/论文翻译-基于时变需求模型的智能学习对象推荐/" rel="next" title="论文翻译-基于时变需求模型的智能学习对象推荐">
+                <i class="fa fa-chevron-left"></i> 论文翻译-基于时变需求模型的智能学习对象推荐
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/17/论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐/" rel="prev" title="论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+                论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-实验设置"><span class="nav-number">3.</span> <span class="nav-text">4 实验设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ML & DL,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="数学1.列举常用的最优化方法梯度下降法,牛顿法，拟牛顿法,坐标下降法,梯度下降法的改进型如AdaDelta，AdaGrad，Adam，NAG等。">
+<meta name="keywords" content="ML &amp; DL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习与深度学习核心知识点总结">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/机器学习与深度学习核心知识点总结/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="数学1.列举常用的最优化方法梯度下降法,牛顿法，拟牛顿法,坐标下降法,梯度下降法的改进型如AdaDelta，AdaGrad，Adam，NAG等。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dal3xs9j30fu02kjr7.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dc7klr6j30es02uq2q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dcglha4j309w02amwx.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ddh3jg4j30fq05kwec.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ddrsbimj30r6040745.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84de2fpd7j30ga07aglh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dhz92glj30hg08emx3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dicbfybj30u0047dfr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dq4d3pzj30la038wec.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dyy2af5j30iw07gjrb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dz79zo4j30u003wq2v.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e08w2tcj30cu0gk749.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e0o2e8cj307y02i3ya.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e0xiit1j307y02ogle.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e15tr7dj30ck03cwea.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5dbps6j308u028jr5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5m0rk1j30cg02cdfm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5utiqvj30c802ejr5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e63lojtj30di04gt8i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e6dgkh8j30bm044wea.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e6m90myj309a04et8h.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ew5ugonj30f8052q2r.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewkt2cjj30ew04mglf.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewsa6b9j30u004xwee.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewwmtg1j30ek04m3yc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84eyupwf1j308001udfl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ezx7rk8j30oo038mx1.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0jlevqj30h402w3yc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0tdhavj30j40560sm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0ybkt8j30j402s3yd.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f132cbpj30s004kjra.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f1vou7ij30hk072glh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f1zsow7j308q01y741.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f39582vj30j00583yc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3dxnzij30c003mwea.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3rj58wj30m20n43z8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3zhj63j30m603o0sm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f4wqsptj30la062q2s.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f5331e1j30ik04aa9w.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f59vvysj30dy05cjr8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f5s8djuj30nq09gq2u.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f61lkwjj30no04wwec.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f6i78r7j30lq05ya9z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f69542tj30b602m3ya.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f6pcauij30b602mq2q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7aizjpj30gy06eq2t.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7m6xlwj30u005zaa0.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7s45c8j30hi03gjr7.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7y3dq5j30b402wwe9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f8naey4j30iq0a8t8p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f8twmcbj30s00cwaa3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f90fsukj30u00dg0sr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9a6kkjj30l405cwed.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9skhjij30ic04s3yc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9ylg3ej30u004ejrb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fa45u1ij30u005e3ye.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84facn5udj30sy04wglj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84faium4uj30c203it8i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84faxem8mj30u004njrc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fb4gv2cj30rs04cgli.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbn057aj30k203sglg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbrucwxj30d80cm746.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbwyeyhj308k07wq2q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fc75p5wj30ls02uwec.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcc78ewj30f402q743.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcj0amnj30u002nq2u.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcs4k47j30u001zdfq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fe8hc7uj30rw0js74e.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84feip4kjj30om06sgli.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fentq4rj30ba05ugle.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fex14ymj30ja03sa9x.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ff4j5acj30u005njrc.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ffaeycij30nm07oq2v.jpg">
+<meta property="og:updated_time" content="2020-01-01T15:15:35.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习与深度学习核心知识点总结">
+<meta name="twitter:description" content="数学1.列举常用的最优化方法梯度下降法,牛顿法，拟牛顿法,坐标下降法,梯度下降法的改进型如AdaDelta，AdaGrad，Adam，NAG等。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dal3xs9j30fu02kjr7.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/机器学习与深度学习核心知识点总结/">
+
+
+
+
+
+  <title>机器学习与深度学习核心知识点总结 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/机器学习与深度学习核心知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习与深度学习核心知识点总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T20:49:39+08:00">
+                2019-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a><p align="center">数学</p></h1><h2 id="1-列举常用的最优化方法"><a href="#1-列举常用的最优化方法" class="headerlink" title="1.列举常用的最优化方法"></a>1.列举常用的最优化方法</h2><p>梯度下降法,牛顿法，拟牛顿法,坐标下降法,梯度下降法的改进型如AdaDelta，AdaGrad，Adam，NAG等。 </p>
+<a id="more"></a>
+<h2 id="2-梯度下降法的关键点"><a href="#2-梯度下降法的关键点" class="headerlink" title="2.梯度下降法的关键点"></a>2.梯度下降法的关键点</h2><p>梯度下降法沿着梯度的反方向进行搜索，利用了函数的一阶导数信息。梯度下降法的迭代公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dal3xs9j30fu02kjr7.jpg" alt="undefined"><br>根据函数的一阶泰勒展开，在负梯度方向，函数值是下降的。只要学习率设置的足够小，并且没有到达梯度为0的点处，每次迭代时函数值一定会下降。需要设置学习率为一个非常小的正数的原因是要保证迭代之后的xk+1位于迭代之前的值xk的邻域内，从而可以忽略泰勒展开中的高次项，保证迭代时函数值下降。<br>梯度下降法只能保证找到梯度为0的点，不能保证找到极小值点。迭代终止的判定依据是梯度值充分接近于0，或者达到最大指定迭代次数。<br>梯度下降法在机器学习中应用广泛，尤其是在深度学习中。AdaDelta，AdaGrad，Adam，NAG等改进的梯度下降法都是用梯度构造更新项，区别在于更新项的构造方式不同。对梯度下降法更全面的介绍可以阅读SIGAI之前的公众号文章“理解梯度下降法”。</p>
+<h2 id="3-牛顿法的关键点"><a href="#3-牛顿法的关键点" class="headerlink" title="3.牛顿法的关键点"></a>3.牛顿法的关键点</h2><p>牛顿法利用了函数的一阶和二阶导数信息，直接寻找梯度为0的点。牛顿法的迭代公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dc7klr6j30es02uq2q.jpg" alt="undefined"><br>其中H为Hessian矩阵，g为梯度向量。牛顿法不能保证每次迭代时函数值下降，也不能保证收敛到极小值点。在实现时，也需要设置学习率，原因和梯度下降法相同，是为了能够忽略泰勒展开中的高阶项。学习率的设置通常采用直线搜索（line search）技术。<br>在实现时，一般不直接求Hessian矩阵的逆矩阵，而是求解下面的线性方程组：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dcglha4j309w02amwx.jpg" alt="undefined"><br>其解d称为牛顿方向。迭代终止的判定依据是梯度值充分接近于0，或者达到最大指定迭代次数。<br>牛顿法比梯度下降法有更快的收敛速度，但每次迭代时需要计算Hessian矩阵，并求解一个线性方程组，运算量大。另外，如果Hessian矩阵不可逆，则这种方法失效。</p>
+<h2 id="4-拉格朗日乘数法"><a href="#4-拉格朗日乘数法" class="headerlink" title="4.拉格朗日乘数法"></a>4.拉格朗日乘数法</h2><p>拉格朗日乘数法是一个理论结果，用于求解带有等式约束的函数极值。对于如下问题：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ddh3jg4j30fq05kwec.jpg" alt="undefined"><br>构造拉格朗日乘子函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ddrsbimj30r6040745.jpg" alt="undefined"><br>在最优点处对x和乘子变量的导数都必须为0：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84de2fpd7j30ga07aglh.jpg" alt="undefined"><br>解这个方程即可得到最优解。对拉格朗日乘数法更详细的讲解可以阅读任何一本高等数学教材。机器学习中用到拉格朗日乘数法的地方有：</p>
+<ul>
+<li>主成分分析</li>
+<li>线性判别分析</li>
+<li>流形学习中的拉普拉斯特征映射</li>
+<li>隐马尔科夫模型  <h2 id="5-凸优化"><a href="#5-凸优化" class="headerlink" title="5.凸优化"></a>5.凸优化</h2>值优化算法面临两个方面的问题：局部极值，鞍点。前者是梯度为0的点，也是极值点，但不是全局极小值；后者连局部极值都不是，在鞍点处Hessian矩阵不定，即既非正定，也非负定。<br>凸优化通过对目标函数，优化变量的可行域进行限定，可以保证不会遇到上面两个问题。凸优化是一类特殊的优化问题，它要求：</li>
+<li>优化变量的可行域是一个凸集</li>
+<li>目标函数是一个凸函数<br>凸优化最好的一个性质是：所有局部最优解一定是全局最优解。对于凸优化更详细的讲解可以阅读SIGAI之前的公众号文章“理解凸优化”。机器学习中典型的凸优化问题有：</li>
+<li>线性回归</li>
+<li>岭回归</li>
+<li>LASSO回归</li>
+<li>Logistic回归</li>
+<li>支持向量机</li>
+<li>Softamx回归<h2 id="6-拉格朗日对偶"><a href="#6-拉格朗日对偶" class="headerlink" title="6.拉格朗日对偶"></a>6.拉格朗日对偶</h2>对偶是最优化方法里的一种方法，它将一个最优化问题转换成另外一个问题，二者是等价的。拉格朗日对偶是其中的典型例子。对于如下带等式约束和不等式约束的优化问题：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dhz92glj30hg08emx3.jpg" alt="undefined"><br>与拉格朗日乘数法类似，构造广义拉格朗日函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dicbfybj30u0047dfr.jpg" alt="undefined"><br>$\lambda$必须满足$\lambda \geq 0$的约束。原问题为：<br>即先固定住$x$，调整拉格朗日乘子变量，让函数L取极大值；然后控制变量x，让目标函数取极小值。原问题与我们要优化的原始问题是等价的。<br>对偶问题为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dq4d3pzj30la038wec.jpg" alt="undefined"><br>和原问题相反，这里是先控制变量$x$，让函数L取极小值；然后控制拉格朗日乘子变量，让函数取极大值。<br>一般情况下，原问题的最优解大于等于对偶问题的最优解，这称为弱对偶。在某些情况下，原问题的最优解和对偶问题的最优解相等，这称为强对偶。<br>强对偶成立的一种条件是Slater条件：一个凸优化问题如果存在一个候选x使得所有不等式约束都是严格满足的，即对于所有的i都有$g_i(x)&lt; 0$，不等式不取等号，则强对偶成立，原问题与对偶问题等价。注意，Slater条件是强对偶成立的充分条件而非必要条件。<br>拉格朗日对偶在机器学习中的典型应用是支持向量机。<h2 id="7-KKT条件"><a href="#7-KKT条件" class="headerlink" title="7.KKT条件"></a>7.KKT条件</h2>KT条件是拉格朗日乘数法的推广，用于求解既带有等式约束，又带有不等式约束的函数极值。对于如下优化问题：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dyy2af5j30iw07gjrb.jpg" alt="undefined"><br>和拉格朗日对偶的做法类似，KKT条件构如下乘子函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84dz79zo4j30u003wq2v.jpg" alt="undefined"><br>$\lambda$和$\mu$称为KKT乘子。在最优解处应该满足如下条件：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e08w2tcj30cu0gk749.jpg" alt="undefined"><br>等式约束<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e0o2e8cj307y02i3ya.jpg" alt="undefined"><br>和不等式约束<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e0xiit1j307y02ogle.jpg" alt="undefined"><br>是本身应该满足的约束，$\bigtriangledown_{x}L(x^{\ast })$和之前的拉格朗日乘数法一样。唯一多了关于$g_i(x)$的条件：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e15tr7dj30ck03cwea.jpg" alt="undefined"><br>KKT条件只是取得极值的必要条件而不是充分条件。<h2 id="8-特征值与特征向量"><a href="#8-特征值与特征向量" class="headerlink" title="8.特征值与特征向量"></a>8.特征值与特征向量</h2>对于一个n阶矩阵A，如果存在一个数和一个非0向量X，满足<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5dbps6j308u028jr5.jpg" alt="undefined"><br>则称为矩阵A的特征值，X为该特征值对应的特征向量。根据上面的定义有下面线性方程组成立：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5m0rk1j30cg02cdfm.jpg" alt="undefined"><br>根据线性方程组的理论，要让齐次方程有非0解，系数矩阵的行列式必须为0，即：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e5utiqvj30c802ejr5.jpg" alt="undefined"><br>上式左边的多项式称为矩阵的特征多项式。矩阵的迹定义为主对角线元素之和：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e63lojtj30di04gt8i.jpg" alt="undefined"><br>根据韦达定理，矩阵所有特征值的和为矩阵的迹：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e6dgkh8j30bm044wea.jpg" alt="undefined"><br>同样可以证明，矩阵所有特征值的积为矩阵的行列式：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84e6m90myj309a04et8h.jpg" alt="undefined"><br>利用特征值和特征向量，可以将矩阵对角化，即用正交变换将矩阵化为对角阵。实对称矩阵一定可以对角化，半正定矩阵的特征值都大于等于0，在机器学习中，很多矩阵都满足这些条件。特征值和特征向量在机器学习中的应用包括：正态贝叶斯分类器、主成分分析，流形学习，线性判别分析，谱聚类等。<h2 id="9-奇异值分解"><a href="#9-奇异值分解" class="headerlink" title="9.奇异值分解"></a>9.奇异值分解</h2>矩阵对角化只适用于方阵，如果不是方阵也可以进行类似的分解，这就是奇异值分解，简称SVD。假设A是一个$m xn$的矩阵，则存在如下分解：<br>其中U为$m x n$的正交矩阵，其列称为矩阵A的左奇异向量；$\sum$为$m x n$的对角矩阵，除了主对角线$\sigma_{ii}$以外，其他元素都是0；V为$n x n$的正交矩阵，其行称为矩阵A的右奇异向量。U的列为$AA^T$的特征向量，V的列为$A^T$的特征向量。<h2 id="10-最大似然估计"><a href="#10-最大似然估计" class="headerlink" title="10.最大似然估计"></a>10.最大似然估计</h2>有些应用中已知样本服从的概率分布，但是要估计分布函数的参数$\Theta$，确定这些参数常用的一种方法是最大似然估计。<br>最大似然估计构造一个似然函数，通过让似然函数最大化，求解出$\Theta$。最大似然估计的直观解释是，寻求一组参数，使得给定的样本集出现的概率最大。<br>假设样本服从的概率密度函数为$p(x;\Theta)$，其中X为随机变量，$\Theta$为要估计的参数。给定一组样本$x_i,i =1,…,l$，它们都服从这种分布，并且相互独立。最大似然估计构造如下似然函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ew5ugonj30f8052q2r.jpg" alt="undefined"><br>其中xi是已知量，这是一个关于的函数，我们要让该函数的值最大化，这样做的依据是这组样本发生了，因此应该最大化它们发生的概率，即似然函数。这就是求解如下最优化问题：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewkt2cjj30ew04mglf.jpg" alt="undefined"><br>乘积求导不易处理，因此我们对该函数取对数，得到对数似然函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewsa6b9j30u004xwee.jpg" alt="undefined"><br>最后要求解的问题为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ewwmtg1j30ek04m3yc.jpg" alt="undefined"><br>最大似然估计在机器学习中的典型应用包括logistic回归，贝叶斯分类器，隐马尔科夫模型等。<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><p align="center">基本概念</p></h1><h2 id="1-有监督学习与无监督学习"><a href="#1-有监督学习与无监督学习" class="headerlink" title="1.有监督学习与无监督学习"></a>1.有监督学习与无监督学习</h2>根据样本数据是否带有标签值，可以将机器学习算法分成有监督学习和无监督学习两类。有监督学习的样本数据带有标签值，它从训练样本中学习得到一个模型，然后用这个模型对新的样本进行预测推断。有监督学习的典型代表是分类问题和回归问题。<br>无监督学习对没有标签的样本进行分析，发现样本集的结构或者分布规律。无监督学习的典型代表是聚类，表示学习，和数据降维，它们处理的样本都不带有标签值。<h2 id="2-分类问题与回归问题"><a href="#2-分类问题与回归问题" class="headerlink" title="2.分类问题与回归问题"></a>2.分类问题与回归问题</h2>在有监督学习中，如果样本的标签是整数，则预测函数是一个向量到整数的映射，这称为分类问题。如果标签值是连续实数，则称为回归问题，此时预测函数是向量到实数的映射。<h2 id="3-生成模型与判别模型"><a href="#3-生成模型与判别模型" class="headerlink" title="3.生成模型与判别模型"></a>3.生成模型与判别模型</h2>分类算法可以分成判别模型和生成模型。给定特征向量x与标签值y，生成模型对联合概率p(x,y)建模，判别模型对条件概率$p(y|x)$进行建模。另外，不使用概率模型的分类器也被归类为判别模型，它直接得到预测函数而不关心样本的概率分布：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84eyupwf1j308001udfl.jpg" alt="undefined"><br>判别模型直接得到预测函数f(x)，或者直接计算概率值p(y|x)，比如SVM和logistic回归，softmax回归，判别模型只关心决策面，而不管样本的概率分布的密度。<br>生成模型计算p(x, y)或者p(x|y) ，通俗来说，生成模型假设每个类的样本服从某种概率分布，对这个概率分布进行建模。<br>机器学习中常见的生成模型有贝叶斯分类器，高斯混合模型，隐马尔可夫模型，受限玻尔兹曼机，生成对抗网络等。典型的判别模型有决策树，kNN算法，人工神经网络，支持向量机，logistic回归，AdaBoost算法等。<h2 id="4-交叉验证"><a href="#4-交叉验证" class="headerlink" title="4.交叉验证"></a>4.交叉验证</h2>交叉验证（cross validation）是一种统计准确率的技术。k折交叉验证将样本随机、均匀的分成k份，轮流用其中的k-1份训练模型，1份用于测试模型的准确率，用k个准确率的均值作为最终的准确率。<h2 id="5-过拟合与欠拟合"><a href="#5-过拟合与欠拟合" class="headerlink" title="5.过拟合与欠拟合"></a>5.过拟合与欠拟合</h2>欠拟合也称为欠学习，直观表现是训练得到的模型在训练集上表现差，没有学到数据的规律。引起欠拟合的原因有模型本身过于简单，例如数据本身是非线性的但使用了线性模型；特征数太少无法正确的建立映射关系。<br>过拟合也称为过学习，直观表现是在训练集上表现好，但在测试集上表现不好，推广泛化性能差。过拟合产生的根本原因是训练数据包含抽样误差，在训练时模型将抽样误差也进行了拟合。所谓抽样误差，是指抽样得到的样本集和整体数据集之间的偏差。引起过拟合的可能原因有：<br>模型本身过于复杂，拟合了训练样本集中的噪声。此时需要选用更简单的模型，或者对模型进行裁剪。训练样本太少或者缺乏代表性。此时需要增加样本数，或者增加样本的多样性。训练样本噪声的干扰，导致模型拟合了这些噪声，这时需要剔除噪声数据或者改用对噪声不敏感的模型。<h2 id="6-偏差与方差分解"><a href="#6-偏差与方差分解" class="headerlink" title="6.偏差与方差分解"></a>6.偏差与方差分解</h2>模型的泛化误差可以分解成偏差和方差。偏差是模型本身导致的误差，即错误的模型假设所导致的误差，它是模型的预测值的数学期望和真实值之间的差距。方差是由于对训练样本集的小波动敏感而导致的误差。它可以理解为模型预测值的变化范围，即模型预测值的波动程度。模型的总体误差可以分解为偏差的平方与方差之和：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ezx7rk8j30oo038mx1.jpg" alt="undefined"><br>如果模型过于简单，一般会有大的偏差和小的方差；反之如果模型复杂则会有大的方差但偏差很小。<h2 id="7-正则化"><a href="#7-正则化" class="headerlink" title="7.正则化"></a>7.正则化</h2>为了防止过拟合，可以为损失函数加上一个惩罚项，对复杂的模型进行惩罚，强制让模型的参数值尽可能小以使得模型更简单，加入惩罚项之后损失函数为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0jlevqj30h402w3yc.jpg" alt="undefined"><br>正则化被广泛应用于各种机器学习算法，如岭回归，LASSO回归，logistic回归，神经网络等。除了直接加上正则化项之外，还有其他强制让模型变简单的方法，如决策树的剪枝算法，神经网络训练中的dropout技术，提前终止技术等。<h2 id="8-维数灾难"><a href="#8-维数灾难" class="headerlink" title="8.维数灾难"></a>8.维数灾难</h2>为了提高算法的精度，会使用越来越多的特征。当特征向量维数不高时，增加特征确实可以带来精度上的提升；但是当特征向量的维数增加到一定值之后，继续增加特征反而会导致精度的下降，这一问题称为维数灾难。<h2 id="贝叶斯分类器"><a href="#贝叶斯分类器" class="headerlink" title="贝叶斯分类器"></a>贝叶斯分类器</h2>贝叶斯分类器将样本判定为后验概率最大的类，它直接用贝叶斯公式解决分类问题。假设样本的特征向量为x，类别标签为y，根据贝叶斯公式，样本属于每个类的条件概率（后验概率）为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0tdhavj30j40560sm.jpg" alt="undefined"><br>分母p(x)对所有类都是相同的，分类的规则是将样本归到后验概率最大的那个类，不需要计算准确的概率值，只需要知道属于哪个类的概率最大即可，这样可以忽略掉分母。分类器的判别函数为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f0ybkt8j30j402s3yd.jpg" alt="undefined"><br>在实现贝叶斯分类器时，需要知道每个类的条件概率分布p(x|y)即先验概率。一般假设样本服从正态分布。训练时确定先验概率分布的参数，一般用最大似然估计，即最大化对数似然函数。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f132cbpj30s004kjra.jpg" alt="undefined"><br>如果假设特征向量的各个分量之间相互独立，则称为朴素贝叶斯分类器，此时的分类判别函数为：<br>实现时可以分为特征分量是离散变量和连续变量两种情况。贝叶斯分分类器是一种生成模型，可以处理多分类问题，是一种非线性模型。<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2>决策树是一种基于规则的方法，它用一组嵌套的规则进行预测。在树的每个决策节点处，根据判断结果进入一个分支，反复执行这种操作直到到达叶子节点，得到预测结果。这些规则通过训练得到，而不是人工制定的。<br>决策树既可以用于分类问题，也可以用于回归问题。分类树的映射函数是多维空间的分段线性划分，用平行于各坐标轴的超平面对空间进行切分；回归树的映射函数是分段常数函数。决策树是分段线性函数而不是线性函数。只要划分的足够细，分段常数函数可以逼近闭区间上任意函数到任意指定精度，因此决策树在理论上可以对任意复杂度的数据进行拟合。对于分类问题，如果决策树深度够大，它可以将训练样本集的所有样本正确分类。<br>决策树的训练算法是一个递归的过程，首先创建根节点，然后递归的建立左子树和右子树。如果练样本集为D，训练算法的流程为：</li>
+<li>1.用样本集D建立根节点，找到一个判定规则，将样本集分裂成D1和D2两部分，同时为根节点设置判定规则。</li>
+<li>2.用样本集D1递归建立左子树。</li>
+<li>3.用样本集D2递归建立右子树。</li>
+<li>4.如果不能再进行分裂，则把节点标记为叶子节点，同时为它赋值。<br>对于分类树，如果采用Gini系数作为度量准则，决策树在训练时寻找最佳分裂的依据为让Gini不纯度最小化，这等价于让下面的值最大化：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f1vou7ij30hk072glh.jpg" alt="undefined"><br>寻找最佳分裂时需要计算用每个阈值对样本集进行分裂后的纯度值，寻找该值最大时对应的分裂，它就是最佳分裂。如果是数值型特征，对于每个特征将l个训练样本按照该特征的值从小到大排序，假设排序后的值为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f1zsow7j308q01y741.jpg" alt="undefined"><br>接下来从x1开始，依次用每个xi作为阈值，将样本分成左右两部分，计算上面的纯度值，该值最大的那个分裂阈值就是此特征的最佳分裂阈值。在计算出每个特征的最佳分裂阈值和上面的纯度值后，比较所有这些分裂的纯度值大小，该值最大的分裂为所有特征的最佳分裂。<br>决策树可以处理属性缺失问题，采用的方法是使用替代分裂规则。为了防止过拟合，可以对树进行剪枝，让模型变得更简单。如果想要更详细的了解决策树的原理，请阅读SIGAI之前的公众号文章“理解决策树”，在SIGAI云端实验室有决策树训练算法的原理实验，此功能免费，网址为：<br><a href="http://www.sigai.cn" target="_blank" rel="noopener">www.sigai.cn</a><br>决策树是一种判别模型，既支持分类问题，也支持回归问题，是一种非线性模型，它支持多分类问题。<h2 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h2>随机森林是一种集成学习算法，是Bagging算法的具体实现。集成学习是机器学习中的一种思想，而不是某一具体算法，它通过多个模型的组合形成一个精度更高的模型，参与组合的模型称为弱学习器。在预测时使用这些弱学习器模型联合进行预测，训练时需要依次训练出这些弱学习器。<br>随机森林用有放回抽样（Bootstrap抽样）构成出的样本集训练多棵决策树，训练决策树的每个节点时只使用了随机抽样的部分特征。预测时，对于分类问题，一个测试样本会送到每一棵决策树中进行预测，然后投票，得票最多的类为最终分类结果。对于回归问题，随机森林的预测输出是所有决策树输出的均值。<br>假设有n个训练样本。训练每一棵树时，从样本集中有放回的抽取n个样本，每个样本可能会被抽中多次，也可能一次都没抽中。如果样本量很大，在整个抽样过程中每个样本有0.368的概率不被抽中。由于样本集中各个样本是相互独立的，在整个抽样中所有样本大约有36.8%没有被抽中。这部分样本称为包外（Out Of Bag，简称OOB）数据。<br>用这个抽样的样本集训练一棵决策树，训练时，每次寻找最佳分裂时，还要对特征向量的分量采样，即只考虑部分特征分量。由于使用了随机抽样，随机森林泛化性能一般比较好，可以有效的降低模型的方差。<br>如果想更详细的了解随机森林的原理，请阅读SIGAI之前的公众号文章“随机森林概述”。随机森林是一种判别模型，既支持分类问题，也支持回归问题，并且支持多分类问题，这是一种非线性模型。<h2 id="AdaBoost算法"><a href="#AdaBoost算法" class="headerlink" title="AdaBoost算法"></a>AdaBoost算法</h2>AdaBoost算法也是一种集成学习算法，用于二分类问题，是Boosting算法的一种实现。它用多个弱分类器的线性组合来预测，训练时重点关注错分的样本，准确率高的弱分类器权重大。AdaBoost算法的全称是自适应，它用弱分类器的线性组合来构造强分类器。弱分类器的性能不用太好，仅比随机猜测强，依靠它们可以构造出一个非常准确的强分类器。强分类器的计算公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f39582vj30j00583yc.jpg" alt="undefined"><br>其中x是输入向量，F(x)是强分类器，ft(x)是弱分类器，at是弱分类器的权重，T为弱分类器的数量，弱分类器的输出值为+1或-1，分别对应正样本和负样本。分类时的判定规则为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3dxnzij30c003mwea.jpg" alt="undefined"><br>强分类器的输出值也为+1或-1，同样对应于正样本和负样本。<br>训练时，依次训练每一个若分类器，并得到它们的权重值。训练样本带有权重值，初始时所有样本的权重相等，在训练过程中，被前面的弱分类器错分的样本会加大权重，反之会减小权重，这样接下来的弱分类器会更加关注这些难分的样本。弱分类器的权重值根据它的准确率构造，精度越高的弱分类器权重越大。<br>给定l个训练样本(xi,yi )，其中xi是特征向量，yi为类别标签，其值为+1或-1。训练算法的流程为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3rj58wj30m20n43z8.jpg" alt="undefined"><br>根据计算公式，错误率低的弱分类器权重大，它是准确率的增函数。AdaBoost算法在训练样本集上的错误率会随着弱分类器数量的增加而指数级降低。它能有效的降低模型的偏差。<br>AdaBoost算法从广义加法模型导出，训练时求解的是指数损失函数的极小值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f3zhj63j30m603o0sm.jpg" alt="undefined"><br>求解时采用了分阶段优化，先得到弱分类器，然后确定弱分类器的权重值，这就是弱分类器，弱分类器权重的来历。除了离散型AdaBoost之外，从广义加法模型还可以导出其他几种AdaBoost算法，分别是实数型AdaBoost，Gentle型AdaBoost，Logit型AdaBoost，它们使用了不同的损失函数和最优化算法。<br>标准的AdaBoost算法是一种判别模型，只能支持二分类问题。它的改进型可以处理多分类问题。<h2 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h2>主成分分析是一种数据降维和去除相关性的方法，它通过线性变换将向量投影到低维空间。对向量进行投影就是对向量左乘一个矩阵，得到结果向量：<br>$y = Wx$<br>结果向量的维数小于原始向量的维数。降维要确保的是在低维空间中的投影能很好的近似表达原始向量，即重构误差最小化：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f4wqsptj30la062q2s.jpg" alt="undefined"><br>其中e为投影后空间的基向量，是标准正交基；a为重构系数，也是投影到低维空间后的坐标。如果定义如下的散布矩阵：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f5331e1j30ik04aa9w.jpg" alt="undefined"><br>其中m和为所有样本的均值向量。则上面的重构误差最小化等价于求解如下问题：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f59vvysj30dy05cjr8.jpg" alt="undefined"><br>通过拉格朗日乘数法可以证明，使得该函数取最小值的ej为散度矩阵最大的d’个特征值对应的单位长度特征向量。矩阵W的列ej是我们要求解的基向量，由它们构成投影矩阵。计算时，先计算散布矩阵（或者协方差矩阵），再对该进行进行特征值分解，找到最大的一部分特征值和对应的特征向量，构成投影矩阵。可以证明，协方差矩阵或散布矩阵是实对称半正定矩阵，因此所有特征值非负。进行降维时，先将输入向量减掉均值向量，然后左乘投影矩阵，即可得到投影后的向量。<br>主成分分析一种无监督学习算法，也是一种线性方法。<h2 id="线性判别分析"><a href="#线性判别分析" class="headerlink" title="线性判别分析"></a>线性判别分析</h2>线性判别分析向最大化类间差异、最小化类内差异的方向线性投影。其基本思想是通过线性投影来最小化同类样本间的差异，最大化不同类样本间的差异。具体做法是寻找一个向低维空间的投影矩阵W，样本的特征向量x经过投影之后得到的新向量：<br>$$y = Wx$$<br>同一类样投影后的结果向量差异尽可能小，不同类的样本差异尽可能大。简单的说，就是经过这个投影之后同一类的样本进来聚集在一起，不同类的样本尽可能离得远。这种最大化类间差异，最小化类内差异的做法，在机器学习的很多地方都有使用。<br>类内散布矩阵定义为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f5s8djuj30nq09gq2u.jpg" alt="undefined"><br>它衡量的内类样本的发散程度。其中mi为每个类的均值向量，m为所有样本的均值向量。类间散布矩阵定义为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f61lkwjj30no04wwec.jpg" alt="undefined"><br>它衡量的了各类样本之间的差异。训练时的优化目标是类间差异与类内差异的比值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f6i78r7j30lq05ya9z.jpg" alt="undefined"><br>上面的问题带有冗余，如果w是最优解，将其乘以一个不为0的系数之后还是最优解。为了消掉冗余，加上如下约束：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f69542tj30b602m3ya.jpg" alt="undefined"><br>然后使用拉格朗日乘数法，最后归结于求解矩阵的特征值与特征向量：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f6pcauij30b602mq2q.jpg" alt="undefined"><br>LDA是有监督的学习算法，在计算过程中利用了样本标签值，是线性模型。LDA也不能直接用于分类和回归问题，要对降维后的向量进行分类还需要借助其他算法。<h2 id="kNN算法"><a href="#kNN算法" class="headerlink" title="kNN算法"></a>kNN算法</h2>kNN算法将样本分到离它最相似的样本所属的类。算法本质上使用了模板匹配的思想。要确定一个样本的类别，可以计算它与所有训练样本的距离，然后找出和该样本最接近的k个样本，统计这些样本的类别进行投票，票数最多的那个类就是分类结果。<br>由于需要计算样本间的距离，因此需要依赖距离定义，常用的有欧氏距离，Mahalanobis距离，Bhattacharyya距离。另外，还可以通过学习得到距离函数，这就是距离度量学习。<br>kNN算法是一种判别模型，即支持分类问题，也支持回归问题，是一种非线性模型。它天然的支持多分类问题。kNN算法没有训练过程，是一种基于实例的算法。<h2 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h2>人工神经网络是一种仿生的方法，参考了动物的神经元结构。从本质上看，它是一个多层复合函数。对于多层前馈型神经网络，即权连接网络，每一层实现的变换为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7aizjpj30gy06eq2t.jpg" alt="undefined"><br>其中W为权重矩阵，b为偏置向量，f为激活函数。正向传播时反复用上上对每一层的输出值进行计算，得到最终的输出。使用激活函数是为了保证非线性，对于激活函数更深入全面的介绍请参考SIGAI之前的公众号文章“理解神经网络的激活函数”，“神经网络的激活函数总结”。万能逼近定理保证了神经网络可以比较闭区间上任意一个连续函数。<br>权重和偏置通过训练得到，采用的是反向传播算法。反向传播算法从复合函数求导的链式法则导出，用于计算损失函数对权重，偏置的梯度值。算法从最外层的导数值算起，依次递推的计算更内层的导数值，这对应于从神经网络的输出层算起，反向计算每个隐含层参数的导数值。其核心是误差项的定义，定义误差项为损失函数对临时变量u的梯度：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7m6xlwj30u005zaa0.jpg" alt="undefined"><br>其中，nl是神经网络的层数。最后一个层的误差项可以直接求出，其他层的误差项根据上面的递推公式进行计算。根据误差项，可以计算出损失函数对每一层权重矩阵的梯度值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7s45c8j30hi03gjr7.jpg" alt="undefined"><br>以及对偏置向量的梯度值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f7y3dq5j30b402wwe9.jpg" alt="undefined"><br>然后用梯度下降法对它们的值进行更新。参数初始化一般采用随机数，而不是简单的初始化为0。为了加快收敛速度，还可以使用动量项，它积累了之前的梯度信息。<br>神经网络训练时的损失函数不是凸函数，因此有陷入局部极值，鞍点的风险。另外，随着层数的增加，会导致梯度消失问题，这是因为每次计算误差项时都需要乘以激活函数的导数值，如果其绝对值小于1，多次连乘之后导致误差项趋向于0，从而使得计算出来的参数梯度值接近于0，参数无法有效的更新。<br>如果对反传播算法的推导细节感兴趣，可以阅读SIGAI之前的公众号文章“反向传播算法推导-全连接神经网络”。神经网络的训练算法可以总结为：<br>复合函数求导 + 梯度下降法<br>标准的神经网络是一种有监督的学习算法，它是一种非线性模型，它既可以用于分类问题，也可以用于回归问题，并且支持多分类问题。<h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2>支持向量机的核心思想是最大化分类间隔。简单的支持向量机就是让分类间隔最大化的线性分类器，找到多维空间中的一个超平面。它在训练是求解的问题为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f8naey4j30iq0a8t8p.jpg" alt="undefined"><br>这从点到超平面的距离方程导出，通过增加一个约束条件消掉了优化变量的冗余。可以证明，这个问题是凸优化问题，并且满足Slater条件。这个问题带有太多的不等式约束，不易求解，因此通过拉格朗日对偶转换为对偶问题求解：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f8twmcbj30s00cwaa3.jpg" alt="undefined"><br>同样的，这个问题也是凸优化问题。此时支持向量机并不能解决非线性分类问题，通过使用核函数，将向量变换到高维空间，使它们更可能是线性可分的。而对向量先进行映射再做内积，等价于先做内积再做映射，因此核函数并不用显式的对向量进行映射，而是对两个向量的内积进行映射，这是核函数的精髓。要理解核函数，可以阅读SIGAI之前的公众号文章“【实验】理解SVM的核函数和参数”。<br>加入核函数K之后的对偶问题变为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f90fsukj30u00dg0sr.jpg" alt="undefined"><br>预测函数为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9a6kkjj30l405cwed.jpg" alt="undefined"><br>其中b通过KKT条件求出。如果使用正定核，这个问题也是凸优化问题。求解采用了SMO算法，这是一种分治法，每次挑选出两个变量进行优化，其他变量保持不动。选择优化变量的依据是KKT条件，对这两个变量的优化是一个带等式和不等式约束的二次函数极值问题，可以直接得到公式解。另外，这个子问题同样是一个凸优化问题。<br>标准的支持向量机只能解决二分类问题。对于多分类问题，可以用这种二分类器的组合来解决，有以下几种方案：<br>1对剩余方案。对于有k个类的分类问题，训练k个二分类器。训练时第i个分类器的正样本是第i类样本，负样本是除第i类之外其他类型的样本，这个分类器的作用是判断样本是否属于第i类。在进行分类时，对于待预测样本，用每个分类器计算输出值，取输出值最大那个作为预测结果。<br>1对1方案。如果有k个类，训练Ck2个二分类器，即这些类两两组合。训练时将第i类作为正样本，其他各个类依次作为负样本，总共有k (k − 1) / 2种组合。每个分类器的作用是判断样本是属于第i类还是第j类。对样本进行分类时采用投票的方法，依次用每个二分类器进行预测，如果判定为第m类，则m类的投票数加1，得票最多的那个类作为最终的判定结果。<br>除了通过二分类器的组合来构造多类分类器之外，还可以通过直接优化多类分类的目标函数得到多分类器。<br>SVM是一种判别模型。它既可以用于分类问题，也可以用于回归问题。标准的SVM只能支持二分类问题，使用多个分类器的组合，可以解决多分类问题。如果不使用核函数，SVM是一个线性模型，如果使用非线性核，则是非线性模型，这可以从上面的预测函数看出。如果想更详细的了解支持向量机，可以阅读SIGAI之前的公众号文章“用一张图理解SVM的脉络”。<h2 id="logistic回归"><a href="#logistic回归" class="headerlink" title="logistic回归"></a>logistic回归</h2>logistic回归是一种二分类算法，直接为样本估计出它属于正负样本的概率。先将向量进行线性加权，然后计算logistic函数，可以得到[0,1]之间的概率值，它表示样本x属于正样本的概率：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9skhjij30ic04s3yc.jpg" alt="undefined"><br>正样本标签值为1，负样本为0。使用logistic函数的原因是它单调增，并且值域在(0, 1)之间，刚好符合概率的要求。训练时采用最大似然估计，求解对数似然函数的极值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84f9ylg3ej30u004ejrb.jpg" alt="undefined"><br>可以证明这是一个凸优化问题，求解时可以用梯度下降法，也可以用牛顿法。如果正负样本的标签为+1和-1，则可以采用另外一种写法：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fa45u1ij30u005e3ye.jpg" alt="undefined"><br>训练时的目标同样是最大化对数似然函数：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84facn5udj30sy04wglj.jpg" alt="undefined"><br>同样的，这也是一个凸优化问题。预测时并不需要计算logistic函数，而是直接计算：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84faium4uj30c203it8i.jpg" alt="undefined"><br>Logistic回归是一种二分类算法，虽然使用了概率，但它是一种判别模型！另外要注意的是，logistic回归是一种线性模型，这从它的预测函数就可以看出。它本身不能支持多分类问题，它的扩展版本softmax回归可以解决多分类问题。<h2 id="K均值算法"><a href="#K均值算法" class="headerlink" title="K均值算法"></a>K均值算法</h2>K均值算法是一种聚类算法，把样本分配到离它最近的类中心所属的类，类中心由属于这个类的所有样本确定。k均值算法是一种无监督的聚类算法。算法将每个样本分配到离它最近的那个类中心所代表的类，而类中心的确定又依赖于样本的分配方案。<br>在实现时，先随机初始化每个类的类中心，然后计算样本与每个类的中心的距离，将其分配到最近的那个类，然后根据这种分配方案重新计算每个类的中心。这也是一种分阶段优化的策略。<br>与k近邻算法一样，这里也依赖于样本之间的距离，因此需要定义距离的计算方式，最常用的是欧氏距离，也可以采用其他距离定义。算法在实现时要考虑下面几个问题：</li>
+<li>1.类中心向量的初始化。一般采用随机初始化。最简单的是Forgy算法，它从样本集中随机选择k个样本作为初始类中心。第二种方案是随机划分，它将所有样本随机的分配给k个类中的一个，然后按照这种分配方案计算各个类的类中心向量。</li>
+<li>2.参数k的设定。可以根据先验知识人工指定一个值，或者由算法自己确定。</li>
+<li>3.迭代终止的判定规则。一般做法是计算本次迭代后的类中心和上一次迭代时的类中心之间的距离，如果小于指定阈值，则算法终止。<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2>卷积神经网络是对全连接神经网络的发展，它使用卷积层，池化层自动学习各个尺度上的特征。卷积运算为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84faxem8mj30u004njrc.jpg" alt="undefined"><br>在这里需要注意多通道卷积的实现，它的输入图像，卷积核都有多个通道，分别用各个通道的卷积核对输入图像的各个通道进行卷积，然后再累加。这里也使用了激活函数，原因和全连接神经网络相同。池化运算最常见的有均值池化，max池化，分别用均值和最大值代替图像的一块矩形区域。使用池化的原因是为了降维，减小图像的尺寸，另外，它还带来了一定程度的平移和旋转的不变性。Max池化是非线性操作，现在用的更多。<br>对于经典的网络结构，包括LeNet-5网络，AlexNet，VGG网络，GoogLeNet，残差网络等经典的网络结构，创新点，要熟记于心。<br>自Alex网络出现之后，各种改进的卷积网络不断被提出。这些改进主要在以下几个方面进行：卷积层，池化层，激活函数，损失函数，网络结构。对于这些典型的改进，也要深刻理解。<br>由于引入了卷积层和池化层，因此反向传播算法需要为这两种层进行考虑。卷积层误差项的反向传播的公式为<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fb4gv2cj30rs04cgli.jpg" alt="undefined"><br>根据误差项计算卷积核梯度值的公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbn057aj30k203sglg.jpg" alt="undefined"><br>如果采用均值池化，池化层的误差项反向传播计算公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbrucwxj30d80cm746.jpg" alt="undefined"><br>如果使用max池化，则为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fbwyeyhj308k07wq2q.jpg" alt="undefined"><br>注意，池化层没有需要训练得到的参数。如果对卷积神经网络反向传播算法的推导感兴趣，可以阅读SIGAI之前的公众号文章“反向传播算法推导-卷积神经网络”。<br>卷积神经网络具有迁移学习的能力，我们可以把这个网络的参数作为训练的初始值，在新的任务上继续训练，这种做法称为fine-tune，即网络微调。大量的实验结果和应用结果证明，这种微调是有效的。这说明卷积神经网络在一定程度上具有迁移学习的能力，卷积层学习到的特征具有通用性。VGG网络在ImageNet数据集上的训练结果在进行微调之后，被广泛应用于目标检测、图像分割等任务。<br>和全连接神经网络一样，卷积神经网络是一个判别模型，它既可以用于分类问题，也可以用用于回归问题，并且支持多分类问题。<h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2>循环神经网络是一种具有记忆功能的神经网络，每次计算时，利用了上一个时刻的记忆值，特别适合序列数据分析。网络接受的是一个序列数据，即一组向量，依次把它们输入网络，计算每个时刻的输出值。记忆功能通过循环神层实现：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fc75p5wj30ls02uwec.jpg" alt="undefined"><br>它同时利用了本时刻的输入值和上一个时刻的记忆值。输出层的变换为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcc78ewj30f402q743.jpg" alt="undefined"><br>这和普通神经网络没什么区别。由于引入了循环层，因此反向传播算法有所不同，称为BPTT，即时间轴上的反向传播算法。算法从最后一个时刻算起，沿着时间轴往前推。误差项的递推公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcj0amnj30u002nq2u.jpg" alt="undefined"><br>递推的终点为最后一个时刻。<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fcs4k47j30u001zdfq.jpg" alt="undefined"><br>根据误差项计算对权重和偏置的梯度值的公式为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fe8hc7uj30rw0js74e.jpg" alt="undefined"><br>循环神经网络同样存在梯度消失问题，因此出现了LSTM，GRU等结构。<br>以循环神经网络为基础，构造出了两类通用的框架，分别是连接主义时序分类（CTC），以及序列到序列学习（seq2seq）。用于解决语音识别，自然语言处理中的问题。其中，seq2seq采用了编码器-解码器结构，用两个循环神经网络组合起来完成计算，一个充当编码器，一个充当解码器。<br>和其他类型的神经网络一样，循环神经网络是一个判别模型，既支持分类问题，也支持回归问题，并且支持多分类问题。<h2 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h2>高斯混合模型通过多个正态分布的加权和来描述一个随机变量的概率分布，概率密度函数定义为：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84feip4kjj30om06sgli.jpg" alt="undefined"><br>其中x为随机向量，k为高斯分布的个数，wi为权重，为高斯分布的均值向量，为协方差矩阵。所有权重之和为1，即：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fentq4rj30ba05ugle.jpg" alt="undefined"><br>任意一个样本可以看作是先从k个高斯分布中选择出一个，选择第i个高斯分布的概率为wi，再由第i个高斯分布产生出这个样本数据x。高斯混合模型可以逼近任何一个连续的概率分布，因此它可以看做是连续性概率分布的万能逼近器。之所有要保证权重的和为1，是因为概率密度函数必须满足在内的积分值为1。<br>指定高斯分布的个数，给定一组训练样本，可以通过期望最大化EM算法确定高斯混合模型的参数。每次迭代时，在E步计算期望值，在M步最大化期望值，如此循环交替。<h2 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h2>EM算法是一种迭代法，其目标是求解似然函数或后验概率的极值，而样本中具有无法观测的隐含变量。因为隐变量的存在，我们无法直接通过最大化似然函数来确定参数的值。可以采用一种策略，构造出对数似然函数的一个下界函数，这个函数不含有隐变量，然后优化这个下界。不断的提高这个下界，使原问题达到最优解，这就是EM算法所采用的思路。算法的构造依赖于Jensen不等式。<br>算法在实现时首先随机初始化参数的值，接下来循环迭代，每次迭代时分为两步：<br>E步，基于当前的参数估计值，计算在给定x时对z的条件概率的数学期望：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84fex14ymj30ja03sa9x.jpg" alt="undefined"><br>M步，求解如下极值问题，更新的值：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ff4j5acj30u005njrc.jpg" alt="undefined"><br>实现Qi 时可以按照下面的公式计算：<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g84ffaeycij30nm07oq2v.jpg" alt="undefined"><br>迭代终止的判定规则是相邻两次函数值之差小于指定阈值。需要注意的是，EM算法只能保证收敛到局部极小值。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ML-DL/" rel="tag"># ML & DL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐/" rel="next" title="论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+                <i class="fa fa-chevron-left"></i> 论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数学"><span class="nav-number">1.</span> <span class="nav-text">数学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-列举常用的最优化方法"><span class="nav-number">1.1.</span> <span class="nav-text">1.列举常用的最优化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-梯度下降法的关键点"><span class="nav-number">1.2.</span> <span class="nav-text">2.梯度下降法的关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-牛顿法的关键点"><span class="nav-number">1.3.</span> <span class="nav-text">3.牛顿法的关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-拉格朗日乘数法"><span class="nav-number">1.4.</span> <span class="nav-text">4.拉格朗日乘数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-凸优化"><span class="nav-number">1.5.</span> <span class="nav-text">5.凸优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-拉格朗日对偶"><span class="nav-number">1.6.</span> <span class="nav-text">6.拉格朗日对偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-KKT条件"><span class="nav-number">1.7.</span> <span class="nav-text">7.KKT条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-特征值与特征向量"><span class="nav-number">1.8.</span> <span class="nav-text">8.特征值与特征向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-奇异值分解"><span class="nav-number">1.9.</span> <span class="nav-text">9.奇异值分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-最大似然估计"><span class="nav-number">1.10.</span> <span class="nav-text">10.最大似然估计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-有监督学习与无监督学习"><span class="nav-number">2.1.</span> <span class="nav-text">1.有监督学习与无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分类问题与回归问题"><span class="nav-number">2.2.</span> <span class="nav-text">2.分类问题与回归问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-生成模型与判别模型"><span class="nav-number">2.3.</span> <span class="nav-text">3.生成模型与判别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-交叉验证"><span class="nav-number">2.4.</span> <span class="nav-text">4.交叉验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-过拟合与欠拟合"><span class="nav-number">2.5.</span> <span class="nav-text">5.过拟合与欠拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-偏差与方差分解"><span class="nav-number">2.6.</span> <span class="nav-text">6.偏差与方差分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-正则化"><span class="nav-number">2.7.</span> <span class="nav-text">7.正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-维数灾难"><span class="nav-number">2.8.</span> <span class="nav-text">8.维数灾难</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯分类器"><span class="nav-number">2.9.</span> <span class="nav-text">贝叶斯分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">2.10.</span> <span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机森林"><span class="nav-number">2.11.</span> <span class="nav-text">随机森林</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AdaBoost算法"><span class="nav-number">2.12.</span> <span class="nav-text">AdaBoost算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主成分分析"><span class="nav-number">2.13.</span> <span class="nav-text">主成分分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性判别分析"><span class="nav-number">2.14.</span> <span class="nav-text">线性判别分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kNN算法"><span class="nav-number">2.15.</span> <span class="nav-text">kNN算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人工神经网络"><span class="nav-number">2.16.</span> <span class="nav-text">人工神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机"><span class="nav-number">2.17.</span> <span class="nav-text">支持向量机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logistic回归"><span class="nav-number">2.18.</span> <span class="nav-text">logistic回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K均值算法"><span class="nav-number">2.19.</span> <span class="nav-text">K均值算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积神经网络"><span class="nav-number">2.20.</span> <span class="nav-text">卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-number">2.21.</span> <span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高斯混合模型"><span class="nav-number">2.22.</span> <span class="nav-text">高斯混合模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法"><span class="nav-number">2.23.</span> <span class="nav-text">EM算法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

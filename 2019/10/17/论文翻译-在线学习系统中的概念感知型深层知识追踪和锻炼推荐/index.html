@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习资源推荐,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="原文：在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+<meta name="keywords" content="学习资源推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="原文：在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-17T06:03:25.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+<meta name="twitter:description" content="原文：在线学习系统中的概念感知型深层知识追踪和锻炼推荐">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐/">
+
+
+
+
+
+  <title>论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文翻译-在线学习系统中的概念感知型深层知识追踪和锻炼推荐</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T09:25:53+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">论文翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文：在线学习系统中的概念感知型深层知识追踪和锻炼推荐</p>
+<a id="more"></a>
+<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p>&emsp;&emsp;个性化的教育系统根据学生加速学习的能力向他们推荐学习内容。本文提出了一种用于在线自我指导学习的个性化运动推荐系统。我们首先提高了知识跟踪模型的性能。现有的深层知识跟踪模型（例如DynamicKey-Value内存网络（DKVMN））会忽略练习的概念标签，而这些标签通常在补习系统中可用。我们对DKVMN进行了修改，以根据课程的概念列表设计内存结构，并在学生进行知识跟踪时明确考虑运动与概念的映射关系。我们在TAL（中国最大的教育群体之一）的五年级学生数学锻炼数据集上评估了该模型，发现我们的模型比现有模型具有更高的性能。我们还增强了DKVMN模型，以支持更多的输入功能并获得更高的性能。其次，我们使用该模型构建学生模拟器，并使用它来训练具有深度强化学习功能的运动推荐策略。实验结果表明，就最大限度地提高学生的知识水平而言，我们的策略比现有的启发式策略具有更好的性能。据我们所知，这是第一次将深度强化学习应用于个性化数学练习推荐。<br>&emsp;&emsp;诸如大规模开放式在线课程（MOOC）之类的非在线自我指导学习系统正在盛行。但是，这些系统将相同的练习分配给所有学生，这样效率低下。为了进行比较，个性化练习推荐可以提高学生的学习效率。在本文中，我们提出了一种针对在线自我指导学习服务的个性化运动推荐系统。该系统由两部分组成：•学生知识跟踪模型，该模型跟踪学生的知识状态并预测她是否可以正确完成该练习。•个性化的锻炼推荐策略，向学生推荐适当的练习以加速其学习过程。现有的深层知识跟踪模型[9，13]忽略了练习的知识概念属性，这通常在补习系统中可用。为了进行比较，本文提出了一种概念感知的深度知识跟踪模型。该模型的灵感来自动态键值存储网络（DKVMN）模型[13]。 DKVMN模型有一个称为密钥的静态矩阵，用于存储潜在的知识概念；以及一个名为值的动态矩阵，用于存储学生的概念掌握水平。该模型计算出练习与关键概念之间的相关性，然后使用它来读取学生的概念精通值，并预测学生是否会正确完成练习。我们对DKVMN模型进行了如下改进：1）我们根据课程的概念列表设计其记忆结构，并在学生进行知识追踪时明确考虑运动概念映射关系。 2）增强它以支持更多输入功能，包括运动难度，阶段和学生练习时间。我们在TAL中对5年级学生的数学锻炼数据集进行了评估，发现我们的模型比现有的深度知识跟踪模型具有更高的性能。就个性化锻炼推荐策略而言，大多数现有算法都是启发式的，例如过于简单或容易锻炼的算法。这些算法可能不是最佳选择，因为它们仅考虑短期奖励。在本文中，我们使用概念感知的深度知识跟踪模型构建了一个学生模拟器，然后使用它来训练具有深度强化学习功能的灵活可扩展的个性化运动推荐策略，该策略考虑了推荐项目的长期奖励。本文的主要贡献有两个方面：•我们提出了一种新的运动级深度知识跟踪模型，该模型的结构是基于课程的概念清单构建的，并且在学生的知识跟踪过程中利用了运动概念映射关系。与现有模型相比，该模型支持更多的输入功能并获得更高的性能。•我们提出了一种运动推荐算法，该算法使用无模型的强化学习和神经网络功能近似来学习运动推荐策略。该策略直接基于对学生运动历史的原始观察得出。实验结果表明，与现有启发式策略相比，我们的策略在最大化学生知识水平方面取得了更好的效果。<br>&emsp;&emsp;知识追踪：[3]中的工作提出了一种基于贝叶斯的知识追踪模型。它将学生的知识概念状态建模为二进制变量，并通过隐马尔可夫模型根据锻炼结果更新掌握该概念的概率。该模型处于概念级别，并且忽略了不同概念之间的关系。文献[9]中的工作提出了带有递归神经网络的深度知识跟踪（DKT）模型。它将学生的知识状态建模为潜在变量，并且比基于贝叶斯的模型[6]表现更好。 [12]中的工作建议通过考虑练习的语义特征来改进DKT。 [13]中的工作试图对不同潜在概念之间的相关性进行建模。受DKVMN的启发，本文提出了一个模型，该模型的结构是根据课程的概念列表显式构建的，并且在模型中利用了锻炼概念的映射关系。练习建议：[1]中的工作提出了通过锻炼推荐学生，如果她正确进行锻炼的可能性约为50％。该算法的问题是阈值50％是启发式的，可能不是最佳的。 [2]中的工作允许专家根据学生当前的知识状态来指定ZPD（近端开发区），然后通过多臂匪徒算法选择最有利可图的练习。该算法可以通过探索发现学生的特征，但是效率低下，因为每个学生都需要一个独立的探索过程。文献[5]中的工作将DKT模型用于推荐，并使用由DKT模型显式促进的ZPD框架问题空间。 [7]中的工作首先使用SPARFA框架根据他们以前的练习结果估计每个学生的知识水平。然后，它使用这些知识概况作为背景，并应用背景土匪算法来推荐锻炼，以最大程度地提高学生的即时成功率，即她在下一次锻炼中的表现。该算法的问题是仅考虑下一步，因此其性能可能不是最佳的。 [10]中的工作评估了基于深度强化学习的间隔重复系统的审查调度算法。我们受到这项工作的启发，并评估了深度强化学习在数学自学式学习系统中的性能。<br>在本节中，我们介绍我们的在线学习系统和数据集。</p>
+<h3 id="3-1智能实践系统（IPS）"><a href="#3-1智能实践系统（IPS）" class="headerlink" title="3.1智能实践系统（IPS）"></a>3.1智能实践系统（IPS）</h3><p>&emsp;&emsp;IPS是中国TAL教育集团开发的一种在线自主学习系统。在IPS中，每门课程（例如5年级数学）都有几十个单元。每个单元包括7个阶段，即1）课前的热身练习，2）演讲前的课堂练习，3）视频演讲，4）课后的课堂练习，5）作业，6）单元复习练习，7 ）多单元复习练习。在这7个阶段中，阶段1、2、3、4、5包括单个知识概念的内容，但是阶段6和7包括其他知识概念的练习，以便进行回顾。由于IPS是一种自我指导的学习系统，因此学生可以选择任何教学单位进行学习。在一个单位中，她还可以随时退出当前阶段或整个单位。该系统会记录学生在每个阶段的学习时间，所练习的练习以及结果（即答案是否正确）。在IPS中，每个练习都有三个知识概念标签，由专家提供。知识概念标签具有分层的树状结构。例如，对于一个练习，其第一，第二和第三级概念标签分别是“数论”，“素数和合成数”和“素数分解”。</p>
+<h3 id="3-2数据集和数据预处理"><a href="#3-2数据集和数据预处理" class="headerlink" title="3.2数据集和数据预处理"></a>3.2数据集和数据预处理</h3><p>&emsp;&emsp;我们使用IPS中5年级数学课程中的匿名学生用法互动示例。我们选择的运动记录的第一级知识概念是“数论”，其中有7个第二级知识概念和15个第三级知识概念。我们进一步选择了运动记录至少包括5个运动的学生。结果数据集包括7,128名学生的44,128个运动记录。</p>
+<h2 id="4-知识跟踪模型"><a href="#4-知识跟踪模型" class="headerlink" title="4.知识跟踪模型"></a>4.知识跟踪模型</h2><p>&emsp;&emsp;现在，我们介绍基于DKVMN模型的知识跟踪模型，并重点介绍我们在内存结构，知识概念权重以及读取和更新过程方面的改进。</p>
+<h2 id="4-1概念感知的内存结构"><a href="#4-1概念感知的内存结构" class="headerlink" title="4.1概念感知的内存结构"></a>4.1概念感知的内存结构</h2><p>&emsp;&emsp;我们修改了DKVMN，以根据课程的概念列表设计其内存结构。图1绘制了基于DKVMN模型[13]的模型结构。如图。在图1中，Mk t是概念嵌入矩阵，其大小为M×N，其中N是存储位置的数量，M是每个位置的向量大小。我们将N设置为等于课程知识概念的数量。当我们拥有1个第一级知识概念，7个第二级知识概念和15个第三级知识概念时，我们的N =23。然后，在每个位置中，保存了相应知识概念的学生状态。就这样<br>图1：概念感知的DKVMN模型结构。<br>模型的内存架构经过明确设计，可以代表知识概念。为了进行比较，N是DKVMN中的模型参数，代表潜在知识概念的数量，例如N =5。由于我们的模型受DKVMN启发，因此将其命名为Concept-Aware DKVMN，即DKVMN-CA。</p>
+<h2 id="4-2知识概念权重"><a href="#4-2知识概念权重" class="headerlink" title="4.2知识概念权重"></a>4.2知识概念权重</h2><p>&emsp;&emsp;由于学生的知识概念状态已保存在相应的记忆位置中，因此，当新练习到来时，只会检索和更新与该练习相关的概念的记忆位置。现在，我们介绍这种程序的细节。在本节中，我们将计算练习的知识概念权重（KCW）。权重将用于计算用户当前知识概念状态的加权总和，以预测其在运动中的表现。在获得学生对练习的回答结果后，它还将用于更新学生的知识状态。我们首先获得所到达练习的嵌入。如图1所示，当运动qt在时间t到达时，它首先通过运动嵌入矩阵A转换为嵌入向量mt。然后我们通过算法1计算KCW。如算法1所示，在第2行，我们初始化权重列表R。由于每个练习具有三个知识概念，因此R的长度为3。然后，对于每个知识概念k（第2行），我们计算出练习嵌入（即qt）和概念嵌入（第3行）的点积）。然后，我们通过获得R的softmax来计算KCW，其中Softmax（zi）= ezi = PN j = 1 ezj（第6行）。然后，我们初始化一个全零向量W 8，其长度为知识概念的数量N（第7行）。对于练习的每个知识概念k（第8行），我们将权重值设置为W八个。计算练习与所有潜在知识概念之间的关系权重，但是我们只是计算练习与知识概念之间的关系权重。对于练习与其他概念的关系权重，我们将它们设置为零。算法1知识概念权重计算输入：qt：练习的嵌入在时间tKt到达：知识概念列表qtMk：概念嵌入矩阵输出：W八：知识概念权重运动到达时间t = ∗计算KCW ∗ = 1：R（[] 2：每n 2 Kt do3：corr（mTt·Mk [n] 4：R：append（corr）5：end for6：Rs（Softmax（ R）= ∗重塑权重向量以使其长度等于概念数* = 7：W八（[0; :::; 0] 8：i（09：对于i &lt;3 do10：权重[Kt [i ]]（Rs [i] 11：i（i + 112：end for13：返回W八</p>
+<h3 id="4-3读取过程"><a href="#4-3读取过程" class="headerlink" title="4.3读取过程"></a>4.3读取过程</h3><p>&emsp;&emsp;然后，我们使用获得的KCW计算用户当前知识概念状态的加权和，以预测学生在运动中的表现。表示KCW byw，我们有rt = PN i = 1 wiMv t，即与练习qt相关的概念的知识状态。我们进一步将rt与练习的难度和阶段特征的嵌入（即dt和gt）联系起来。结果然后通过具有激活函数Tanh的完全连接层获得摘要向量ft，该向量包含与qt和练习特征有关的学生知识状态的所有信息，即：ft = T anh（WT 0 [rt; dt; gt; mt]）其中，T anh（zi）=（ezi-e-zi）=（ezi + e-zi）：最后，ft穿过完全连接的层以输出学生正确进行练习的可能性。用p表示概率，我们有p = Sigmoid（WT 1 ft），其中Sigmoid（zi）= 1 =（1 + e-zi）</p>
+<h3 id="4-4更新过程"><a href="#4-4更新过程" class="headerlink" title="4.4更新过程"></a>4.4更新过程</h3><p>&emsp;&emsp;然后，我们在观察学生的回答结果后，使用KCW更新学生的知识状态。更新过程更新值矩阵Mv t，该值矩阵表示学生当前的知识概念k的状态。我们的模型与DKVMN模型的不同之处在于，我们在更新过程中考虑了学生的锻炼时间。为了进行比较，DKVMN忽略了该学生的行为特征。具体而言，[8]中的工作提出，学生解决问题的时间与其掌握潜在问题解决技能的熟练程度有关。受此工作启发，我们的模型会在学生完成运动后，使用她在运动时间和持续时间下的回答结果（即正确或错误）来更新Mv t。由于运动持续时间是一个连续变量，因此首先根据其分布离散化，然后用其嵌入t表示。然后，将t与答案向量的联合嵌入st（qt; at）连接起来，以更新Mv t，如图1所示。其他更新过程与DKVMN相同。它包括擦除子过程和添加子过程。擦除向量的计算公式为e = Sigmoid（ET [st; t]），其中E是擦除权重。相加矢量的计算公式为a = T anh（DT [st; t]），其中D为相加权重。然后通过以下公式计算新的存储矩阵Mv t + 1：Mv t + 1（i）= Mv t（i）[1- w（i）e] [1 + w（i）a]通过最小化学习模型的参数预测的用户答案结果pt与真实结果之间的标准交叉熵损失yt：L = -Xt（（ytlogpt）+（1-yt）log（1- pt））总之，与DKVMN相比，我们设计了基于在课程的概念清单上，然后在学生进行知识追踪时明确考虑锻炼概念的映射关系以及其他锻炼的特征。</p>
+<h2 id="5-基于强化学习的练习建议"><a href="#5-基于强化学习的练习建议" class="headerlink" title="5.基于强化学习的练习建议"></a>5.基于强化学习的练习建议</h2><p>&emsp;&emsp;基于DKVMN-CA学生知识追踪模型，我们构建了一个学生模拟器，该模拟器提供了强化学习的环境，并使用深度强化学习方法训练了个性化的运动推荐代理。类似于[10]，我们将推荐过程建模为部分可观察的马尔可夫决策过程（POMDP），其中模型状态是学生的潜在知识状态，动作是练习的建议。在时间t，强化学习代理无法观察到学生的潜在知识状态st。取而代之的是，它可以观察学生的运动和答案结果（即正确或错误）ot，该结果取决于潜在的知识状态p（otjst）。因此，在时间t，代理需要根据学生在t之前的运动历史（以ht表示）推荐一项运动。我们有ht =（o1; a1; o2; a2;：：：; ot-1; at-1）。学生在完成建议的练习后，她的潜在知识状态将通过转换函数p（st + 1jst; at）变为st + 1。我们定义在asrt = 1 KKX i = 1Pt + 1（ qi）; （1）其中，K是运动次数，Pt + 1（q）表示学生在状态st + 1处完成推荐运动后获得运动q正确的概率。它是由学生模拟器预测的。因此，我们将其命名为学生的预测知识。优化的目的是最大化政策的奖励R：R =Eτ[1X t =1γt-1r（st; at）]；其中轨迹τ=（s1; o1; a1 ; s2; o2; a2; :: :)从策略π诱导的轨迹分布中得出：p（s1）p（o1js1）π（a1jh1）p（s2js1; a1）p（o2js2）π（a2jh2）::: 。因此，对于动作值函数Qπ，在t时推荐的锻炼序列的奖励为：Qπ（ht; at）= Estjht [rt（st; at）] +Eτ&gt; tjht; at [1X i =1γir（st + i; at + i）]，其中τ&gt; t =（st + 1; ot + 1; at + 1 :: :)是未来的轨迹。然后算法推荐具有最大奖励的练习q0，即q0 =maxaQπ （ht; a）。与[10]相似，我们使用rllab [4]的现成实现，使用TrustRegion策略优化（TRPO）算法[11]近似解决POMDP。<br>性能评估<br>在本节中，我们介绍了系统的性能评估结果。</p>
+<h3 id="6-1-DKVMN-CA知识跟踪模型"><a href="#6-1-DKVMN-CA知识跟踪模型" class="headerlink" title="6.1 DKVMN-CA知识跟踪模型"></a>6.1 DKVMN-CA知识跟踪模型</h3><p>&emsp;&emsp;我们在IPS数据集上评估了模型。为了进行评估，我们进行了50个实验。在每个实验中，我们都会将用户随机分为两组：训练用户和测试用户。他们的百分比分别是70％和30％。然后，我们与训练用户一起训练模型，并在测试用户上评估模型。类似于[9]，我们使用曲线下面积（AUC）作为性能指标。我们报告所有50个实验中测试用户的AUC的最大值，平均值和标准偏差。6.1.1概念感知设计的效率我们首先报告根据课程的知识概念设计模型架构的效率。我们在没有其他输入功能（包括运动难度，阶段和持续时间）的帮助下比较了DKVMN和DKVMN-CA的性能。结果示于表中。 1.参见“ DKVMN”和“ DKVMN-CA”行。如表所示。如图1所示，我们的模型获得的AUC为0.724，高于DKVMN模型的AUC，即AUC = 0.712。考虑到DKVMN在DKT基线之上提供的小改进（AUC = 0.711），这种改进是相当可观的。这样的结果意味着基于课程知识概念的模型体系结构的设计是有效的。为了强调设计的必要性，我们还评估了另一种方法，该方法也使用练习的知识概念标签，即通过其知识来表示知识概念。嵌入，然后将其与运动嵌入连接。其性能如表所示。 1.参见行“ DKVMN-KC”。如表1所示，其平均AUC为0.714，这意味着相对于DKVMN（AUC = 0.712）的改进很小。因此，有必要设计模型的<br>&emsp;&emsp;基于课程知识概念的体系结构充分利用其功能来改进模型。6.1.2其他运动功能的效率然后，我们评估添加其他功能的效率，包括运动难度，阶段和持续时间。结果显示在表1中。请参见“ DKVMN-CA +难度”，“ DKVMN-CA +阶段”和“ DKVMN-CA +持续时间”行。如表1所示，这些功能可以进一步提高模型的性能。例如，“ DKVMN-CA + Stage”的meanAUC为0.728，高于DKVMN模型的平均值（AUC = 0.712）</p>
+<h3 id="6-2练习建议"><a href="#6-2练习建议" class="headerlink" title="6.2练习建议"></a>6.2练习建议</h3><h4 id="6-2-1对学生知识成长过程的评估"><a href="#6-2-1对学生知识成长过程的评估" class="headerlink" title="6.2.1对学生知识成长过程的评估"></a>6.2.1对学生知识成长过程的评估</h4><p>&emsp;&emsp;我们使用[9]中提出的Expectimax算法作为基线算法。在Expectimax算法中，系统会首先假设用户建议进行锻炼以计算学生的预测知识。然后选择具有最高预测知识的练习来推荐。为了比较这两种算法，我们首先从数据集中随机选择15名学生。对于每个学生，我们进行两项实验，针对一种算法进行一项实验。在每项实验中，我们首先使用学生的历史练习序列来初始化学生模拟器。然后，我们使用推荐算法连续向学生模拟器推荐50个练习。在此过程中，我们在推荐的每个步骤中将15名学生的预测知识的平均值记录为等式（1）。结果如图2所示。如图2所示，经过50次练习后，由RL策略服务的学生比由Expectimax策略服务的学生具有更高的平均预测知识。此外，经过约10次练习后，“期望最大策略”所服务的学生的平均预测知识将停止增长，这意味着该策略无法找到可以帮助学生进一步提高绩效的锻炼方法。为了进行比较，通过考虑长期行动奖励的RL策略，学生的平均预测知识不断增加，这意味着RL策略仍然可以找到有助于学生提高成绩的练习。010 20 30 40 50Step0.7750.8000。 8250.8500.8750.9000.9250.9500.975预测的KnowledgeRL PolicyExpectimax Policy图2：绩效评估结果（88，5，0）（923，4，1）（175，2，1）（1958，2，1）（89，2，0） （760，3，1）（642，6，0）（642，6，1）（1278，1，1）（760，3，1）运动顺序1 2 3 4 5 6知识概念0.00.20.40.60.8图3 ：知识状态变化</p>
+<h4 id="6-2-2建议过程的评估"><a href="#6-2-2建议过程的评估" class="headerlink" title="6.2.2建议过程的评估"></a>6.2.2建议过程的评估</h4><p>&emsp;&emsp;我们设计了另一个实验来观察RL策略的建议行为。我们随机选择一个练习过五次练习的学生，并使用她的练习序列来初始化学生模拟器。然后，我们使用RL建议政策进行了另外五个练习。结果如图3所示。图3的x标签显示了10个练习的ID，概念和结果。例如，第一个记录（88，5，0）表示练习ID为88，与概念5相关，而学生的答案是错误的。由于这10个练习与6个概念相关，因此在图5中绘制学生对每个概念的预测知识。 3.例如，由于学生在与第五概念相关的第一练习88中失败，因此学生对第五概念的知识状态相对较低。学生的历史练习未涵盖的知识概念的状态以黑色表示。我们现在观察推荐的练习。我们有以下观察结果：•如图3所示，前五个练习与概念2,4,5有关，而后五个练习与概念1,3,6有关，这表明RL算法想探索学生的能力在其他概念中，在学生成功完成与概念3（素因分解）有关的练习760之后，算法建议与概念6（最大公因数和最低公倍数）有关的练习642。由于概念6与概念3有关，因此这样的建议是合理的。•但是，学生没有完成练习642。因此，算法再次推荐了练习642。这一次，学生成功完成了练习，这意味着模型捕获了在训练过程中，如果锻炼642失败的学生重试，可能会成功。这样的结果很有趣。•学生成功完成与概念6（最大公因子和最小公倍数）有关的练习642后，模型对学生对概念3（素因分解）的能力的估计也略有增加。因为这两个概念确实相关，所以这样的结果是合理的。•然后，该算法再次转向另一个概念，即建议与概念1相关的练习1278。当学生成功完成练习时，估计的学生的知识但是，概念1上的状态相对较低，表明该练习相对容易。•最后，再次推荐练习760，然后学生成功了。结果，该模型对学生对概念3的能力的估计增加了，这表明复习对学习是有益的。</p>
+<h2 id="7-结论"><a href="#7-结论" class="headerlink" title="7.结论"></a>7.结论</h2><p>&emsp;&emsp;在本文中，我们通过基于课程的概念清单设计DKVMN的神经网络结构，并在考虑学生的知识追踪过程中明确考虑运动与概念的映射关系，从而改进DKVMN。我们还增强了DKVMN模型，以考虑更多输入功能。实验结果表明，该模型比现有的深度知识跟踪模型具有更高的性能。我们还提出了一种运动建议算法，该算法使用无模型的强化学习和神经网络功能近似来学习一种运动建议策略，该策略直接基于对学生运动历史的原始观察得出。我们的实验结果表明，就最大限度地提高学生的知识水平而言，我们的策略比现有的启发式策略具有更好的性能。据我们所知，这是第一次将深度强化学习应用于个性化数学练习推荐。<br>8.致谢<br>这项工作得到了国家自然科学基金的资助，资助号为61572071、61872031和61301082。<br>9.其他作者<br>附加作者：王光彦（河北大学教育学院，电子邮件：<a href="mailto:gywang@163.com" target="_blank" rel="noopener">gywang@163.com</a>）。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习资源推荐/" rel="tag"># 学习资源推荐</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/论文翻译-通过对抗性深度强化学习识别关键的教学决策/" rel="next" title="论文翻译-通过对抗性深度强化学习识别关键的教学决策">
+                <i class="fa fa-chevron-left"></i> 论文翻译-通过对抗性深度强化学习识别关键的教学决策
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/19/机器学习与深度学习核心知识点总结/" rel="prev" title="机器学习与深度学习核心知识点总结">
+                机器学习与深度学习核心知识点总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象"><span class="nav-number">1.</span> <span class="nav-text">抽象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1智能实践系统（IPS）"><span class="nav-number">1.1.</span> <span class="nav-text">3.1智能实践系统（IPS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2数据集和数据预处理"><span class="nav-number">1.2.</span> <span class="nav-text">3.2数据集和数据预处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-知识跟踪模型"><span class="nav-number">2.</span> <span class="nav-text">4.知识跟踪模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1概念感知的内存结构"><span class="nav-number">3.</span> <span class="nav-text">4.1概念感知的内存结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2知识概念权重"><span class="nav-number">4.</span> <span class="nav-text">4.2知识概念权重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3读取过程"><span class="nav-number">4.1.</span> <span class="nav-text">4.3读取过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4更新过程"><span class="nav-number">4.2.</span> <span class="nav-text">4.4更新过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-基于强化学习的练习建议"><span class="nav-number">5.</span> <span class="nav-text">5.基于强化学习的练习建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-DKVMN-CA知识跟踪模型"><span class="nav-number">5.1.</span> <span class="nav-text">6.1 DKVMN-CA知识跟踪模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2练习建议"><span class="nav-number">5.2.</span> <span class="nav-text">6.2练习建议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1对学生知识成长过程的评估"><span class="nav-number">5.2.1.</span> <span class="nav-text">6.2.1对学生知识成长过程的评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2建议过程的评估"><span class="nav-number">5.2.2.</span> <span class="nav-text">6.2.2建议过程的评估</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-结论"><span class="nav-number">6.</span> <span class="nav-text">7.结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

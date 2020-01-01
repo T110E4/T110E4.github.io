@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习资源推荐,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wang Guitong's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="原文：Smart Learning Object Recommendations based on Time-Dependent Learning Need Model">
+<meta name="keywords" content="学习资源推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文翻译-基于时变需求模型的智能学习对象推荐">
+<meta property="og:url" content="http://yoursite.com/2019/10/16/论文翻译-基于时变需求模型的智能学习对象推荐/index.html">
+<meta property="og:site_name" content="Wang Guitong&#39;s Blog">
+<meta property="og:description" content="原文：Smart Learning Object Recommendations based on Time-Dependent Learning Need Model">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g80di9w9b5j30oz08pabo.jpg">
+<meta property="og:updated_time" content="2019-11-04T12:20:35.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文翻译-基于时变需求模型的智能学习对象推荐">
+<meta name="twitter:description" content="原文：Smart Learning Object Recommendations based on Time-Dependent Learning Need Model">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006MwQ98ly1g80di9w9b5j30oz08pabo.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Wang Guitong'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/16/论文翻译-基于时变需求模型的智能学习对象推荐/">
+
+
+
+
+
+  <title>论文翻译-基于时变需求模型的智能学习对象推荐 | Wang Guitong's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+     <a href="https://t110E4.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wang Guitong's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">个性化推荐系统、教育数据挖掘</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/论文翻译-基于时变需求模型的智能学习对象推荐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T110E4">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wang Guitong's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文翻译-基于时变需求模型的智能学习对象推荐</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-16T21:23:32+08:00">
+                2019-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">论文翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文：Smart Learning Object Recommendations based on Time-Dependent Learning Need Model</p>
+<a id="more"></a>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>&emsp;&emsp;本文介绍了适合个人学习者需求的自适应学习技术。因此，推荐系统在支持用户的决策过程中发挥了关键作用，从而实现了有效而有效的商品选择。活动数据是使用在线课程材料从学生那里收集的。这些课程通过新颖的Web应用程序提供对课程资料的访问。该应用程序还提出了学习建议，以使内容选择更加有效。本文重点介绍了智能学习推荐系统，该系统利用了一种新颖的基于知识的过滤方法。该算法将多上下文活动数据传输到时间相关的用户模型中。由此产生的相关性分数表示各个用户在课程的特定时间点学习特定学习对象的需求。与其他教育推荐系统在相同数据集上的评估结果相比，引入的方法可生成最精确的时间敏感推荐。<br>关键词：教育推荐系统，用户建模，基于知识的过滤，时效推荐</p>
+<h2 id="1-引言及相关工作"><a href="#1-引言及相关工作" class="headerlink" title="1.引言及相关工作"></a>1.引言及相关工作</h2><p>推荐系统专为迷失方向的用户而设计<br>&emsp;&emsp;大量可用物品的选择，因此在选择物品时需要帮助[14]。本文提出了一种用于教育性封闭语料库设置的推荐系统（RSs），这意味着学习环境可以在自学课程中适应学习者的需求[13]。用户界面在特定的时间点提供内容推荐，以符合当前需求和个别课程参与者的背景情况。推荐系统的最重要任务是支持学习者实现其个人学习目标。一个<br>在这种情况下，“适当的”建议旨在通过支持内容选择过程[15]使学习更加有效。大多数研究人员借用了传统的基于内容的过滤和协作过滤算法，并且至少部分地使它们适应了技术增强型学习的领域，而不是直接应用相同的方法[3]。 Bauman和Tuzhilin [1]将教育推荐系统归类为“知识增强”，即旨在将知识扩展到新的主题，或作为“补救”来弥补先前研究项目的已识别知识空白。封闭式RS，例如本工作中介绍的RS，旨在解决这两个问题。它们帮助学习者实现其个人或特定于课程的目标，这要求学习新主题并巩固已经获得的知识。文献[7]中详尽介绍了关于课程设计的推荐方法和对课程中适当项目顺序的预测的文献综述。<br>&emsp;&emsp;本文的其余部分结构如下：第二部分介绍了总体Smart Learning Recommender，其中包括与时间相关的学习需求和Top-N评分，然后是确定最佳因子权重的过程。第四部分介绍了不同评估的结果。最后，本文以其局限性和结论作为结尾。<br>2.聪明的学习建议<br>&emsp;&emsp;本文介绍的Smart Learning Recommender（SLR）已被Smart Learning Companion App [8] {一种移动Web应用程序1 [1]使用（到目前为止，截至2019年2月），已有来自不同机构的600名学习者使用。因此，Web应用程序是学生访问课程，学习对象和讲义日期以及获得关于将要学习的下一个最佳内容的建议并触发所有相关用户交互的唯一入口。课程通常由学习单元构成，这些学习单元本身包含低级学习对象（LO），可以是文本，练习，视频等。但是，层次结构可以具有更多级别。内容创建者和教师根据学习资源元数据规范（LOM），问题和测试互操作性规范（QTI）和通用墨盒规范（CC）在每个低级LO上提供大量元数据。元数据除其他外，包括有关必备LO的属性，有关项目的考试相关性，典型学习时间和学习目标的信息。与所有项目的交互都存储为Experience API（xAPI）语句。<br>&emsp;&emsp;教育推荐器系统旨在识别用户u对项目i的学习需求。学习需求是将当前近似的知识和其他相关属性（授课时间，前提条件等）以及所需知识量考虑在内的分数。用户项目对由相关性分数rscoreu; i表示，值从0到1，其中0表示最低相关性，而1表示最高可能相关性。相关性分数定义了时间和上下文相关的值，并表示为时间相关的函数：用户u与项目i的相关性函数rfu; i（t）从以下几个子函数rfu; i; x（t）派生个人因素x1； :::; xn作为时间t的函数，每个代表另一个上下文（参见[6]）。在[7]中可以找到有关因素的详细说明，包括数学。所有因素均在[0,1]范围内，代表学习需求。每个用户，项目和时间的考虑因素是：</p>
+<ul>
+<li>1.自我评估：学生可以在特定时间点以1到5星的等级明确定义他/她的知识水平。</li>
+<li>2.与项目的交互作用：此因子指示学生访问了学习对象的多少可用材料。</li>
+<li>3.物品的处理时间：该因素表示学生学习学习对象的时间。当学生完全需要预期的时间时，该值为0；如果他/她需要或多或少的元数据中定义的时间，则该值为0到1。</li>
+<li>4.练习中的表现：回答错误的问题的百分比表示练习因素的相关性</li>
+<li>5.满足的先决条件：学生学习基础学习对象的次数越多，后续项目的相关性得分就越高</li>
+<li>6.演讲时间：演讲时间因子表明学习对象与面对面演讲的及时相关性</li>
+<li>7.与课程目标的项目相关性：与考试更相关的学习对象与可选内容相比，具有更高的相关性分数{就学习资源元数据规范中定义的常数而言。</li>
+<li>8.协作学习需求：考虑类似用户在该学习对象上的相关功能，以抵消当前用户的低估和不良的学习计划。</li>
+<li>9.人的记忆和遗忘效果：学习对象后，所获得的知识将随着时间的流逝而逐渐减少。每次学习迭代后，遗忘因子均设置为0，然后再次缓慢增加<br>&emsp;&emsp;为了计算推荐，对所有单因素函数进行加权。所有因子的加权平均值描述了该用户u的项目i的总学习需求，并按如下公式计算：wx是fx1中单个因子x的权重； :::; xng和n是因子数（请参阅[6]）。总体推荐引擎针对课程中的所有项目分析请求学生的当前学习需求值。因此，可以离线创建SLR的模型：通过处理所有现有的用户项-时间-三元组，定期地计算相关性函数。当用户请求推荐时，通过考虑t的当前时间值，按需计算所有项目的相关性得分。然后，按照学习需求值对项目进行排序。结果是从最高相关性得分开始的项目的前N个列表，代表了当时需要学习的学生最重要的学习单元或学习对象。<h2 id="3-与时间有关的重量"><a href="#3-与时间有关的重量" class="headerlink" title="3.与时间有关的重量"></a>3.与时间有关的重量</h2>&emsp;&emsp;为了在不同的时间点评估针对不同因素的理想权重，从而得出最合适的建议，已经对不同的方法进行了分析，从等权重到手动调整，再到线性模型，每星期计算合适的权重。在智能学习推荐器开发之初，权重被设置为1，以便有一个起点向学习者提出建议。借助于人工神经网络（ANN）实现了产生权重以导致最高精度值的方法。 RapidMiner2与神经网络一起用于仅包含一个隐藏层的回归问题。一个输入向量代表一个用户{项{时间三元组。输入向量包括n + 1个输入要素，它们是SLR的n个因子相关性值（按用户，项目和时间）。此外，每个节点的第一个输入值设置为一个值，这使其成为特定于节点的偏差。节点的输出ok是用户{项目{时间三元组）的预测值（例如，总体学习需求）。如果用户u在拆分t之前的最后一周访问了该项目i，则输出的训练值为1，否则为0。计算节点的输出与人工神经网络的实际意图形成对比，在人工神经网络中，预测的输出值ok很重要，这项工作中的方法将目标确定为训练好的节点的权重。由此，每个节点包含权重向量西北该权重向量具有与ANN作为输入特征相同的维数n +1（其中第一个权重代表偏差bk）。激活函数’是S型函数，通常用于解决线性问题的ANN。所得的权重符合公式1中所示的SLR权重公式的要求。如果隐藏层包含多个节点，则根据节点的偏差bk对每个因子x的权重取平均值，从而得出最终权重wx<br><img src="http://ww1.sinaimg.cn/large/006MwQ98ly1g80di9w9b5j30oz08pabo.jpg" alt="微信截图_20191016214031.png"><br>&emsp;&emsp;K是隐藏层中所有节点的数量。 随后，将针对每个因素确定的权重wx应用于公式1中给出的Smart Learning Recommender的因素权重算法。在[7]中提供了对该方法的详尽描述。 通过50个节点的样本，ANN达到了最高的平均精度，该精度比其他线性模型的精度高0.4％，甚至比使用相同权重的精度高10.9％。<h2 id="4-评估"><a href="#4-评估" class="headerlink" title="4.评估"></a>4.评估</h2>&emsp;&emsp;我们将“智能学习推荐”方法与其他四个方法进行了比较。第一个推荐系统是Lemire等人介绍的基本Slope One算法，即协作过滤（CF）基线。 [12]。 Lemire等。仅在理论上考虑了这种方法用于技术增强学习（TEL）[11]，并且它很少像Verbert等人提到的那样在教育环境中应用。 [16]。第二种算法使用时间权重扩展了“斜率一”方法[5]。这种基于时间的算法首次在技术增强型学习中应用。另一种基于项目的协作过滤方法，即基于时间的讲课材料推荐方法（TBRA）[4]，是基于时间相关的项目相似性来推荐学习材料的。这项工作采用了呈现相似项目的实际算法，以符合推荐者的目标和评估方法。第四种算法是，除了SLR之外，还有一种新颖的算法。它基于同学的活动和相关学习者的先前互动来生成个性化的学习路径[10]。因此，预测学习路径上的下一个项目被视为Top-N建议。<br>&emsp;&emsp;对于培训和测试，我们使用了在特定的面对面大学课程中收集的活动数据，该课程有99名学生。 自行设计的学习网络应用程序可以访问包含1,006个学习对象的课程材料，这些学习对象分为106个学习单元（更多详细信息，请参见[8]）。 因此，单个学习对象的典型学习时间最多为五分钟。 一个学习单元平均将十个学习对象（LO）项分组。 我们收集了44421个xAPI语句，它们代表了99名学生的项目访问权限。 代替传统的n折交叉验证，我们使用了Campos等人的“增加时间窗口”交叉验证的扩展。 [2]和新的测量值，及时性[9]，表示推荐的相关项目在被推荐后已被访问时的平均时间跨度。 与准确性和召回率相比，及时性度量必须尽可能低。<br>&emsp;&emsp;在所有经过评估的推荐系统中，智能学习推荐器在准确性方面平均表现最佳。 精度是前N名列表中相关项目的分数。 图1可视化了所有评估方法的准确性和及时性{每种设置都是针对大学课程的前三项建议的最佳设置。 从每周的精确度图表可以看出，SLR（绿线）比学习路径算法更分散，后者显示出更差但更稳定的趋势。 关于及时性，学习路径算法仍胜过智能学习推荐器。 但是，Smart Learning Recommender还显示出较低的及时性值，该值是平均第二佳的，这意味着建议也非常准确。<br>&emsp;&emsp;在第二个实验中，我们分析了不同学习模式对精度的影响：因此，仅使用最活跃的33个学习者，而不是{如最初预期的，{最成功的学习者（完成了练习）平均最成功）。 SLR算法的平均精度为0.800（之前所有学生的精度为0.583）。当然，这只是人为设置，因为SLR无法在早期预测最活跃的用户，更重要的是，推荐系统应为所有用户提供推荐{不仅是最活跃或最成功的用户。但是，这表明了该算法的潜力，因为智能学习推荐器旨在根据有利的模式为所有用户推荐商品。这些模式可能是例如最活跃用户的活动模式。我们还将SLR算法应用于其他两门课程的活动数据（这是另一所大学的28名学习者的可选的仅在线课程，以及一门定期由八名工匠定期出现的成人教育混合学习课程。所有过程在开始时都以较低的精度值显示冷启动阶段的效果。平均而言，这两门新课程的精度值几乎接近0.818（仅在线课程）和0.815（手工艺课程）。这证实了Verbert等人的发现。 [16]教育推荐系统的精度结果高度依赖于数据集的选择，因此，隐含地取决于课程设置和课程参与者<h2 id="5-限制与结论"><a href="#5-限制与结论" class="headerlink" title="5.限制与结论"></a>5.限制与结论</h2>&emsp;&emsp;Smart Learning Recommender引入了一个相关性分数，该分数代表一个数值，指示学习者需要学习（隐含知识差距）。这种学习需求是通过不同的因素来建模的，并在特定类别中提供建议的结果{例如“锻炼时您收到的成绩差”，“您可能忘记的事情”或“请总结这些学习对象”。上下文因素的权重不是静态的。 SLR显示，对上下文因素权重随时间进行建模时，可以显着提高精度。因此，每周确定一次权重以了解最佳组成。在每个时间点的动态加权可以生成最精确的Top-N列表。由于评估设置，时间权重仅每周进行一次分析。我们根据当前用户的最新活动确定了最合适的权重。由于该算法还可以为这些因素分配0的权重，因此考虑尽可能多的因素不会适得其反。但是，将来仍需要研究其他因素，这些因素还可以提供有关学习需求的有用信息。<br>&emsp;&emsp;评估是在模拟环境{中进行的，其中包含历史真实数据，但没有向现实世界的学习者展示所有评估算法的建议。因此，尚未针对不同方法比较用户界面的效果及其可用性。由于这些方面对整个系统的总体用户接受度和用户感知度都有很大影响，因此需要进行进一步的实验。虽然在一个新颖的评估框架的帮助下评估了不同的算法，但结果只能表明它们对自我收集的活动数据的各种适当程度。通常，这些方法应该在提供相同类型的用户，项目和活动信息的其他数据集上也能很好地工作。但是，尚未对此进行调查。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习资源推荐/" rel="tag"># 学习资源推荐</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/13/比较有影响的智能辅导系统/" rel="next" title="比较有影响的智能辅导系统">
+                <i class="fa fa-chevron-left"></i> 比较有影响的智能辅导系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/17/论文翻译-通过对抗性深度强化学习识别关键的教学决策/" rel="prev" title="论文翻译-通过对抗性深度强化学习识别关键的教学决策">
+                论文翻译-通过对抗性深度强化学习识别关键的教学决策 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="T110E4">
+            
+              <p class="site-author-name" itemprop="name">T110E4</p>
+              <p class="site-description motion-element" itemprop="description">曾梦想仗剑走天涯，后来工作忙没去！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/T110E4" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangguitong07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.nowcoder.com/profile/74331308" target="_blank" title="牛客网">
+                      
+                        <i class="fa fa-fw fa-globe"></i>牛客网</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/t110e4-87" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-引言及相关工作"><span class="nav-number">2.</span> <span class="nav-text">1.引言及相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-与时间有关的重量"><span class="nav-number">3.</span> <span class="nav-text">3.与时间有关的重量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-评估"><span class="nav-number">4.</span> <span class="nav-text">4.评估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-限制与结论"><span class="nav-number">5.</span> <span class="nav-text">5.限制与结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T110E4</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
